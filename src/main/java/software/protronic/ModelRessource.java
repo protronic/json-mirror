@@ -19,6 +19,7 @@ import io.vertx.core.json.JsonObject;
 
 
 @Path("/model")
+@Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class ModelRessource {
 
@@ -30,6 +31,22 @@ public class ModelRessource {
 
     public ModelRessource() {}
 
+    private String linkBuilder(String schemaParentForm, int modelId) {
+      StringBuilder sb = new StringBuilder();
+      sb.append("<a target='_blank' href='http:/index.html?schema=")
+        .append(SchemaTempEnum.getIdByParentForm(schemaParentForm))
+        .append("&mid=")
+        .append(modelId)
+        .append("'>link</a>");
+      return sb.toString();
+    }
+
+    private String renderJsonObject (JsonObject object) {
+      StringBuilder sb = new StringBuilder();
+      object.forEach(entry -> sb.append(entry.getValue()).append(' '));
+      return sb.toString();
+    }
+
     @SuppressWarnings("unchecked")
     private List<JsonObject> filterByID(int filterID) {
       List<JsonObject> temp = new ArrayList<JsonObject>();
@@ -37,6 +54,22 @@ public class ModelRessource {
         temp = ((List<JsonObject>) objs.getList())
           .stream()
           .filter(m -> ((JsonObject) m).getInteger(ID_FIELD).equals(filterID))
+          .collect(Collectors.toList());
+      } catch (ClassCastException e) {
+        log.log(Level.SEVERE, "One of the models is not a JSON Object.");
+        return List.of();
+      }
+      return temp;
+    }
+
+    @SuppressWarnings("unchecked")
+    private List<JsonObject> filterByKey(String key, Object value) {
+      List<JsonObject> temp = new ArrayList<JsonObject>();
+      try {
+
+        temp = ((List<JsonObject>) objs.getList())
+          .stream()
+          .filter(m -> ((JsonObject) m).getValue(key).equals(value))
           .collect(Collectors.toList());
       } catch (ClassCastException e) {
         log.log(Level.SEVERE, "One of the models is not a JSON Object.");
@@ -54,14 +87,22 @@ public class ModelRessource {
         );
     }
 
+    private JsonArray getDataWithModelLinks(String parentForm){
+      JsonArray result = new JsonArray(
+        filterByKey("#parentForm", parentForm).stream()
+          .map((JsonObject m) -> m.put("link", linkBuilder(m.getString("#parentForm"), m.getInteger(ID_FIELD))))
+          .map((JsonObject m) -> m.put("anschrift", renderJsonObject(m.getJsonObject("anschrift"))))
+          .collect(Collectors.toList())
+      );
+      return result;
+    }
+
     @GET
     public JsonArray list() {
         return objs;
     }
 
     @POST
-    @Consumes("application/json")
-    @Produces("application/json")
     public JsonObject add(JsonObject obj) {
         obj.put(ID_FIELD, id.incrementAndGet());
         objs.add(obj);
@@ -70,8 +111,6 @@ public class ModelRessource {
 
     @POST
     @Path("/{mid}")
-    @Consumes("application/json")
-    @Produces("application/json")
     public Response replace(JsonObject obj, @PathParam("mid") int suppliedId) {
       List<JsonObject> filteredModel = filterByID(suppliedId);
       if (filteredModel.size() < 1) {
@@ -87,7 +126,6 @@ public class ModelRessource {
 
     @GET
     @Path("/{mid}")
-    @Produces("application/json")
     public Response getModel(@PathParam("mid") int suppliedId){
 
       List<JsonObject> requestedModel = filterByID(suppliedId);
@@ -99,5 +137,12 @@ public class ModelRessource {
       } else {
         return Response.ok(requestedModel.get(0)).build();
       }
+    }
+
+    @GET
+    @Path("/list/schema/{parentForm}")
+    public JsonArray listModels(@PathParam("parentForm") String parentForm) {
+
+      return getDataWithModelLinks(parentForm);
     }
 }

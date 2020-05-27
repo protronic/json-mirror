@@ -3,6 +3,8 @@ package software.protronic;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+import io.vertx.core.json.JsonObject;
+
 public enum SchemaTempEnum {
   ERROR (-1, "{\"formular\": \"SchemaExistiertNicht\", \"felder\": []}"),
   SERIENNUMMERVERGABE (0, "{\"formular\":\"seriennummervergabe\",\"felder\":[{\"name\":\"vorgangsnummern\",\"label\":\"Vorgangsnummern:\",\"feldtyp\":\"enumtextarea\",\"beschreibung\":\"Kommagetrennte Liste aller Vorgangsnummern\",\"platzhalter\":\"Bsp.: 10000, 10001, 10002, ...\"},{\"name\":\"platinennnummern\",\"label\":\"Platinennummern:\",\"feldtyp\":\"enumtextarea\",\"beschreibung\":\"Kommagetrennte Liste aller relevanter Platinennummern\",\"platzhalter\":\"Bsp.: 10000, 10001, 10002, ...\"},{\"name\":\"seriennummer\",\"label\":\"Seriennummer:\",\"feldtyp\":\"text\"},{\"name\":\"microcontrollerid\",\"label\":\"Microcontrollerid:\",\"feldtyp\":\"text\"}]}"),
@@ -23,6 +25,17 @@ public enum SchemaTempEnum {
         .collect(Collectors.toList()).get(0);
     } catch (IndexOutOfBoundsException exception) {
       return ERROR;
+    }
+  }
+
+  public static int getIdByParentForm (String parentForm) {
+    try {
+      System.out.println();
+      return Arrays.stream(SchemaTempEnum.values())
+        .filter(schema -> (new JsonObject(schema.schemaContent).getString("formular").equalsIgnoreCase(parentForm)))
+        .collect(Collectors.toList()).get(0).schemaId;
+    } catch (IndexOutOfBoundsException exception) {
+      return -1;
     }
   }
 
