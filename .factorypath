@@ -1,4 +1,5 @@
 <factorypath>
+    <factorypathentry kind="VARJAR" id="M2_REPO/com/j2html/j2html/1.4.0/j2html-1.4.0.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/io/quarkus/quarkus-resteasy/1.4.2.Final/quarkus-resteasy-1.4.2.Final.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/io/quarkus/quarkus-vertx-http/1.4.2.Final/quarkus-vertx-http-1.4.2.Final.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/io/quarkus/quarkus-development-mode-spi/1.4.2.Final/quarkus-development-mode-spi-1.4.2.Final.jar" enabled="true" runInBatchMode="false"/>
