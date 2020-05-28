@@ -8,13 +8,23 @@
 <body>
   <prot-table-v3 id="tab"></prot-table-v3>
   <script>
+    function renderJsonObject (col, rowNr, dataReadOnly) {
+      try {
+        return `${col.strasse} ${col.hausnummer}<br/>${col.plz} ${col.ort}`
+      } catch (e) {
+        return col
+      }
+    }
+
     let parentForm = (new URLSearchParams(location.search)).get('parentForm')
     fetch(`http:/model/list/schema/${parentForm}`)
       .then(response => response.json())
       .then(data => {
-        document.querySelector("#tab").setData(data)
+        let table = document.querySelector("#tab")
+        if(!table.formatter["anschrift"]){
+          table.formatter["anschrift"] = [ renderJsonObject ]
+        }
+        table.setData(data)
       })
   </script>
-  <!-- <prot-table-v3 data_url="grouped_data.json"></prot-table-v3>
-  <prot-table-v3 data_url="grouped_data.json"></prot-table-v3> -->
 </body>

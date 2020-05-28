@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -41,12 +42,6 @@ public class ModelRessource {
       return sb.toString();
     }
 
-    private String renderJsonObject (JsonObject object) {
-      StringBuilder sb = new StringBuilder();
-      object.forEach(entry -> sb.append(entry.getValue()).append(' '));
-      return sb.toString();
-    }
-
     @SuppressWarnings("unchecked")
     private List<JsonObject> filterByID(int filterID) {
       List<JsonObject> temp = new ArrayList<JsonObject>();
@@ -60,6 +55,22 @@ public class ModelRessource {
         return List.of();
       }
       return temp;
+    }
+
+    @SuppressWarnings("unchecked")
+    private Boolean filterOutID(int filterID) {
+      try {
+        objs = new JsonArray(
+          (List<JsonObject>) objs.getList()
+            .stream()
+            .filter(m -> !((JsonObject) m).getInteger(ID_FIELD).equals(filterID))
+            .collect(Collectors.toList())
+        );
+      } catch (ClassCastException e) {
+        log.log(Level.SEVERE, "Model " + filterID + " could not be deleted.");
+        return false;
+      }
+      return true;
     }
 
     @SuppressWarnings("unchecked")
@@ -82,7 +93,7 @@ public class ModelRessource {
       replacement.put(ID_FIELD, replaceId);
       objs = new JsonArray(
           objs.stream()
-            .map(m -> (((JsonObject) m).getInteger(ID_FIELD).equals(replaceId) ? replacement : m))
+            .map(m -> ((JsonObject) m).getInteger(ID_FIELD).equals(replaceId) ? replacement : m)
             .collect(Collectors.toList())
         );
     }
@@ -91,7 +102,6 @@ public class ModelRessource {
       JsonArray result = new JsonArray(
         filterByKey("#parentForm", parentForm).stream()
           .map((JsonObject m) -> m.put("link", linkBuilder(m.getString("#parentForm"), m.getInteger(ID_FIELD))))
-          .map((JsonObject m) -> m.put("anschrift", renderJsonObject(m.getJsonObject("anschrift"))))
           .collect(Collectors.toList())
       );
       return result;
@@ -139,10 +149,19 @@ public class ModelRessource {
       }
     }
 
+    @DELETE
+    @Path("/{mid}")
+    public Response removeModel(@PathParam("mid") int suppliedId){
+      if(filterOutID(suppliedId)){
+        return Response.ok().build();
+      } else {
+        return ErrorResponseEnum.NOT_FOUND.getResonse();
+      }
+    }
+
     @GET
     @Path("/list/schema/{parentForm}")
     public JsonArray listModels(@PathParam("parentForm") String parentForm) {
-
       return getDataWithModelLinks(parentForm);
     }
 }
