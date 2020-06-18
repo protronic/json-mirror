@@ -22,7 +22,10 @@ import javax.ws.rs.core.Response;
 
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
+import io.vertx.core.parsetools.JsonParser;
 import io.vertx.core.Vertx;
+
+import static io.vertx.core.parsetools.JsonEventType.*;
 
 @Path("/model")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -73,18 +76,30 @@ public class ModelRessource {
   @Consumes(MediaType.WILDCARD)
   @Path("/load")
   public JsonArray load() {
-    objs = new JsonArray(vertx.fileSystem().readFileBlocking("./objs.json"));
+    JsonParser parser = JsonParser.newParser();
+    parser.objectValueMode().handler(e -> {
+      if (e.type() == VALUE) {
+        JsonObject obj = e.objectValue();
+        Long suppliedId = obj.getLong(ID_FIELD);
+        if (id.get() < suppliedId)
+          id.set(suppliedId);
+        replace(obj, suppliedId);
+      }
+    });
+    parser.handle(vertx.fileSystem().readFileBlocking("./objs.json"));
+    parser.end();
     return objs;
   }
 
   @POST
   @Path("/{mid}")
-  public Response replace(JsonObject obj, @PathParam("mid") int suppliedId) {
+  public Response replace(JsonObject obj, @PathParam("mid") long suppliedId) {
     List<JsonObject> filteredModel = filterByID(suppliedId);
     if (filteredModel.size() < 1) {
-      this.log.log(Level.SEVERE,
+      this.log.log(Level.INFO,
           ("Model " + suppliedId + " Wurde nicht in der Liste gefunden. Liste aller modelle: \n\n" + objs.toString()));
-      return ErrorResponseEnum.NOT_FOUND.getResonse();
+       objs.add(obj);
+       return Response.ok(obj).build();
     } else if (filteredModel.size() > 1) {
       return ErrorResponseEnum.AMBIGUOUS_MATCH.getResonse();
     } else {
@@ -95,10 +110,8 @@ public class ModelRessource {
 
   @GET
   @Path("/{mid}")
-  public Response getModel(@PathParam("mid") int suppliedId) {
-
+  public Response getModel(@PathParam("mid") long suppliedId) {
     List<JsonObject> requestedModel = filterByID(suppliedId);
-
     if (requestedModel.size() < 1) {
       return ErrorResponseEnum.NOT_FOUND.getResonse();
     } else if (requestedModel.size() > 1) {
@@ -110,7 +123,7 @@ public class ModelRessource {
 
   @DELETE
   @Path("/{mid}")
-  public Response removeModel(@PathParam("mid") int suppliedId) {
+  public Response removeModel(@PathParam("mid") long suppliedId) {
     if (filterOutID(suppliedId)) {
       return Response.ok().build();
     } else {
@@ -124,7 +137,7 @@ public class ModelRessource {
     return getDataWithModelLinks(parentForm);
   }
 
-  private String linkBuilder(String schemaParentForm, int modelId) {
+  private String linkBuilder(String schemaParentForm, long modelId) {
     String render = a("link").withTarget("_blank")
         .withHref(
             "http:/index.html?schema=%d&mid=%d".formatted(SchemaTempEnum.getIdByParentForm(schemaParentForm), modelId))
@@ -134,11 +147,11 @@ public class ModelRessource {
   }
 
   @SuppressWarnings("unchecked")
-  private List<JsonObject> filterByID(int filterID) {
+  private List<JsonObject> filterByID(long filterID) {
     List<JsonObject> temp = new ArrayList<JsonObject>();
     try {
       temp = ((List<JsonObject>) objs.getList()).stream()
-          .filter(m -> ((JsonObject) m).getInteger(ID_FIELD).equals(filterID)).collect(Collectors.toList());
+          .filter(m -> ((JsonObject) m).getLong(ID_FIELD).equals(filterID)).collect(Collectors.toList());
     } catch (ClassCastException e) {
       log.log(Level.SEVERE, "One of the models is not a JSON Object.");
       return List.of();
@@ -147,10 +160,10 @@ public class ModelRessource {
   }
 
   @SuppressWarnings("unchecked")
-  private Boolean filterOutID(int filterID) {
+  private Boolean filterOutID(long filterID) {
     try {
       objs = new JsonArray((List<JsonObject>) objs.getList().stream()
-          .filter(m -> !((JsonObject) m).getInteger(ID_FIELD).equals(filterID)).collect(Collectors.toList()));
+          .filter(m -> !((JsonObject) m).getLong(ID_FIELD).equals(filterID)).collect(Collectors.toList()));
     } catch (ClassCastException e) {
       log.log(Level.SEVERE, "Model " + filterID + " could not be deleted.");
       return false;
@@ -162,26 +175,24 @@ public class ModelRessource {
   private List<JsonObject> filterByKey(String key, Object value) {
     List<JsonObject> temp = new ArrayList<JsonObject>();
     try {
-
       temp = ((List<JsonObject>) objs.getList()).stream().filter(m -> ((JsonObject) m).getValue(key).equals(value))
           .collect(Collectors.toList());
     } catch (ClassCastException e) {
-      log.log(Level.SEVERE, "One of the models is not a JSON Object.");
+      log.log(Level.SEVERE, "One of the models is not a JSON Object. " + e.getMessage());
       return List.of();
     }
     return temp;
   }
 
-  private void overrideModel(int replaceId, JsonObject replacement) {
+  private void overrideModel(long replaceId, JsonObject replacement) {
     replacement.put(ID_FIELD, replaceId);
-    objs = new JsonArray(
-        objs.stream().map(m -> ((JsonObject) m).getInteger(ID_FIELD).equals(replaceId) ? replacement : m)
-            .collect(Collectors.toList()));
+    objs = new JsonArray(objs.stream().map(m -> ((JsonObject) m).getLong(ID_FIELD).equals(replaceId) ? replacement : m)
+        .collect(Collectors.toList()));
   }
 
   private JsonArray getDataWithModelLinks(String parentForm) {
     JsonArray result = new JsonArray(filterByKey("#parentForm", parentForm).stream()
-        .map((JsonObject m) -> m.put("link", linkBuilder(m.getString("#parentForm"), m.getInteger(ID_FIELD))))
+        .map((JsonObject m) -> m.put("link", linkBuilder(m.getString("#parentForm"), m.getLong(ID_FIELD))))
         .collect(Collectors.toList()));
     return result;
   }
