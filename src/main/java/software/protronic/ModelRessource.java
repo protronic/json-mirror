@@ -40,6 +40,8 @@ public class ModelRessource {
 
   @Inject
   Vertx vertx;
+  @Inject
+  SchemaRessouce schemaRessouce;
 
   public ModelRessource() {
 
@@ -98,8 +100,8 @@ public class ModelRessource {
     if (filteredModel.size() < 1) {
       this.log.log(Level.INFO,
           ("Model " + suppliedId + " Wurde nicht in der Liste gefunden. Liste aller modelle: \n\n" + objs.toString()));
-       objs.add(obj);
-       return Response.ok(obj).build();
+      objs.add(obj);
+      return Response.ok(obj).build();
     } else if (filteredModel.size() > 1) {
       return ErrorResponseEnum.AMBIGUOUS_MATCH.getResonse();
     } else {
@@ -135,15 +137,6 @@ public class ModelRessource {
   @Path("/list/schema/{parentForm}")
   public JsonArray listModels(@PathParam("parentForm") String parentForm) {
     return getDataWithModelLinks(parentForm);
-  }
-
-  private String linkBuilder(String schemaParentForm, long modelId) {
-    String render = a("link").withTarget("_blank")
-        .withHref(
-            "http:/index.html?schema=%d&mid=%d".formatted(SchemaTempEnum.getIdByParentForm(schemaParentForm), modelId))
-        .render();
-    log.info(render);
-    return render;
   }
 
   @SuppressWarnings("unchecked")
@@ -195,5 +188,14 @@ public class ModelRessource {
         .map((JsonObject m) -> m.put("link", linkBuilder(m.getString("#parentForm"), m.getLong(ID_FIELD))))
         .collect(Collectors.toList()));
     return result;
+  }
+
+  private String linkBuilder(String schemaParentForm, long modelId) {
+    String render = a("link").withTarget("_blank")
+        .withHref(
+            "http:/index.html?schema=%d&mid=%d".formatted(schemaRessouce.getIdByParentForm(schemaParentForm), modelId))
+        .render();
+    log.info(render);
+    return render;
   }
 }
