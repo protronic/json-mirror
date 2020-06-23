@@ -52,7 +52,7 @@
     {
       "name": "geburtsdatum",
       "label": "Geburtsdatum:",
-      "feldtyp": "datum"
+      "feldtyp": "date"
     },
     {
       "name": "gruppe",
