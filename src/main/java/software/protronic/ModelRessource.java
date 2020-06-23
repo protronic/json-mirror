@@ -43,8 +43,8 @@ public class ModelRessource {
   SchemaRessouce schemaRessouce;
 
   @GET
-  public JsonArray list() {
-    return new JsonArray(objs);
+  public List<JsonObject> list() {
+    return objs;
   }
 
   @POST
@@ -72,7 +72,7 @@ public class ModelRessource {
   @POST
   @Consumes(MediaType.WILDCARD)
   @Path("/load")
-  public JsonArray load() {
+  public List<JsonObject> load() {
     JsonParser parser = JsonParser.newParser();
     parser.objectValueMode().handler(e -> {
       if (e.type() == VALUE) {
@@ -85,7 +85,7 @@ public class ModelRessource {
     });
     parser.handle(vertx.fileSystem().readFileBlocking("./objs.json"));
     parser.end();
-    return new JsonArray(objs);
+    return objs;
   }
 
   @POST
@@ -130,8 +130,8 @@ public class ModelRessource {
 
   @GET
   @Path("/list/schema/{parentForm}")
-  public JsonArray listModels(@PathParam("parentForm") String parentForm) {
-    return new JsonArray(getDataWithModelLinks(parentForm));
+  public List<JsonObject> listModels(@PathParam("parentForm") String parentForm) {
+    return getDataWithModelLinks(parentForm);
   }
 
   private List<JsonObject> filterByID(long filterID) {
