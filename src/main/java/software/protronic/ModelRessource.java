@@ -154,7 +154,7 @@ public class ModelRessource {
 
   private List<JsonObject> getDataWithModelLinks(String parentForm) {
     return filterByKey("#parentForm", parentForm).stream()
-        .map((JsonObject m) -> m.put("link", linkBuilder(m.getString("#parentForm"), m.getLong(ID_FIELD))))
+        .map(m -> m.put("link", linkBuilder(m.getString("#parentForm"), m.getLong(ID_FIELD))))
         .collect(Collectors.toList());
   }
 
