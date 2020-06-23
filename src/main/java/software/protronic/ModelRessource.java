@@ -1,8 +1,9 @@
 package software.protronic;
 
+import static io.vertx.core.parsetools.JsonEventType.VALUE;
 import static j2html.TagCreator.a;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Level;
@@ -20,12 +21,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.parsetools.JsonParser;
-import io.vertx.core.Vertx;
-
-import static io.vertx.core.parsetools.JsonEventType.*;
 
 @Path("/model")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -34,7 +33,7 @@ public class ModelRessource {
 
   public static final String ID_FIELD = "#modelID";
 
-  private JsonArray objs = new JsonArray();
+  private List<JsonObject> objs = new LinkedList<>();
   private AtomicLong id = new AtomicLong(0);
   private Logger log = Logger.getLogger("model path");
 
@@ -43,13 +42,9 @@ public class ModelRessource {
   @Inject
   SchemaRessouce schemaRessouce;
 
-  public ModelRessource() {
-
-  }
-
   @GET
   public JsonArray list() {
-    return objs;
+    return new JsonArray(objs);
   }
 
   @POST
@@ -65,7 +60,7 @@ public class ModelRessource {
   public void save() {
     // Write a file
     System.out.println("huhu");
-    vertx.fileSystem().writeFile("./objs.json", objs.toBuffer(), result -> {
+    vertx.fileSystem().writeFile("./objs.json", new JsonArray(objs).toBuffer(), result -> {
       if (result.succeeded()) {
         log.log(Level.INFO, "File written");
       } else {
@@ -90,7 +85,7 @@ public class ModelRessource {
     });
     parser.handle(vertx.fileSystem().readFileBlocking("./objs.json"));
     parser.end();
-    return objs;
+    return new JsonArray(objs);
   }
 
   @POST
@@ -136,58 +131,31 @@ public class ModelRessource {
   @GET
   @Path("/list/schema/{parentForm}")
   public JsonArray listModels(@PathParam("parentForm") String parentForm) {
-    return getDataWithModelLinks(parentForm);
+    return new JsonArray(getDataWithModelLinks(parentForm));
   }
 
-  @SuppressWarnings("unchecked")
   private List<JsonObject> filterByID(long filterID) {
-    List<JsonObject> temp = new ArrayList<JsonObject>();
-    try {
-      temp = ((List<JsonObject>) objs.getList()).stream()
-          .filter(m -> ((JsonObject) m).getLong(ID_FIELD).equals(filterID)).collect(Collectors.toList());
-    } catch (ClassCastException e) {
-      log.log(Level.SEVERE, "One of the models is not a JSON Object.");
-      return List.of();
-    }
-    return temp;
+    return objs.stream().filter(m -> m.getLong(ID_FIELD).equals(filterID)).collect(Collectors.toList());
   }
 
-  @SuppressWarnings("unchecked")
   private Boolean filterOutID(long filterID) {
-    try {
-      objs = new JsonArray((List<JsonObject>) objs.getList().stream()
-          .filter(m -> !((JsonObject) m).getLong(ID_FIELD).equals(filterID)).collect(Collectors.toList()));
-    } catch (ClassCastException e) {
-      log.log(Level.SEVERE, "Model " + filterID + " could not be deleted.");
-      return false;
-    }
+    objs = objs.stream().filter(m -> !m.getLong(ID_FIELD).equals(filterID)).collect(Collectors.toList());
     return true;
   }
 
-  @SuppressWarnings("unchecked")
   private List<JsonObject> filterByKey(String key, Object value) {
-    List<JsonObject> temp = new ArrayList<JsonObject>();
-    try {
-      temp = ((List<JsonObject>) objs.getList()).stream().filter(m -> ((JsonObject) m).getValue(key).equals(value))
-          .collect(Collectors.toList());
-    } catch (ClassCastException e) {
-      log.log(Level.SEVERE, "One of the models is not a JSON Object. " + e.getMessage());
-      return List.of();
-    }
-    return temp;
+    return objs.stream().filter(m -> m.getValue(key).equals(value)).collect(Collectors.toList());
   }
 
   private void overrideModel(long replaceId, JsonObject replacement) {
     replacement.put(ID_FIELD, replaceId);
-    objs = new JsonArray(objs.stream().map(m -> ((JsonObject) m).getLong(ID_FIELD).equals(replaceId) ? replacement : m)
-        .collect(Collectors.toList()));
+    objs = objs.stream().map(m -> m.getLong(ID_FIELD).equals(replaceId) ? replacement : m).collect(Collectors.toList());
   }
 
-  private JsonArray getDataWithModelLinks(String parentForm) {
-    JsonArray result = new JsonArray(filterByKey("#parentForm", parentForm).stream()
+  private List<JsonObject> getDataWithModelLinks(String parentForm) {
+    return filterByKey("#parentForm", parentForm).stream()
         .map((JsonObject m) -> m.put("link", linkBuilder(m.getString("#parentForm"), m.getLong(ID_FIELD))))
-        .collect(Collectors.toList()));
-    return result;
+        .collect(Collectors.toList());
   }
 
   private String linkBuilder(String schemaParentForm, long modelId) {
