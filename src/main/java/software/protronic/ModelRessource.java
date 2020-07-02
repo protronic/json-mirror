@@ -3,6 +3,7 @@ package software.protronic;
 import static io.vertx.core.parsetools.JsonEventType.VALUE;
 import static j2html.TagCreator.a;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
@@ -33,7 +34,7 @@ public class ModelRessource {
 
   public static final String ID_FIELD = "#modelID";
 
-  private List<JsonObject> objs = new LinkedList<>();
+  private List<JsonObject> objs = Collections.synchronizedList(new LinkedList<>());
   private AtomicLong id = new AtomicLong(0);
   private Logger log = Logger.getLogger("model path");
 
@@ -43,8 +44,8 @@ public class ModelRessource {
   SchemaRessouce schemaRessouce;
 
   @GET
-  public List<JsonObject> list() {
-    return objs;
+  public JsonArray list() {
+    return new JsonArray(objs);
   }
 
   @POST
@@ -72,7 +73,7 @@ public class ModelRessource {
   @POST
   @Consumes(MediaType.WILDCARD)
   @Path("/load")
-  public List<JsonObject> load() {
+  public JsonArray load() {
     JsonParser parser = JsonParser.newParser();
     parser.objectValueMode().handler(e -> {
       if (e.type() == VALUE) {
@@ -85,7 +86,7 @@ public class ModelRessource {
     });
     parser.handle(vertx.fileSystem().readFileBlocking("./objs.json"));
     parser.end();
-    return objs;
+    return new JsonArray(objs);
   }
 
   @POST
@@ -130,8 +131,8 @@ public class ModelRessource {
 
   @GET
   @Path("/list/schema/{parentForm}")
-  public List<JsonObject> listModels(@PathParam("parentForm") String parentForm) {
-    return getDataWithModelLinks(parentForm);
+  public JsonArray listModels(@PathParam("parentForm") String parentForm) {
+    return new JsonArray(getDataWithModelLinks(parentForm));
   }
 
   private List<JsonObject> filterByID(long filterID) {

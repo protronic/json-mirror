@@ -63,10 +63,6 @@
       <artifactId>poi-ooxml</artifactId>
       <version>4.1.2</version>
     </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-jackson</artifactId>
-    </dependency>
   </dependencies>
   <build>
     <plugins>

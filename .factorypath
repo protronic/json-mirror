@@ -15,6 +15,7 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/io/quarkus/quarkus-resteasy-common/1.4.2.Final/quarkus-resteasy-common-1.4.2.Final.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/jboss/resteasy/resteasy-core/4.5.3.Final/resteasy-core-4.5.3.Final.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/jboss/spec/javax/ws/rs/jboss-jaxrs-api_2.1_spec/2.0.1.Final/jboss-jaxrs-api_2.1_spec-2.0.1.Final.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/jboss/spec/javax/xml/bind/jboss-jaxb-api_2.3_spec/2.0.0.Final/jboss-jaxb-api_2.3_spec-2.0.0.Final.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/jboss/resteasy/resteasy-core-spi/4.5.3.Final/resteasy-core-spi-4.5.3.Final.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/eclipse/microprofile/config/microprofile-config-api/1.4/microprofile-config-api-1.4.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/sun/activation/jakarta.activation/1.2.1/jakarta.activation-1.2.1.jar" enabled="true" runInBatchMode="false"/>
@@ -33,7 +34,6 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/org/jboss/slf4j/slf4j-jboss-logging/1.2.0.Final/slf4j-jboss-logging-1.2.0.Final.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/graalvm/sdk/graal-sdk/19.3.1/graal-sdk-19.3.1.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/wildfly/common/wildfly-common/1.5.4.Final-format-001/wildfly-common-1.5.4.Final-format-001.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/jakarta/activation/jakarta.activation-api/1.2.1/jakarta.activation-api-1.2.1.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/io/quarkus/quarkus-vertx/1.4.2.Final/quarkus-vertx-1.4.2.Final.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/io/quarkus/quarkus-arc/1.4.2.Final/quarkus-arc-1.4.2.Final.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/io/quarkus/arc/arc/1.4.2.Final/arc-1.4.2.Final.jar" enabled="true" runInBatchMode="false"/>
@@ -47,6 +47,8 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-handler/4.1.45.Final/netty-handler-4.1.45.Final.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/io/quarkus/quarkus-jackson/1.4.2.Final/quarkus-jackson-1.4.2.Final.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/com/fasterxml/jackson/core/jackson-core/2.10.3/jackson-core-2.10.3.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.10.3/jackson-datatype-jsr310-2.10.3.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.3/jackson-datatype-jdk8-2.10.3.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/fasterxml/jackson/module/jackson-module-parameter-names/2.10.3/jackson-module-parameter-names-2.10.3.jar" enabled="true" runInBatchMode="false"/>
@@ -90,23 +92,4 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/xmlbeans/xmlbeans/3.1.0/xmlbeans-3.1.0.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/commons/commons-compress/1.19/commons-compress-1.19.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/github/virtuald/curvesapi/1.06/curvesapi-1.06.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/io/quarkus/quarkus-resteasy-jackson/1.4.2.Final/quarkus-resteasy-jackson-1.4.2.Final.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/org/jboss/resteasy/resteasy-jackson2-provider/4.5.3.Final/resteasy-jackson2-provider-4.5.3.Final.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/org/jboss/resteasy/resteasy-jaxb-provider/4.5.3.Final/resteasy-jaxb-provider-4.5.3.Final.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/org/glassfish/jaxb/jaxb-runtime/2.3.3-b02/jaxb-runtime-2.3.3-b02.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/org/glassfish/jaxb/txw2/2.3.3-b02/txw2-2.3.3-b02.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/com/sun/istack/istack-commons-runtime/3.0.10/istack-commons-runtime-3.0.10.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/com/fasterxml/jackson/core/jackson-core/2.10.3/jackson-core-2.10.3.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.10.3/jackson-jaxrs-json-provider-2.10.3.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.10.3/jackson-jaxrs-base-2.10.3.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.10.3/jackson-module-jaxb-annotations-2.10.3.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/com/github/fge/json-patch/1.9/json-patch-1.9.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/com/github/fge/jackson-coreutils/1.6/jackson-coreutils-1.6.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/com/github/fge/msg-simple/1.1/msg-simple-1.1.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/com/github/fge/btf/1.2/btf-1.2.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/com/google/guava/guava/27.0.1-jre/guava-27.0.1-jre.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/org/jboss/spec/javax/xml/bind/jboss-jaxb-api_2.3_spec/2.0.0.Final/jboss-jaxb-api_2.3_spec-2.0.0.Final.jar" enabled="true" runInBatchMode="false"/>
 </factorypath>
