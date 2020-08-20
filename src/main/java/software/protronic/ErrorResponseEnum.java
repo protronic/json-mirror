@@ -6,7 +6,8 @@ import io.vertx.core.json.JsonObject;
 public enum ErrorResponseEnum {
   NOT_FOUND ("{\"error\": \"not found\"}", 404),
   AMBIGUOUS_MATCH ("{\"error\": \"ambiguous IDs\"}", 406),
-  BAD_REQUEST ("{\"error\": \"bad request\"}", 400);
+  BAD_REQUEST ("{\"error\": \"bad request\"}", 400),
+  DB_REQUEST_FAILED ("{\"error\": \"database request failed\"}", 500);
 
   private String errorMessage;
   private int errorStatus;
