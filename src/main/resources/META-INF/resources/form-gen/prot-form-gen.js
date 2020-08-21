@@ -131,19 +131,49 @@ module.exports.InputFieldAbhaengig = class extends DependenceMixin(InputFieldTex
 //   }
 // }
 
-},{"./input-field-generic.js":7}],2:[function(require,module,exports){
+},{"./input-field-generic.js":8}],2:[function(require,module,exports){
 const { InputFieldObject } = require('./input-field-object.js');
 const { fieldTypeMap } = require('./formular-components.js');
 
-// require('../altstyle.css');
-
-var baseUrl = 'http://10.19.28.94:8000'
+var baseUrl = ''
 var schemaPath = '/schema'
 var modelPath = '/model'
 
 Object.keys(fieldTypeMap).forEach(keyTag => {
   customElements.define(fieldTypeMap[keyTag].tag, fieldTypeMap[keyTag].conName);
 });
+
+class SearchParams {
+    constructor(search){
+        let self = this;
+        search.slice(1).split('&').forEach(function(entry){
+            let key = entry.split('=')[0];
+            let value = entry.split('=')[1];
+
+            self[key] = value;
+        })
+    }
+    
+    append(key, value){
+        this[key] = value;
+    }
+
+    get(key){
+        return this[key];
+    }
+
+    set(key, value){
+        this[key] = value;
+    }
+
+    delete(key){
+        delete this[key];
+    }
+
+    toString(){
+        return ('?' + Object.keys(this).map(key => `${key}=${this[key]}`).join('&'));
+    }
+}
 
 function prepareModel(model, formular){
     let user = '';
@@ -153,29 +183,14 @@ function prepareModel(model, formular){
         user = wikiContext.UserName;
     } catch(err) {
         console.log('wikiContext not in scope.');
-        // console.error(err);
     }
 
     model['#parentForm'] = formular;
     model['#changed_user'] = user;
     model['#changed_time'] = changedTime;
 
-    // return JSON.stringify(JSON.stringify(model)).slice(1, -1);
     return JSON.stringify(model);
 }
-
-// function uploadNewModel(model, formular){
-//     let serialModel = prepareModel(model, formular);
-//     return fetch('http://prot-subuntu:8081/formly', {
-//         method: 'POST',
-//         body: `{"q": "INSERT INTO model (log) VALUES ('${serialModel}');SELECT TOP 1 _id FROM model WHERE log = '${serialModel}' ORDER BY _id DESC;"}`,
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     })
-//         .then(response => response.json())
-//         .then(dataRows => dataRows.recordset[0]._id)
-// }
 
 function uploadNewModel(model, formular){
     let serialModel = prepareModel(model, formular);
@@ -187,19 +202,8 @@ function uploadNewModel(model, formular){
         }
     })
         .then(response => response.json())
-        .then(data => data['#modelID'])
+        .then(data => data['_id'])
 }
-
-// function uploadExistingModel(model, formular){
-//     let serialModel = prepareModel(model, formular);
-//     return fetch('http://prot-subuntu:8081/formly', {
-//         method: 'POST',
-//         body: `{"q": "UPDATE model SET log = '${serialModel}' WHERE _id = ${model['#modelID']}"}`,
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     }).then(response => response.json()).then(response => console.log(response))
-// }
 
 function uploadExistingModel(model, formular){
     let serialModel = prepareModel(model, formular);
@@ -212,62 +216,32 @@ function uploadExistingModel(model, formular){
     }).then(response => response.json()).then(response => console.log(response))
 }
 
-// function loadModelFromDB(modelId){
-//     return fetch('http://prot-subuntu:8081/formly', {
-//         method: 'POST',
-//         body: `{"q": "SELECT log FROM model WHERE _id = ${modelId}"}`,
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     })
-//         .then(response => response.json())
-//         .then(dataRows => dataRows.recordset[0].log)
-// }
-
 function loadModelFromDB(modelId){
     return fetch(`${baseUrl}${modelPath}/${modelId}`)
         .then(response => response.json())
         .then(data => {console.log(data); return data})
-        // .then(dataRows => dataRows.recordset[0].log)
 }
-
-// function loadSchemaFromDB(schemaId){
-//     return fetch('http://prot-subuntu:8081/formly', {
-//         method: 'POST',
-//         body: `{"q": "SELECT log FROM schemas WHERE _id= ${schemaId}"}`,
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     }) 
-//     .then(response => response.json())
-//     .then(dataRows => JSON.parse(dataRows.recordset[0].log))
-// }
 
 function loadSchemaFromDB(schemaId){
     return fetch(`${baseUrl}${schemaPath}/${schemaId}`) 
     .then(response => response.json())
-    // .then(dataRows => dataRows)
 }
 
 function getSchemaId(){
-    // let url = new URL(location.href);
-    // return url.searchParams.get('schema');
-    // (new URLSearchParams(location.search))
-    return (new URLSearchParams(location.search)).get('schema');
+    return (new SearchParams(location.search)).get('schema');
 }
 
 class FormCreator extends InputFieldObject{
     constructor(){
         super();
         this.model = {};
-
-        // this.addEventListener('form-valid', (event => console.log(event))); 
     }
 
     connectedCallback(){        
         this.rootElement = document.createElement('form');
         this.rootElement.classList.add('form-root');
         this.appendChild(this.rootElement);
+        baseUrl = this.getAttribute('data-url') ? this.getAttribute('data-url') : baseUrl;
 
         loadSchemaFromDB(getSchemaId())
             .then(schema => {
@@ -284,16 +258,11 @@ class FormCreator extends InputFieldObject{
         this.options.subform = schema.felder;
 
         try{
-            // this.options.initialModel = this.loadFromLocal();
-            // this.options.initialModel = loadModelFromDB()
-            // let url = new URL(location.href);
-            // let modelId = url.searchParams.get('mid');
-            let modelId = (new URLSearchParams(location.search)).get('mid');
+            let modelId = (new SearchParams(location.search)).get('mid');
 
             if(modelId){
                 loadModelFromDB(modelId).then(model => {
                     this.model = this.convertValue('initialModel', JSON.stringify(model));
-                    // console.log(this.convertValue('initialModel', model))
                     this.model['#modelID'] = modelId;
                     this.options.name = schema.formular;
                     this.options.label = `${this.options.label} ${modelId}`;
@@ -311,9 +280,9 @@ class FormCreator extends InputFieldObject{
             console.error(err);
         }
 
-        // this.testModelCreation();
         this.uploadModelButton();
         this.newFormularButton();
+        this.newRemoveButton();
         this.renderGeneralInfo(schema);
     }
 
@@ -331,7 +300,6 @@ class FormCreator extends InputFieldObject{
         btn.addEventListener('click', (event) => {
             if(this.checkValidity()){
                 this.model = {...this.model, ...this.getModel()};
-                // console.log(this.model);
                 this.saveFormLocal(this.model['#modelID'], this.model);
             } else {
                 console.error('Einige Formular Elemente sind nicht korrekt ausgefüllt.');
@@ -341,21 +309,41 @@ class FormCreator extends InputFieldObject{
         this.appendChild(btn)
     }
 
-    newFormularButton(){
+    createNewFormURL(){
         let uri = new URL(location.href);
-        // uri.searchParams.set('lsid', 'null');
-        // uri.searchParams.delete('mid');
-        let search = (new URLSearchParams(location.search));
+        let search = (new SearchParams(location.search));
         search.set('lsid', 'null');
         search.delete('mid');
         uri.search = search.toString();
-        
+        return uri.href;
+    }
+
+    newFormularButton(){
         let btn = document.createElement('button');
         btn.setAttribute('type', 'button');
-        btn.addEventListener('click', (event) => {
-            location.href = uri.href;
+        btn.addEventListener('click', () => {
+            location.href = this.createNewFormURL();
         });
         btn.innerText = 'Neu Anlegen';
+        this.appendChild(btn);
+    }
+
+    newRemoveButton(){
+        let btn = document.createElement('button');
+        btn.setAttribute('type', 'button');
+        btn.addEventListener('click', () => {
+            if (this.model['#modelID'] && confirm(`Are you sure, you want to renove model with id: ${this.model['#modelID']}?`)){
+                fetch(`${baseUrl}${modelPath}/${this.model['#modelID']}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => (
+                        res.ok ? 
+                            location.href = this.createNewFormURL() : 
+                            console.error(res.status)
+                    ));
+            }
+        });
+        btn.innerText = 'Remove Model';
         this.appendChild(btn);
     }
 
@@ -393,9 +381,7 @@ class FormCreator extends InputFieldObject{
 
     loadFromLocal(localStorageId){
         if(!localStorageId){
-            // let uri = new URL(location.href);
-            // localStorageId = uri.searchParams.get('lsid');
-            localStorageId = (new URLSearchParams(location.search)).get('lsid')
+            localStorageId = (new SearchParams(location.search)).get('lsid')
             localStorageId = localStorageId === null ? 'last' : localStorageId;
         }
                
@@ -431,8 +417,8 @@ class FormCreator extends InputFieldObject{
     }
 }
 
-customElements.define('form-creator', FormCreator);
-},{"./formular-components.js":3,"./input-field-object.js":10}],3:[function(require,module,exports){
+customElements.define('prot-form-gen', FormCreator);
+},{"./formular-components.js":3,"./input-field-object.js":11}],3:[function(require,module,exports){
 const { InputFieldText, InputFieldEnumListText, EnumListableMixin, InputFieldEmail, InputFieldTel, InputFieldDate, InputFieldNumber } = require('./input-field-generic.js');
 const { InputFieldTextarea } = require('./input-field-textarea.js');
 const { InputFieldBoolean } = require('./input-field-boolean.js');
@@ -443,6 +429,7 @@ const { InputFieldAbhaengig, DependenceMixin } = require('./dependent-fields.js'
 const { InputFieldList } = require('./input-field-list.js');
 const { InputFieldObject } = require('./input-field-object.js');
 const { InputFieldChooseList } = require('./input-field-choose-list.js');
+const { InfoFieldSummary } = require('./info-field-summary.js');
 
 const InputFieldDependentEnumTextarea = class extends EnumListableMixin(DependenceMixin(InputFieldTextarea)){
     constructor(){
@@ -534,6 +521,10 @@ const fieldTypeMap = module.exports.fieldTypeMap = {
     'dependentchoose': {
         tag: 'input-field-dependent-choose-list',
         conName: InputFieldDependentChooseList,
+    },
+    'infosummary': {
+        tag: 'info-field-summary',
+        conName: InfoFieldSummary,
     }
 };
 
@@ -554,7 +545,55 @@ const fieldTypeMap = module.exports.fieldTypeMap = {
 //     'input-field-object': InputFieldObject,
 //   }
   
-},{"./dependent-fields.js":1,"./input-field-boolean.js":4,"./input-field-choose-list.js":5,"./input-field-dropdown.js":6,"./input-field-generic.js":7,"./input-field-list.js":8,"./input-field-lookup.js":9,"./input-field-object.js":10,"./input-field-radio.js":11,"./input-field-textarea.js":12}],4:[function(require,module,exports){
+},{"./dependent-fields.js":1,"./info-field-summary.js":4,"./input-field-boolean.js":5,"./input-field-choose-list.js":6,"./input-field-dropdown.js":7,"./input-field-generic.js":8,"./input-field-list.js":9,"./input-field-lookup.js":10,"./input-field-object.js":11,"./input-field-radio.js":12,"./input-field-textarea.js":13}],4:[function(require,module,exports){
+const { InputField } = require('./input-field.js');
+
+module.exports.InfoFieldSummary = class extends InputField{
+  constructor(){
+      super();
+      this.defaultOptions = {
+          ...this.defaultOptions,
+          observed_fields: []
+      };
+  }
+
+  countFields(){
+    let result = {};
+    this.options.observed_fields.forEach((field) => {
+      let foundObjs = document.querySelectorAll(`#${field}`);
+      foundObjs.forEach((foundObj) => {
+        let fieldObj = foundObj.parentElement.parentElement;
+        let model = fieldObj.getModel();
+        if(model) model.forEach((item) => {
+          result[item] = result[item] === undefined ? 1 : result[item] + 1;
+        })
+      });      
+    })
+    return result;
+  }
+
+  runCounting(){
+    let countedFields = this.countFields();
+    this.resultList.innerHTML = `${Object.keys(countedFields).map((item) => `<li>${countedFields[item]} x <span class="span-fett">${item}</span></li>`).join('')}`;
+  }
+
+  applyTemplate(){
+      this.rootElement.insertAdjacentHTML('beforeend', `
+          <div class="form-element">
+              ${this.options.label ? `<label for="${this.options.name}">${this.options.label}</label><br>` : ''}
+              <ul id=${this.options.name}></ul>
+          </div>
+      `);
+      this.resultList = this.querySelector(`#${this.options.name}`);
+      document.querySelector('.form-root').addEventListener('form-valid', this.runCounting.bind(this));
+      setTimeout(this.runCounting.bind(this), 1000);
+  }
+
+  getModel(){
+      return undefined;
+  }
+}
+},{"./input-field.js":14}],5:[function(require,module,exports){
 const { InputField } = require('./input-field.js');
 
 module.exports.InputFieldBoolean = class extends InputField{
@@ -589,7 +628,7 @@ module.exports.InputFieldBoolean = class extends InputField{
   }
 }
 
-},{"./input-field.js":13}],5:[function(require,module,exports){
+},{"./input-field.js":14}],6:[function(require,module,exports){
 const { InputFieldText } = require('./input-field-generic.js');
 const { genericLookUpQuery } = require('./input-field-lookup.js');
 
@@ -694,7 +733,7 @@ module.exports.InputFieldChooseList = class extends InputFieldText {
   //   // return super.formInputHandler(event);
   // }
 }
-},{"./input-field-generic.js":7,"./input-field-lookup.js":9}],6:[function(require,module,exports){
+},{"./input-field-generic.js":8,"./input-field-lookup.js":10}],7:[function(require,module,exports){
 const { InputField } = require('./input-field.js');
 
 module.exports.InputFieldDropdown = class extends InputField {
@@ -728,7 +767,7 @@ module.exports.InputFieldDropdown = class extends InputField {
   }
 }
 
-},{"./input-field.js":13}],7:[function(require,module,exports){
+},{"./input-field.js":14}],8:[function(require,module,exports){
 const { InputField } = require('./input-field.js');
 
 class GenericInputField extends InputField{
@@ -853,7 +892,7 @@ module.exports.InputFieldEnumListText = class extends EnumListableMixin(InputFie
 
 
 
-},{"./input-field.js":13}],8:[function(require,module,exports){
+},{"./input-field.js":14}],9:[function(require,module,exports){
 const { InputField } = require('./input-field.js');
 
 module.exports.InputFieldList = class extends InputField {
@@ -936,7 +975,7 @@ module.exports.InputFieldList = class extends InputField {
 }
 
 // customElements.define('input-field-list', InputFieldList);
-},{"./input-field.js":13}],9:[function(require,module,exports){
+},{"./input-field.js":14}],10:[function(require,module,exports){
 const { InputFieldText } = require("./input-field-generic.js");
 const { debounce } = require('lodash');
 
@@ -945,13 +984,13 @@ const genericLookUpQuery = module.exports.genericLookUpQuery = function(uri, inp
 
   return fetch(uri, {
     method: "POST",
-    body: JSON.stringify({ q: query.split("?").join(`${input}`) }),
+    body: JSON.stringify({ query: query.split("?").join(`${input}`) }),
     headers: {
       "Content-Type": "application/json"
     }
   })
     .then(response => (response.json()))
-    .then(data => (console.log(data), data.recordset));
+    .then(data => (console.log(data), data));
 };
 
 // customElements.define('input-field-lookup', InputFieldLookup);
@@ -1081,7 +1120,7 @@ module.exports.InputFieldLookup = class extends LookupMixin(InputFieldText) {
     super();
   }
 }
-},{"./input-field-generic.js":7,"lodash":14}],10:[function(require,module,exports){
+},{"./input-field-generic.js":8,"lodash":15}],11:[function(require,module,exports){
 const { InputField } = require('./input-field.js');
 
 module.exports.InputFieldObject = class extends InputField{
@@ -1168,7 +1207,7 @@ module.exports.InputFieldObject = class extends InputField{
   }
 }
 
-},{"./input-field.js":13}],11:[function(require,module,exports){
+},{"./input-field.js":14}],12:[function(require,module,exports){
 const { InputField } = require('./input-field.js');
 
 module.exports.InputFieldRadio = class extends InputField {
@@ -1231,7 +1270,7 @@ module.exports.InputFieldRadio = class extends InputField {
     }
 }
 
-},{"./input-field.js":13}],12:[function(require,module,exports){
+},{"./input-field.js":14}],13:[function(require,module,exports){
 const { InputField } = require('./input-field.js');
 
 module.exports.InputFieldTextarea = class extends InputField{
@@ -1271,7 +1310,7 @@ module.exports.InputFieldTextarea = class extends InputField{
       return model != '' ? model : undefined;
   }
 }
-},{"./input-field.js":13}],13:[function(require,module,exports){
+},{"./input-field.js":14}],14:[function(require,module,exports){
 // const { fieldTypeMap } = require('./formular-components.js')
 const { debounce } = require('lodash');
 
@@ -1294,6 +1333,7 @@ const fieldTypeMap = {
     'object': 'input-field-object', 
     'choose': 'input-field-choose-list',
     'dependentchoose': 'input-field-dependent-choose-list',
+    'infosummary': 'info-field-summary',
 };
 
 module.exports.InputField = class extends HTMLElement {
@@ -1426,7 +1466,7 @@ module.exports.InputField = class extends HTMLElement {
         else this.dispatchCustomEvent('form-invalid', {target: this});
     }
 }
-},{"lodash":14}],14:[function(require,module,exports){
+},{"lodash":15}],15:[function(require,module,exports){
 (function (global){
 /**
  * @license

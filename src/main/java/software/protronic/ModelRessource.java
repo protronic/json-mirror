@@ -163,11 +163,12 @@ public class ModelRessource {
   @Path("/{mid}")
   public Response removeModel(@PathParam("mid") int suppliedId) {
     try {
-      if (dbc.get(suppliedId).subscribe().asCompletionStage().get() == null) {
-        return Response.ok().build();
-      } else {
-        return ErrorResponseEnum.NOT_FOUND.getResonse();
-      }
+      // if ( == null) {
+      dbc.get(suppliedId).subscribe().asCompletionStage().get();
+      return Response.ok().build();
+      // } else {
+      //   return ErrorResponseEnum.NOT_FOUND.getResonse();
+      // }
     } catch (InterruptedException | ExecutionException e) {
       e.printStackTrace();
       return ErrorResponseEnum.DB_REQUEST_FAILED.getResonse();

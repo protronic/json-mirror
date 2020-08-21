@@ -76,6 +76,10 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-container-image-docker</artifactId>
     </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-rest-client</artifactId>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
@@ -103,8 +107,7 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${compiler-plugin.version}</version>
         <configuration>
-          <release>14</release>
-          <compilerArgs>--enable-preview</compilerArgs>
+          <release>8</release>
         </configuration>
       </plugin>
       <plugin>

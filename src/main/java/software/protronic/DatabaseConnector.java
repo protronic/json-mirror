@@ -13,16 +13,16 @@ public class DatabaseConnector implements DataInterface {
   private String path;
   private String tableName;
 
-  private final String formatSetQuery = "{\"query\": \"UPDATE %s SET log = '%s' WHERE _id = %d\"}";
+  private final String formatSetQuery = "UPDATE %s SET log = '%s' WHERE _id = %d";
   private final String formatGetQuery = "{\"query\": \"SELECT log FROM %s WHERE _id = %d\"}";
   private final String formatListQuery = "{\"query\": \"SELECT * FROM %s\"}";
-  private final String formatAddQuery = "{\"query\": \"INSER INTO %s (log) VALUES ('%s'); SELECT SCOPE_IDENTITY() as _id;\"}";
-  private final String formatRemoveQuery = "{\"query\": \"DELETE TOP 1 FROM %s WHERE _id = %d\"}";
+  private final String formatAddQuery = "INSERT INTO %s (log) VALUES ('%s'); SELECT SCOPE_IDENTITY() as _id;";
+  private final String formatRemoveQuery = "DELETE TOP 1 FROM %s WHERE _id = %d";
 
   public DatabaseConnector(Vertx vertx, int port, String host, String path, String tableName) {
     this.path = path;
     this.tableName = tableName;
-    this.webClient = WebClient.create(vertx, new WebClientOptions().setDefaultHost(host).setDefaultPort(port).setSsl(false));
+    this.webClient = WebClient.create(vertx, new WebClientOptions().setDefaultHost(host).setDefaultPort(port).setSsl(true).setTrustAll(true));
   }
 
   private JsonObject createError (int code, String msg){
@@ -35,10 +35,10 @@ public class DatabaseConnector implements DataInterface {
   public Uni<JsonObject> set(int id, JsonObject obj) {
     return webClient
         .post(path)
-        .sendJsonObject(new JsonObject(String.format(formatSetQuery, tableName, obj.toString(), id)))
+        .sendJsonObject(new JsonObject().put("query", String.format(formatSetQuery, tableName, obj.toString(), id)))
         .map(resp -> {
           if(resp.statusCode() == 200){
-            return resp.bodyAsJsonObject();
+            return new JsonObject();
           } else {
             return createError(resp.statusCode(), resp.bodyAsString());
           }
@@ -49,10 +49,12 @@ public class DatabaseConnector implements DataInterface {
   public Uni<JsonObject> add(JsonObject obj) {
     return webClient
         .post(path)
-        .sendJsonObject(new JsonObject(String.format(formatAddQuery, tableName, obj.toString())))
+        .sendJsonObject(new JsonObject().put("query", String.format(formatAddQuery, tableName, obj.toString())))
         .map(resp -> {
           if(resp.statusCode() == 200){
-            return resp.bodyAsJsonArray().getJsonObject(0);
+            JsonObject respData = resp.bodyAsJsonArray().getJsonObject(0);
+            System.out.println(respData);
+            return respData;
           } else {
             return createError(resp.statusCode(), resp.bodyAsString());
           }
@@ -95,7 +97,7 @@ public class DatabaseConnector implements DataInterface {
   public Uni<Object> remove(int id) {
     return webClient
       .post(path)
-      .sendJsonObject(new JsonObject(String.format(formatRemoveQuery, tableName, id)))
+      .sendJsonObject(new JsonObject().put("query", String.format(formatRemoveQuery, tableName, id)))
       .map(resp -> {
         if(resp.statusCode() == 200){
           return null;
