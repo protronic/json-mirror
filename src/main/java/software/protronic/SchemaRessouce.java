@@ -13,6 +13,9 @@ import javax.ws.rs.core.MediaType;
 import io.quarkus.runtime.StartupEvent;
 import io.vertx.mutiny.core.Vertx;
 import javax.ws.rs.core.Response;
+
+import org.jboss.logging.Logger;
+
 import io.vertx.core.json.JsonObject;
 
 @Path("/schema/{id}")
@@ -30,6 +33,8 @@ public class SchemaRessouce {
   @PostConstruct
   void initialize() {
     dbc = new DatabaseConnector(vertx, 8084, "10.19.28.94", "/query?database=formly", "schemas");
+    Logger log = Logger.getLogger("quarkus-json-mirror");
+    log.info("Quarkus-Json-Mirror was started.");
   }
 
   // private Logger log = Logger.getLogger(SchemaRessouce.class.getName());
@@ -41,12 +46,12 @@ public class SchemaRessouce {
     try {
       JsonObject schema = dbc.get(specifiedId).subscribe().asCompletionStage().get();
       if (schema == null)
-        return ErrorResponseEnum.NOT_FOUND.getResonse();
+        return ErrorResponseEnum.NOT_FOUND.getResponse();
       else
         return Response.ok(schema).build();
     } catch (InterruptedException | ExecutionException e) {
       e.printStackTrace();
-      return ErrorResponseEnum.DB_REQUEST_FAILED.getResonse();
+      return ErrorResponseEnum.DB_REQUEST_FAILED.getResponse();
     }
   }
 

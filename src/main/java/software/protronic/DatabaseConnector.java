@@ -17,7 +17,7 @@ public class DatabaseConnector implements DataInterface {
   private final String formatGetQuery = "{\"query\": \"SELECT log FROM %s WHERE _id = %d\"}";
   private final String formatListQuery = "{\"query\": \"SELECT * FROM %s\"}";
   private final String formatAddQuery = "INSERT INTO %s (log) VALUES ('%s'); SELECT SCOPE_IDENTITY() as _id;";
-  private final String formatRemoveQuery = "DELETE TOP 1 FROM %s WHERE _id = %d";
+  private final String formatRemoveQuery = "UPDATE model SET _deleted = 0 WHERE _id = %d";
 
   public DatabaseConnector(Vertx vertx, int port, String host, String path, String tableName) {
     this.path = path;
@@ -36,6 +36,20 @@ public class DatabaseConnector implements DataInterface {
     return webClient
         .post(path)
         .sendJsonObject(new JsonObject().put("query", String.format(formatSetQuery, tableName, obj.toString(), id)))
+        .map(resp -> {
+          if(resp.statusCode() == 200){
+            return new JsonObject();
+          } else {
+            return createError(resp.statusCode(), resp.bodyAsString());
+          }
+        });
+  }
+
+  @Override
+  public Uni<Object> remove(int id) {
+    return webClient
+        .post(path)
+        .sendJsonObject(new JsonObject().put("query", String.format(formatRemoveQuery, id)))
         .map(resp -> {
           if(resp.statusCode() == 200){
             return new JsonObject();
@@ -93,17 +107,17 @@ public class DatabaseConnector implements DataInterface {
         });
   }
 
-  @Override
-  public Uni<Object> remove(int id) {
-    return webClient
-      .post(path)
-      .sendJsonObject(new JsonObject().put("query", String.format(formatRemoveQuery, tableName, id)))
-      .map(resp -> {
-        if(resp.statusCode() == 200){
-          return null;
-        } else {
-          return createError(resp.statusCode(), resp.bodyAsString());
-        }
-      });
-  }
+  // @Override
+  // public Uni<Object> remove(int id) {
+  //   return webClient
+  //     .post(path)
+  //     .sendJsonObject(new JsonObject().put("query", String.format(formatRemoveQuery, tableName, id)))
+  //     .map(resp -> {
+  //       if(resp.statusCode() == 200){
+  //         return null;
+  //       } else {
+  //         return createError(resp.statusCode(), resp.bodyAsString());
+  //       }
+  //     });
+  // }
 }

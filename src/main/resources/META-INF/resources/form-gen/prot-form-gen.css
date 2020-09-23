@@ -365,3 +365,83 @@ prot-form-gen input.filter-input {
   -moz-box-sizing: border-box;
   border-radius: 10px 10px 0px 0px;
 }
+
+#modalContainer {
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+}
+
+#modalContainer > #alertBox {
+    --HIGHLIGHT-COLOR: white;
+    --TEXT-COLOR: black;
+    background: white;
+    z-index: 1000;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    display: block;
+    width: 300px;
+    box-shadow: inset var(--HIGHLIGHT-COLOR) 0px 0.5em 40px 10px;
+}
+
+#modalContainer > #alertBox > h1 {
+    margin: 0;
+    font: bold 0.9em verdana,arial;
+    border-bottom: 1px solid #000;
+    padding: 2px 0 2px 5px;
+    cursor: pointer;
+    user-select: none;
+    background-color: var(--HIGHLIGHT-COLOR);
+    color: var(--TEXT-COLOR);
+}
+
+#modalContainer > #alertBox > p {
+    font: 0.7em verdana,arial;
+    height: 50px;
+    padding-left: 5px;
+    margin-left: 5px;
+}
+
+#modalContainer > #alertBox > a {
+    display: block;
+    position: relative;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #000;
+    width: 70px;
+    font: 0.7em verdana,arial;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--HIGHLIGHT-COLOR);
+    color: var(--TEXT-COLOR);
+}
+
+#modalContainer > #alertBox.fehler-alert {
+    --HIGHLIGHT-COLOR: #dc3545;
+    --TEXT-COLOR: #fff;
+}
+
+#modalContainer > #alertBox.warnung-alert {
+    --HIGHLIGHT-COLOR: #ffc107;
+    --TEXT-COLOR: #000;
+}
+
+#modalContainer > #alertBox.info-alert {
+    --HIGHLIGHT-COLOR: #17a2b8;
+    --TEXT-COLOR: #fff;
+}
+
+#modalContainer > #alertBox.erfolg-alert {
+    --HIGHLIGHT-COLOR: #28a745;
+    --TEXT-COLOR: #fff;
+}
+
+#modalContainer > #alertBox.debug-alert {
+    --HIGHLIGHT-COLOR: #6c757d;
+    --TEXT-COLOR: #fff;
+}

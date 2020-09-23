@@ -12,6 +12,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import org.jboss.logging.Logger;
+
 import io.vertx.mutiny.core.Vertx;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
@@ -22,6 +25,7 @@ import io.vertx.core.json.JsonObject;
 public class ModelRessource {
 
   public static final String ID_FIELD = "#modelID";
+  // private static final Logger LOG = Logger.getLogger(ModelRessource.class);
 
   // private List<JsonObject> modelList = Collections.synchronizedList(new LinkedList<>());
   // private AtomicLong id = new AtomicLong(0);
@@ -51,7 +55,8 @@ public class ModelRessource {
       return Response.ok(models).build();
     } catch (InterruptedException | ExecutionException e) {
       e.printStackTrace();
-      return ErrorResponseEnum.DB_REQUEST_FAILED.getResonse();
+      // LOG.error(ErrorResponseEnum.DB_REQUEST_FAILED.getMessage());
+      return ErrorResponseEnum.DB_REQUEST_FAILED.getResponse();
     }
   }
 
@@ -64,12 +69,12 @@ public class ModelRessource {
     try {
       JsonObject newId = dbc.add(obj).subscribe().asCompletionStage().get();
       if (newId == null)
-        return ErrorResponseEnum.BAD_REQUEST.getResonse();
+        return ErrorResponseEnum.BAD_REQUEST.getResponse();
       else
         return Response.ok(newId).build();
     } catch (InterruptedException | ExecutionException e) {
       e.printStackTrace();
-      return ErrorResponseEnum.DB_REQUEST_FAILED.getResonse();
+      return ErrorResponseEnum.DB_REQUEST_FAILED.getResponse();
     }
 
   }
@@ -131,7 +136,7 @@ public class ModelRessource {
       return Response.ok(model).build();
     } catch (InterruptedException | ExecutionException e) {
       e.printStackTrace();
-      return ErrorResponseEnum.DB_REQUEST_FAILED.getResonse();
+      return ErrorResponseEnum.DB_REQUEST_FAILED.getResponse();
     }
   }
 
@@ -149,12 +154,12 @@ public class ModelRessource {
     try {
       JsonObject model = dbc.get(suppliedId).subscribe().asCompletionStage().get();
       if (model == null)
-        return ErrorResponseEnum.NOT_FOUND.getResonse();
+        return ErrorResponseEnum.NOT_FOUND.getResponse();
       else
         return Response.ok(model).build();
     } catch (InterruptedException | ExecutionException e) {
       e.printStackTrace();
-      return ErrorResponseEnum.DB_REQUEST_FAILED.getResonse();
+      return ErrorResponseEnum.DB_REQUEST_FAILED.getResponse();
     }
 
   }
@@ -163,15 +168,11 @@ public class ModelRessource {
   @Path("/{mid}")
   public Response removeModel(@PathParam("mid") int suppliedId) {
     try {
-      // if ( == null) {
-      dbc.get(suppliedId).subscribe().asCompletionStage().get();
+      dbc.remove(suppliedId).subscribe().asCompletionStage().get();
       return Response.ok().build();
-      // } else {
-      //   return ErrorResponseEnum.NOT_FOUND.getResonse();
-      // }
     } catch (InterruptedException | ExecutionException e) {
       e.printStackTrace();
-      return ErrorResponseEnum.DB_REQUEST_FAILED.getResonse();
+      return ErrorResponseEnum.DB_REQUEST_FAILED.getResponse();
     }
   }
 
