@@ -9,5 +9,6 @@ public interface DataInterface {
   public Uni<JsonObject> add(JsonObject obj);
   public Uni<JsonObject> get(int id);
   public Uni<JsonArray> list();
+  public Uni<JsonArray> list(String parentForm);
   public Uni<Object> remove(int id);
 }

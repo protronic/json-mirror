@@ -13,11 +13,12 @@ public class DatabaseConnector implements DataInterface {
   private String path;
   private String tableName;
 
-  private final String formatSetQuery = "UPDATE %s SET log = '%s' WHERE _id = %d";
-  private final String formatGetQuery = "{\"query\": \"SELECT log FROM %s WHERE _id = %d\"}";
-  private final String formatListQuery = "{\"query\": \"SELECT * FROM %s\"}";
+  private final String formatSetQuery = "UPDATE %s SET log = '%s' WHERE _id = %d;";
+  private final String formatGetQuery = "{\"query\": \"SELECT log FROM %s WHERE _id = %d;\"}";
+  private final String formatListQuery = "{\"query\": \"SELECT * FROM %s WHERE _deleted = -1;\"}";
+  private final String formatListParentFormQuery = "{\"query\": \"SELECT * FROM %s WHERE _deleted = -1 AND JSON_VALUE(log, '$.\\\"#parentForm\\\"') = '%s';\"}";
   private final String formatAddQuery = "INSERT INTO %s (log) VALUES ('%s'); SELECT SCOPE_IDENTITY() as _id;";
-  private final String formatRemoveQuery = "UPDATE model SET _deleted = 0 WHERE _id = %d";
+  private final String formatRemoveQuery = "UPDATE model SET _deleted = 0 WHERE _id = %d;";
 
   public DatabaseConnector(Vertx vertx, int port, String host, String path, String tableName) {
     this.path = path;
@@ -80,6 +81,22 @@ public class DatabaseConnector implements DataInterface {
     return webClient
       .post(path)
       .sendJsonObject(new JsonObject(String.format(formatListQuery, tableName)))
+      .map(resp -> {
+          if(resp.statusCode() == 200){
+            System.out.println(String.format("Response: %s", resp.bodyAsString()));
+            return resp.bodyAsJsonArray();
+          } else {
+            System.out.println(String.format("Failed Response: %s\n\n%s", resp.statusCode(), resp.bodyAsString()));
+            return new JsonArray().add(createError(resp.statusCode(), resp.bodyAsString()));
+          }
+      });
+  }
+
+  @Override
+  public Uni<JsonArray> list(String parentForm){
+    return webClient
+      .post(path)
+      .sendJsonObject(new JsonObject(String.format(formatListParentFormQuery, tableName, parentForm)))
       .map(resp -> {
           if(resp.statusCode() == 200){
             System.out.println(String.format("Response: %s", resp.bodyAsString()));
