@@ -26,7 +26,7 @@ public class SchemaRessouce {
 
   @PostConstruct
   void initialize() {
-    dbc = new DatabaseConnector(vertx, 8084, "10.19.28.94", "/query?database=formly", "schemas");
+    dbc = new DatabaseConnector(vertx, 8084, "10.19.28.29", "/query?database=formly", "schemas");
     Logger log = Logger.getLogger("quarkus-json-mirror");
     log.info("Quarkus-Json-Mirror was started.");
   }

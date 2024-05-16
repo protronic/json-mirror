@@ -38,7 +38,7 @@ public class ModelRessource {
 
   @PostConstruct
   void initialize() {
-    dbc = new DatabaseConnector(vertx, 8084, "10.19.28.94", "/query?database=formly", "model");
+    dbc = new DatabaseConnector(vertx, 8084, "10.19.28.29", "/query?database=formly", "model");
   }
 
   // public JsonArray list() {
