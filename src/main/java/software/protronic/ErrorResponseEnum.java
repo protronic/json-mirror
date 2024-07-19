@@ -10,7 +10,8 @@ public enum ErrorResponseEnum {
   NOT_FOUND ("{\"error\": \"not found\"}", 404),
   AMBIGUOUS_MATCH ("{\"error\": \"ambiguous IDs\"}", 406),
   BAD_REQUEST ("{\"error\": \"bad request\"}", 400),
-  DB_REQUEST_FAILED ("{\"error\": \"database request failed\"}", 500);
+  DB_REQUEST_FAILED ("{\"error\": \"database request failed\"}", 500),
+  ARCHIV_ADD_RESTRICTED ("{\"error\": \"adding models to archiv is not allowed\"}", 400);
 
   private static final Logger LOG = Logger.getLogger("quarkus-json-mirror");
 

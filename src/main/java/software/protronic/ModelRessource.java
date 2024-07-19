@@ -1,5 +1,6 @@
 package software.protronic;
 
+import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -23,27 +24,32 @@ import io.vertx.core.json.JsonObject;
 public class ModelRessource {
 
   public static final String ID_FIELD = "#modelID";
-  // private static final Logger LOG = Logger.getLogger(ModelRessource.class);
-
-  // private List<JsonObject> modelList = Collections.synchronizedList(new LinkedList<>());
-  // private AtomicLong id = new AtomicLong(0);
-  // private Logger log = Logger.getLogger("model path");
 
   @Inject
   Vertx vertx;
-  // @Inject
-  // SchemaRessouce schemaRessouce;
 
   private DatabaseConnector dbc;
+  private DatabaseConnector dbca;
+  private HashMap<String, DatabaseConnector> dbcs;
 
   @PostConstruct
   void initialize() {
+    dbcs = new HashMap<String, DatabaseConnector>();
     dbc = new DatabaseConnector(vertx, 8084, "10.19.28.29", "/query?database=formly", "model");
+    dbcs.put("model", dbc);
+    dbca = new DatabaseConnector(vertx, 8084, "10.19.28.29", "/query?database=formly", "modelArchiv");
+    dbcs.put("modelArchiv", dbca);
   }
 
-  // public JsonArray list() {
-  // return new JsonArray(modelList);
-  // }
+  private String initializeTableIfNotExists(String table){
+    String tableName = "model" + table;
+    if(!dbcs.containsKey(tableName)){
+      DatabaseConnector newDbc = new DatabaseConnector(vertx, 8084, "10.19.28.29", "/query?database=formly", tableName);
+      dbcs.put(tableName, newDbc);
+    } 
+    return tableName;
+  }
+
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public Response list() {
@@ -72,13 +78,15 @@ public class ModelRessource {
   }
 
   @POST
-  public Response add(JsonObject obj) {
-    // obj.put(ID_FIELD, id.incrementAndGet());
-    // modelList.add(obj);
-    // return obj;
-
+  public Response add(JsonObject obj, @QueryParam("table") String altTable) {
     try {
-      JsonObject newId = dbc.add(obj).subscribe().asCompletionStage().get();
+      JsonObject newId = null;
+      if(altTable == null){
+        newId = dbc.add(obj).subscribe().asCompletionStage().get();
+      } else {
+        String tableName = initializeTableIfNotExists(altTable);
+        newId = dbcs.get(tableName).add(obj).subscribe().asCompletionStage().get();
+      }      
       if (newId == null)
         return ErrorResponseEnum.BAD_REQUEST.getResponse();
       else
@@ -87,63 +95,19 @@ public class ModelRessource {
       e.printStackTrace();
       return ErrorResponseEnum.DB_REQUEST_FAILED.getResponse();
     }
-
   }
-
-  // @POST
-  // @Consumes(MediaType.WILDCARD)
-  // @Path("/save")
-  // public void save() {
-  // // // Write a file
-  // // System.out.println("huhu");
-  // // vertx.fileSystem().writeFile("./modelList.json", new
-  // // JsonArray(modelList).toBuffer(), result -> {
-  // // if (result.succeeded()) {
-  // // log.log(Level.INFO, "File written");
-  // // } else {
-  // // log.log(Level.SEVERE, "Oh oh ..." + result.cause());
-  // // }
-  // // });
-
-  // }
-
-  // @POST
-  // @Consumes(MediaType.WILDCARD)
-  // @Path("/load")
-  // public JsonArray load() {
-  // JsonParser parser = JsonParser.newParser();
-  // parser.objectValueMode().handler(e -> {
-  // if (e.type() == VALUE) {
-  // JsonObject obj = e.objectValue();
-  // Long suppliedId = obj.getLong(ID_FIELD);
-  // if (id.get() < suppliedId)
-  // id.set(suppliedId);
-  // replace(obj, suppliedId);
-  // }
-  // });
-  // // parser.handle(vertx.fileSystem().readFileBlocking("./modelList.json"));
-  // parser.end();
-  // return new JsonArray(modelList);
-  // }
 
   @POST
   @Path("/{mid}")
-  public Response replace(JsonObject obj, @PathParam("mid") int suppliedId) {
-    // List<JsonObject> filteredModel = filterByID(suppliedId);
-    // if (filteredModel.size() < 1) {
-    // this.log.log(Level.INFO, ("Model " + suppliedId + " Wurde nicht in der Liste
-    // gefunden. Liste aller modelle: \n\n"
-    // + modelList.toString()));
-    // modelList.add(obj);
-    // return Response.ok(obj).build();
-    // } else if (filteredModel.size() > 1) {
-    // return ErrorResponseEnum.AMBIGUOUS_MATCH.getResonse();
-    // } else {
-    // overrideModel(suppliedId, obj);
-    // return Response.ok(obj).build();
-    // }
+  public Response replace(JsonObject obj, @PathParam("mid") int suppliedId, @QueryParam("table") String altTable) {
     try {
-      JsonObject model = dbc.set(suppliedId, obj).subscribe().asCompletionStage().get();
+      JsonObject model = null;
+      if(altTable == null){
+        model = dbc.set(suppliedId, obj).subscribe().asCompletionStage().get();
+      } else {
+        String tableName = initializeTableIfNotExists(altTable);
+        model = dbcs.get(tableName).set(suppliedId, obj).subscribe().asCompletionStage().get();
+      }      
       return Response.ok(model).build();
     } catch (InterruptedException | ExecutionException e) {
       e.printStackTrace();
@@ -153,17 +117,16 @@ public class ModelRessource {
 
   @GET
   @Path("/{mid}")
-  public Response getModel(@PathParam("mid") int suppliedId) {
-    // List<JsonObject> requestedModel = filterByID(suppliedId);
-    // if (requestedModel.size() < 1) {
-    // return ErrorResponseEnum.NOT_FOUND.getResonse();
-    // } else if (requestedModel.size() > 1) {
-    // return ErrorResponseEnum.AMBIGUOUS_MATCH.getResonse();
-    // } else {
-    // return Response.ok(requestedModel.get(0)).build();
-    // }
+  public Response getModel(@PathParam("mid") int suppliedId, @QueryParam("table") String altTable) {
     try {
-      JsonObject model = dbc.get(suppliedId).subscribe().asCompletionStage().get();
+      // System.out.println(altTable);
+      JsonObject model = null;
+      if(altTable == null){
+        model = dbc.get(suppliedId).subscribe().asCompletionStage().get();
+      } else {
+        String tableName = initializeTableIfNotExists(altTable);
+        model = dbcs.get(tableName).get(suppliedId).subscribe().asCompletionStage().get();
+      }
       if (model == null)
         return ErrorResponseEnum.NOT_FOUND.getResponse();
       else
@@ -177,52 +140,18 @@ public class ModelRessource {
 
   @DELETE
   @Path("/{mid}")
-  public Response removeModel(@PathParam("mid") int suppliedId) {
+  public Response removeModel(@PathParam("mid") int suppliedId, @QueryParam("table") String altTable) {
     try {
-      dbc.remove(suppliedId).subscribe().asCompletionStage().get();
+      if(altTable == null){
+        dbc.remove(suppliedId).subscribe().asCompletionStage().get();
+      } else {
+        String tableName = initializeTableIfNotExists(altTable);
+        dbcs.get(tableName).remove(suppliedId).subscribe().asCompletionStage().get();
+      }
       return Response.ok().build();
     } catch (InterruptedException | ExecutionException e) {
       e.printStackTrace();
       return ErrorResponseEnum.DB_REQUEST_FAILED.getResponse();
     }
   }
-
-  // @GET
-  // @Path("/list/schema/{parentForm}")
-  // public JsonArray listModels(@PathParam("parentForm") String parentForm) {
-  //   return new JsonArray(getDataWithModelLinks(parentForm));
-  // }
-
-  // private List<JsonObject> filterByID(long filterID) {
-  //   return modelList.stream().filter(m -> m.getLong(ID_FIELD).equals(filterID)).collect(Collectors.toList());
-  // }
-
-  // private Boolean filterOutID(long filterID) {
-  //   modelList = modelList.stream().filter(m -> !m.getLong(ID_FIELD).equals(filterID)).collect(Collectors.toList());
-  //   return true;
-  // }
-
-  // private List<JsonObject> filterByKey(String key, Object value) {
-  //   return modelList.stream().filter(m -> m.getValue(key).equals(value)).collect(Collectors.toList());
-  // }
-
-  // private void overrideModel(long replaceId, JsonObject replacement) {
-  //   replacement.put(ID_FIELD, replaceId);
-  //   modelList = modelList.stream().map(m -> m.getLong(ID_FIELD).equals(replaceId) ? replacement : m).collect(Collectors.toList());
-  // }
-
-  // private List<JsonObject> getDataWithModelLinks(String parentForm) {
-  //   return filterByKey("#parentForm", parentForm).stream()
-  //       .map(m -> m.put("link", linkBuilder(m.getString("#parentForm"), m.getLong(ID_FIELD))))
-  //       .collect(Collectors.toList());
-  // }
-
-  // private String linkBuilder(String schemaParentForm, long modelId) {
-  //   String render = a("link").withTarget("_blank")
-  //       // .withHref(
-  //       //     "http:/index.html?schema=%d&mid=%d".formatted(schemaRessouce.getIdByParentForm(schemaParentForm), modelId))
-  //       .render();
-  //   log.info(render);
-  //   return render;
-  // }
 }
