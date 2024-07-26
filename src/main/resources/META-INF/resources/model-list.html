@@ -1,36 +1,38 @@
 <!DOCTYPE html>
+
 <head>
-  <meta charset="utf-8"/>
-  <script src="http:/prot-table/prot-table-v3.js"> </script>
-  <!-- <link rel="stylesheet" type="text/css" href="table.css"> -->
+    <meta charset="utf-8" />
+    <script src="/prot-table/prot-table-v3.js">
+    </script>
+    <!-- <link rel="stylesheet" type="text/css" href="table.css"> -->
 </head>
 
 <body>
-  <prot-table-v3 id="tab"></prot-table-v3>
-  <script>
-    function renderJsonObject (col, rowNr, dataReadOnly) {
-      try {
-        return `${col.strasse} ${col.hausnummer}<br/>${col.plz} ${col.ort}`
-      } catch (e) {
-        return col
-      }
-    }
-
-    let parentForm = (new URLSearchParams(location.search)).get('parentForm')
-    fetch(`http:/model/list/schema/${parentForm}`)
-      .then(response => response.json())
-      .then(data => {
-        let table = document.querySelector("#tab")
-        if(!table.formatter["anschrift"]){
-          table.formatter["anschrift"] = [ renderJsonObject ]
+    <prot-table-v3 id="tab"></prot-table-v3>
+    <script>
+        function renderJsonObject(col, rowNr, dataReadOnly) {
+            try {
+                return `${col.strasse} ${col.hausnummer}<br/>${col.plz} ${col.ort}`
+            } catch (e) {
+                return col
+            }
         }
-        table.setData(data)
-      })
-  </script>
-  <form action="/model/save" method="post">
-    <input type="submit" value="Save">
-  </form>
-  <form action="/model/load" method="post">
-    <input type="submit" value="Load">
-  </form>
+
+        let parentForm = (new URLSearchParams(location.search)).get('parentForm')
+        fetch(`http:/model/list/schema/${parentForm}`)
+            .then(response => response.json())
+            .then(data => {
+                let table = document.querySelector("#tab")
+                if (!table.formatter["anschrift"]) {
+                    table.formatter["anschrift"] = [renderJsonObject]
+                }
+                table.setData(data)
+            })
+    </script>
+    <form action="/model/save" method="post">
+        <input type="submit" value="Save">
+    </form>
+    <form action="/model/load" method="post">
+        <input type="submit" value="Load">
+    </form>
 </body>
