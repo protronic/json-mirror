@@ -117,7 +117,7 @@ function fetchGlobalHistoryModels(parentForm) {
 
 function uploadNewModel(model, formular, altTable) {
     let serialModel = prepareModel(model, formular);
-    return fetch(`${baseUrl}${modelPath}${altTable ? `?table=${altTable}` : ""}`, {
+    return fetch(`${baseUrl}${modelPath}${(altTable && !altTable == "Archiv") ? `?table=${altTable}` : ""}`, {
             method: 'POST',
             body: `${serialModel}`,
             headers: {
@@ -274,7 +274,8 @@ class FormCreator extends InputFieldObject {
                 createCustomAlert(err.message);
             })
 
-        fetchGlobalHistoryModels();
+        fetchGlobalHistoryModels(this.schema.formular);
+        setTimeout(() => {this.applyFocusPriority()}, 500);
     }
 
     applySchema(schema) {
@@ -319,8 +320,9 @@ class FormCreator extends InputFieldObject {
         this.insertAdjacentHTML('afterbegin', `
             <div class="formular-title">
                 <h2>${schema.formular}</h2>
+                ${this.altTable ? `<h3>${this.altTable}</h3>` : ""}
             </div>
-        `)
+        `);
     }
 
     testModelCreation() {
@@ -571,3 +573,9 @@ class FormCreator extends InputFieldObject {
 }
 
 customElements.define('prot-form-gen', FormCreator);
+
+module.exports.FormCreator = FormCreator;
+module.exports.getSchemaId = getSchemaId;
+module.exports.prepareModel = prepareModel;
+module.exports.transformToHistoryModel = transformToHistoryModel;
+module.exports.fetchGlobalHistoryModels =  fetchGlobalHistoryModels;

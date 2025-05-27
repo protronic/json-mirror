@@ -38,6 +38,7 @@ module.exports.InputField = class extends HTMLElement {
             deaktiviert: false,
             pflichtfeld: false,
             hintergrundFarbe: 'none',
+            focusPrioritaet: 0,
         };
         this.rootElement = this;
         this.options = {};
@@ -71,6 +72,12 @@ module.exports.InputField = class extends HTMLElement {
         throw Error('Not Implemented');
     }
 
+    applyFocusPriority() {
+        let input = this.querySelector(`input, select, textarea`);
+        input.focus();
+        console.log(`Focus is set to: ${this.options.name}.`);
+    }
+
     convertValue(key, value) {
         try {
             if (value != undefined)
@@ -79,6 +86,7 @@ module.exports.InputField = class extends HTMLElement {
                 return '';
         } catch (err) {
             console.error(err)
+            console.log(key, value);
             console.log(key, value.toSource(), typeof value);
         }
     }

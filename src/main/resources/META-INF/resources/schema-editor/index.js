@@ -1,6 +1,6 @@
 var __create = Object.create;
-var __defProp = Object.defineProperty;
 var __getProtoOf = Object.getPrototypeOf;
+var __defProp = Object.defineProperty;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __toESM = (mod, isNodeMode, target) => {
@@ -172,9 +172,8 @@ var require_jsoneditor_min = __commonJS((exports, module) => {
           function n3(e3) {
             if (!(this instanceof n3))
               throw new TypeError("Cannot call a class as a function");
-            this.errorTableVisible = e3.errorTableVisible, this.onToggleVisibility = e3.onToggleVisibility, this.onFocusLine = e3.onFocusLine || function() {
-            }, this.onChangeHeight = e3.onChangeHeight, this.dom = {};
-            var e3 = document.createElement("div"), t3 = (e3.className = "jsoneditor-validation-errors-container", this.dom.validationErrorsContainer = e3, document.createElement("div")), e3 = (t3.style.display = "none", t3.className = "jsoneditor-additional-errors fadein", t3.textContent = "Scroll for more \u25BF", this.dom.additionalErrorsIndication = t3, e3.appendChild(t3), document.createElement("span")), t3 = (e3.className = "jsoneditor-validation-error-icon", e3.style.display = "none", this.dom.validationErrorIcon = e3, document.createElement("span"));
+            this.errorTableVisible = e3.errorTableVisible, this.onToggleVisibility = e3.onToggleVisibility, this.onFocusLine = e3.onFocusLine || function() {}, this.onChangeHeight = e3.onChangeHeight, this.dom = {};
+            var e3 = document.createElement("div"), t3 = (e3.className = "jsoneditor-validation-errors-container", this.dom.validationErrorsContainer = e3, document.createElement("div")), e3 = (t3.style.display = "none", t3.className = "jsoneditor-additional-errors fadein", t3.textContent = "Scroll for more ▿", this.dom.additionalErrorsIndication = t3, e3.appendChild(t3), document.createElement("span")), t3 = (e3.className = "jsoneditor-validation-error-icon", e3.style.display = "none", this.dom.validationErrorIcon = e3, document.createElement("span"));
             t3.className = "jsoneditor-validation-error-count", t3.style.display = "none", this.dom.validationErrorCount = t3, this.dom.parseErrorIndication = document.createElement("span"), this.dom.parseErrorIndication.className = "jsoneditor-parse-error-icon", this.dom.parseErrorIndication.style.display = "none";
           }
           return e2 = n3, (t2 = [{ key: "getErrorTable", value: function() {
@@ -193,7 +192,8 @@ var require_jsoneditor_min = __commonJS((exports, module) => {
                 return e5.path === t4.dataPath;
               })) && (e4 = n5.line + 1) : e4 = t4.line;
               var e4, n5 = document.createElement("tr"), i4 = (n5.className = isNaN(e4) ? "" : "jump-to-line", t4.type === "error" ? n5.className += " parse-error" : n5.className += " validation-error", document.createElement("td")), o3 = document.createElement("button"), o3 = (o3.className = "jsoneditor-schema-error", i4.appendChild(o3), n5.appendChild(i4), document.createElement("td"));
-              o3.style = "white-space: nowrap;", o3.textContent = isNaN(e4) ? "" : "Ln " + e4, n5.appendChild(o3), typeof t4 == "string" ? ((i4 = document.createElement("td")).colSpan = 2, (o3 = document.createElement("pre")).appendChild(document.createTextNode(t4)), i4.appendChild(o3), n5.appendChild(i4)) : ((o3 = document.createElement("td")).appendChild(document.createTextNode(t4.dataPath || "")), n5.appendChild(o3), i4 = document.createElement("td"), (o3 = document.createElement("pre")).appendChild(document.createTextNode(t4.message.replace(/<br>/gi, "\n"))), i4.appendChild(o3), n5.appendChild(i4)), n5.onclick = function() {
+              o3.style = "white-space: nowrap;", o3.textContent = isNaN(e4) ? "" : "Ln " + e4, n5.appendChild(o3), typeof t4 == "string" ? ((i4 = document.createElement("td")).colSpan = 2, (o3 = document.createElement("pre")).appendChild(document.createTextNode(t4)), i4.appendChild(o3), n5.appendChild(i4)) : ((o3 = document.createElement("td")).appendChild(document.createTextNode(t4.dataPath || "")), n5.appendChild(o3), i4 = document.createElement("td"), (o3 = document.createElement("pre")).appendChild(document.createTextNode(t4.message.replace(/<br>/gi, `
+`))), i4.appendChild(o3), n5.appendChild(i4)), n5.onclick = function() {
                 a.onFocusLine(e4);
               }, s.appendChild(n5);
             }), this.dom.validationErrors = n4, this.dom.validationErrorsContainer.appendChild(n4), this.dom.additionalErrorsIndication.title = e3.length + " errors total", this.dom.validationErrorsContainer.clientHeight < this.dom.validationErrorsContainer.scrollHeight ? (this.dom.additionalErrorsIndication.style.display = "block", this.dom.validationErrorsContainer.onscroll = function() {
@@ -273,8 +273,7 @@ var require_jsoneditor_min = __commonJS((exports, module) => {
           this.container = e2, this.options = t2 || {}, this.json = n3 || {};
           e2 = this.options.mode || this.options.modes && this.options.modes[0] || "tree";
           this.setMode(e2);
-        }, C.prototype.destroy = function() {
-        }, C.prototype.set = function(e2) {
+        }, C.prototype.destroy = function() {}, C.prototype.set = function(e2) {
           this.json = e2;
         }, C.prototype.get = function() {
           return this.json;
@@ -328,9 +327,7 @@ var require_jsoneditor_min = __commonJS((exports, module) => {
           } else
             this.validateSchema = null, this.options.schema = null, this.options.schemaRefs = null, this.validate();
           this.refresh(), typeof this._onSchemaChange == "function" && this._onSchemaChange(e2, t2);
-        }, C.prototype.validate = function() {
-        }, C.prototype.refresh = function() {
-        }, (C.registerMode = function(e2) {
+        }, C.prototype.validate = function() {}, C.prototype.refresh = function() {}, (C.registerMode = function(e2) {
           var t2;
           if (Array.isArray(e2))
             for (o3 = 0;o3 < e2.length; o3++)
@@ -410,7 +407,7 @@ var require_jsoneditor_min = __commonJS((exports, module) => {
             var c = o3[n4];
             if (!c)
               throw new Error('Unknown mode "' + n4 + '"');
-            var c = c.text, h = document.createElement("button"), c = (h.type = "button", h.className = "jsoneditor-modes jsoneditor-separator", h.textContent = c + " \u25BE", h.title = (0, g.Tl)("modeEditorTitle"), h.onclick = function() {
+            var c = c.text, h = document.createElement("button"), c = (h.type = "button", h.className = "jsoneditor-modes jsoneditor-separator", h.textContent = c + " ▾", h.title = (0, g.Tl)("modeEditorTitle"), h.onclick = function() {
               new u.t(r2).show(h, e3);
             }, document.createElement("div"));
             c.className = "jsoneditor-modes", c.style.position = "relative", c.appendChild(h), e3.appendChild(c), this.dom = { container: e3, box: h, frame: c };
@@ -432,22 +429,126 @@ var require_jsoneditor_min = __commonJS((exports, module) => {
             i2 = n2(6990), n2(4221), n2(6534), n2(6489);
             var o2 = n2(5477);
             i2.config.setModuleUrl("ace/mode/json_worker", o2);
-          } catch (e2) {
-          }
+          } catch (e2) {}
         e.exports = i2;
       },
       9762: function() {
         window.ace.define("ace/theme/jsoneditor", ["require", "exports", "module", "ace/lib/dom"], function(e, t, n2) {
-          t.isDark = false, t.cssClass = "ace-jsoneditor", t.cssText = '.ace-jsoneditor .ace_gutter {\nbackground: #ebebeb;\ncolor: #333\n}\n\n.ace-jsoneditor.ace_editor {\nline-height: 1.3;\nbackground-color: #fff;\n}\n.ace-jsoneditor .ace_print-margin {\nwidth: 1px;\nbackground: #e8e8e8\n}\n.ace-jsoneditor .ace_scroller {\nbackground-color: #FFFFFF\n}\n.ace-jsoneditor .ace_text-layer {\ncolor: gray\n}\n.ace-jsoneditor .ace_variable {\ncolor: #1a1a1a\n}\n.ace-jsoneditor .ace_cursor {\nborder-left: 2px solid #000000\n}\n.ace-jsoneditor .ace_overwrite-cursors .ace_cursor {\nborder-left: 0px;\nborder-bottom: 1px solid #000000\n}\n.ace-jsoneditor .ace_marker-layer .ace_selection {\nbackground: lightgray\n}\n.ace-jsoneditor.ace_multiselect .ace_selection.ace_start {\nbox-shadow: 0 0 3px 0px #FFFFFF;\nborder-radius: 2px\n}\n.ace-jsoneditor .ace_marker-layer .ace_step {\nbackground: rgb(255, 255, 0)\n}\n.ace-jsoneditor .ace_marker-layer .ace_bracket {\nmargin: -1px 0 0 -1px;\nborder: 1px solid #BFBFBF\n}\n.ace-jsoneditor .ace_marker-layer .ace_active-line {\nbackground: #FFFBD1\n}\n.ace-jsoneditor .ace_gutter-active-line {\nbackground-color : #dcdcdc\n}\n.ace-jsoneditor .ace_marker-layer .ace_selected-word {\nborder: 1px solid lightgray\n}\n.ace-jsoneditor .ace_invisible {\ncolor: #BFBFBF\n}\n.ace-jsoneditor .ace_keyword,\n.ace-jsoneditor .ace_meta,\n.ace-jsoneditor .ace_support.ace_constant.ace_property-value {\ncolor: #AF956F\n}\n.ace-jsoneditor .ace_keyword.ace_operator {\ncolor: #484848\n}\n.ace-jsoneditor .ace_keyword.ace_other.ace_unit {\ncolor: #96DC5F\n}\n.ace-jsoneditor .ace_constant.ace_language {\ncolor: darkorange\n}\n.ace-jsoneditor .ace_constant.ace_numeric {\ncolor: red\n}\n.ace-jsoneditor .ace_constant.ace_character.ace_entity {\ncolor: #BF78CC\n}\n.ace-jsoneditor .ace_invalid {\ncolor: #FFFFFF;\nbackground-color: #FF002A;\n}\n.ace-jsoneditor .ace_fold {\nbackground-color: #AF956F;\nborder-color: #000000\n}\n.ace-jsoneditor .ace_storage,\n.ace-jsoneditor .ace_support.ace_class,\n.ace-jsoneditor .ace_support.ace_function,\n.ace-jsoneditor .ace_support.ace_other,\n.ace-jsoneditor .ace_support.ace_type {\ncolor: #C52727\n}\n.ace-jsoneditor .ace_string {\ncolor: green\n}\n.ace-jsoneditor .ace_comment {\ncolor: #BCC8BA\n}\n.ace-jsoneditor .ace_entity.ace_name.ace_tag,\n.ace-jsoneditor .ace_entity.ace_other.ace_attribute-name {\ncolor: #606060\n}\n.ace-jsoneditor .ace_markup.ace_underline {\ntext-decoration: underline\n}\n.ace-jsoneditor .ace_indent-guide {\nbackground: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y\n}', e("../lib/dom").importCssString(t.cssText, t.cssClass);
+          t.isDark = false, t.cssClass = "ace-jsoneditor", t.cssText = `.ace-jsoneditor .ace_gutter {
+background: #ebebeb;
+color: #333
+}
+
+.ace-jsoneditor.ace_editor {
+line-height: 1.3;
+background-color: #fff;
+}
+.ace-jsoneditor .ace_print-margin {
+width: 1px;
+background: #e8e8e8
+}
+.ace-jsoneditor .ace_scroller {
+background-color: #FFFFFF
+}
+.ace-jsoneditor .ace_text-layer {
+color: gray
+}
+.ace-jsoneditor .ace_variable {
+color: #1a1a1a
+}
+.ace-jsoneditor .ace_cursor {
+border-left: 2px solid #000000
+}
+.ace-jsoneditor .ace_overwrite-cursors .ace_cursor {
+border-left: 0px;
+border-bottom: 1px solid #000000
+}
+.ace-jsoneditor .ace_marker-layer .ace_selection {
+background: lightgray
+}
+.ace-jsoneditor.ace_multiselect .ace_selection.ace_start {
+box-shadow: 0 0 3px 0px #FFFFFF;
+border-radius: 2px
+}
+.ace-jsoneditor .ace_marker-layer .ace_step {
+background: rgb(255, 255, 0)
+}
+.ace-jsoneditor .ace_marker-layer .ace_bracket {
+margin: -1px 0 0 -1px;
+border: 1px solid #BFBFBF
+}
+.ace-jsoneditor .ace_marker-layer .ace_active-line {
+background: #FFFBD1
+}
+.ace-jsoneditor .ace_gutter-active-line {
+background-color : #dcdcdc
+}
+.ace-jsoneditor .ace_marker-layer .ace_selected-word {
+border: 1px solid lightgray
+}
+.ace-jsoneditor .ace_invisible {
+color: #BFBFBF
+}
+.ace-jsoneditor .ace_keyword,
+.ace-jsoneditor .ace_meta,
+.ace-jsoneditor .ace_support.ace_constant.ace_property-value {
+color: #AF956F
+}
+.ace-jsoneditor .ace_keyword.ace_operator {
+color: #484848
+}
+.ace-jsoneditor .ace_keyword.ace_other.ace_unit {
+color: #96DC5F
+}
+.ace-jsoneditor .ace_constant.ace_language {
+color: darkorange
+}
+.ace-jsoneditor .ace_constant.ace_numeric {
+color: red
+}
+.ace-jsoneditor .ace_constant.ace_character.ace_entity {
+color: #BF78CC
+}
+.ace-jsoneditor .ace_invalid {
+color: #FFFFFF;
+background-color: #FF002A;
+}
+.ace-jsoneditor .ace_fold {
+background-color: #AF956F;
+border-color: #000000
+}
+.ace-jsoneditor .ace_storage,
+.ace-jsoneditor .ace_support.ace_class,
+.ace-jsoneditor .ace_support.ace_function,
+.ace-jsoneditor .ace_support.ace_other,
+.ace-jsoneditor .ace_support.ace_type {
+color: #C52727
+}
+.ace-jsoneditor .ace_string {
+color: green
+}
+.ace-jsoneditor .ace_comment {
+color: #BCC8BA
+}
+.ace-jsoneditor .ace_entity.ace_name.ace_tag,
+.ace-jsoneditor .ace_entity.ace_other.ace_attribute-name {
+color: #606060
+}
+.ace-jsoneditor .ace_markup.ace_underline {
+text-decoration: underline
+}
+.ace-jsoneditor .ace_indent-guide {
+background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y
+}`, e("../lib/dom").importCssString(t.cssText, t.cssClass);
         });
       },
       5736: function(e, t) {
-        (n2 = { trace: function() {
-        }, yy: {}, symbols_: { error: 2, JSONString: 3, STRING: 4, JSONNumber: 5, NUMBER: 6, JSONNullLiteral: 7, NULL: 8, JSONBooleanLiteral: 9, TRUE: 10, FALSE: 11, JSONText: 12, JSONValue: 13, EOF: 14, JSONObject: 15, JSONArray: 16, "{": 17, "}": 18, JSONMemberList: 19, JSONMember: 20, ":": 21, ",": 22, "[": 23, "]": 24, JSONElementList: 25, $accept: 0, $end: 1 }, terminals_: { 2: "error", 4: "STRING", 6: "NUMBER", 8: "NULL", 10: "TRUE", 11: "FALSE", 14: "EOF", 17: "{", 18: "}", 21: ":", 22: ",", 23: "[", 24: "]" }, productions_: [0, [3, 1], [5, 1], [7, 1], [9, 1], [9, 1], [12, 2], [13, 1], [13, 1], [13, 1], [13, 1], [13, 1], [13, 1], [15, 2], [15, 3], [20, 3], [19, 1], [19, 3], [16, 2], [16, 3], [25, 1], [25, 3]], performAction: function(e2, t2, n3, i2, o2, r, s) {
+        (n2 = { trace: function() {}, yy: {}, symbols_: { error: 2, JSONString: 3, STRING: 4, JSONNumber: 5, NUMBER: 6, JSONNullLiteral: 7, NULL: 8, JSONBooleanLiteral: 9, TRUE: 10, FALSE: 11, JSONText: 12, JSONValue: 13, EOF: 14, JSONObject: 15, JSONArray: 16, "{": 17, "}": 18, JSONMemberList: 19, JSONMember: 20, ":": 21, ",": 22, "[": 23, "]": 24, JSONElementList: 25, $accept: 0, $end: 1 }, terminals_: { 2: "error", 4: "STRING", 6: "NUMBER", 8: "NULL", 10: "TRUE", 11: "FALSE", 14: "EOF", 17: "{", 18: "}", 21: ":", 22: ",", 23: "[", 24: "]" }, productions_: [0, [3, 1], [5, 1], [7, 1], [9, 1], [9, 1], [12, 2], [13, 1], [13, 1], [13, 1], [13, 1], [13, 1], [13, 1], [15, 2], [15, 3], [20, 3], [19, 1], [19, 3], [16, 2], [16, 3], [25, 1], [25, 3]], performAction: function(e2, t2, n3, i2, o2, r, s) {
           var a = r.length - 1;
           switch (o2) {
             case 1:
-              this.$ = e2.replace(/\\(\\|")/g, "$1").replace(/\\n/g, "\n").replace(/\\r/g, "\r").replace(/\\t/g, "\t").replace(/\\v/g, "\v").replace(/\\f/g, "\f").replace(/\\b/g, "\b");
+              this.$ = e2.replace(/\\(\\|")/g, "$1").replace(/\\n/g, `
+`).replace(/\\r/g, "\r").replace(/\\t/g, "\t").replace(/\\v/g, "\v").replace(/\\f/g, "\f").replace(/\\b/g, "\b");
               break;
             case 2:
               this.$ = Number(e2);
@@ -504,7 +605,9 @@ var require_jsoneditor_min = __commonJS((exports, module) => {
               if (!c) {
                 for (f in v = [], r[p])
                   this.terminals_[f] && 2 < f && v.push("'" + this.terminals_[f] + "'");
-                var A = "", A = this.lexer.showPosition ? "Parse error on line " + (a + 1) + ":\n" + this.lexer.showPosition() + "\nExpecting " + v.join(", ") + ", got '" + this.terminals_[u] + "'" : "Parse error on line " + (a + 1) + ": Unexpected " + (u == 1 ? "end of input" : "'" + (this.terminals_[u] || u) + "'");
+                var A = "", A = this.lexer.showPosition ? "Parse error on line " + (a + 1) + `:
+` + this.lexer.showPosition() + `
+Expecting ` + v.join(", ") + ", got '" + this.terminals_[u] + "'" : "Parse error on line " + (a + 1) + ": Unexpected " + (u == 1 ? "end of input" : "'" + (this.terminals_[u] || u) + "'");
                 this.parseError(A, { text: this.lexer.match, token: this.terminals_[u] || u, line: this.lexer.yylineno, loc: h, expected: v });
               }
               if (c == 3) {
@@ -560,14 +663,16 @@ var require_jsoneditor_min = __commonJS((exports, module) => {
           return e2.length < 20 && (e2 += this._input.substr(0, 20 - e2.length)), (e2.substr(0, 20) + (20 < e2.length ? "..." : "")).replace(/\n/g, "");
         }, showPosition: function() {
           var e2 = this.pastInput(), t2 = new Array(e2.length + 1).join("-");
-          return e2 + this.upcomingInput() + "\n" + t2 + "^";
+          return e2 + this.upcomingInput() + `
+` + t2 + "^";
         }, next: function() {
           if (this.done)
             return this.EOF;
           this._input || (this.done = true), this._more || (this.yytext = "", this.match = "");
           for (var e2, t2, n3, i2, o2 = this._currentRules(), r = 0;r < o2.length && (!(t2 = this._input.match(this.rules[o2[r]])) || e2 && !(t2[0].length > e2[0].length) || (e2 = t2, n3 = r, this.options.flex)); r++)
             ;
-          return e2 ? ((i2 = e2[0].match(/\n.*/g)) && (this.yylineno += i2.length), this.yylloc = { first_line: this.yylloc.last_line, last_line: this.yylineno + 1, first_column: this.yylloc.last_column, last_column: i2 ? i2[i2.length - 1].length - 1 : this.yylloc.last_column + e2[0].length }, this.yytext += e2[0], this.match += e2[0], this.yyleng = this.yytext.length, this._more = false, this._input = this._input.slice(e2[0].length), this.matched += e2[0], i2 = this.performAction.call(this, this.yy, this, o2[n3], this.conditionStack[this.conditionStack.length - 1]), this.done && this._input && (this.done = false), i2 || undefined) : this._input === "" ? this.EOF : void this.parseError("Lexical error on line " + (this.yylineno + 1) + ". Unrecognized text.\n" + this.showPosition(), { text: "", token: null, line: this.yylineno });
+          return e2 ? ((i2 = e2[0].match(/\n.*/g)) && (this.yylineno += i2.length), this.yylloc = { first_line: this.yylloc.last_line, last_line: this.yylineno + 1, first_column: this.yylloc.last_column, last_column: i2 ? i2[i2.length - 1].length - 1 : this.yylloc.last_column + e2[0].length }, this.yytext += e2[0], this.match += e2[0], this.yyleng = this.yytext.length, this._more = false, this._input = this._input.slice(e2[0].length), this.matched += e2[0], i2 = this.performAction.call(this, this.yy, this, o2[n3], this.conditionStack[this.conditionStack.length - 1]), this.done && this._input && (this.done = false), i2 || undefined) : this._input === "" ? this.EOF : void this.parseError("Lexical error on line " + (this.yylineno + 1) + `. Unrecognized text.
+` + this.showPosition(), { text: "", token: null, line: this.yylineno });
         }, lex: function() {
           var e2 = this.next();
           return e2 !== undefined ? e2 : this.lex();
@@ -617,8 +722,7 @@ var require_jsoneditor_min = __commonJS((exports, module) => {
         t.parser = n2, t.parse = n2.parse.bind(n2);
       },
       4772: function(e) {
-        function i2() {
-        }
+        function i2() {}
         i2.prototype = { on: function(e2, t2) {
           this._events = this._events || {}, this._events[e2] = this._events[e2] || [], this._events[e2].push(t2);
         }, off: function(e2, t2) {
@@ -776,8 +880,7 @@ var require_jsoneditor_min = __commonJS((exports, module) => {
               e2 = true;
             } });
             window.addEventListener("test", null, t2);
-          } catch (e3) {
-          }
+          } catch (e3) {}
           return e2;
         }, t.prototype.bindEvents = function() {
           var n2, i3 = this;
@@ -1107,15 +1210,17 @@ var require_jsoneditor_min = __commonJS((exports, module) => {
           return l;
         } });
         n2(1081);
-        var r = { en: { array: "Array", auto: "Auto", appendText: "Append", appendTitle: "Append a new field with type 'auto' after this field (Ctrl+Shift+Ins)", appendSubmenuTitle: "Select the type of the field to be appended", appendTitleAuto: "Append a new field with type 'auto' (Ctrl+Shift+Ins)", ascending: "Ascending", ascendingTitle: "Sort the childs of this ${type} in ascending order", actionsMenu: "Click to open the actions menu (Ctrl+M)", cannotParseFieldError: "Cannot parse field into JSON", cannotParseValueError: "Cannot parse value into JSON", collapseAll: "Collapse all fields", compactTitle: "Compact JSON data, remove all whitespaces (Ctrl+Shift+I)", descending: "Descending", descendingTitle: "Sort the childs of this ${type} in descending order", drag: "Drag to move this field (Alt+Shift+Arrows)", duplicateKey: "duplicate key", duplicateText: "Duplicate", duplicateTitle: "Duplicate selected fields (Ctrl+D)", duplicateField: "Duplicate this field (Ctrl+D)", duplicateFieldError: "Duplicate field name", empty: "empty", expandAll: "Expand all fields", expandTitle: "Click to expand/collapse this field (Ctrl+E). \nCtrl+Click to expand/collapse including all childs.", formatTitle: "Format JSON data, with proper indentation and line feeds (Ctrl+I)", insert: "Insert", insertTitle: "Insert a new field with type 'auto' before this field (Ctrl+Ins)", insertSub: "Select the type of the field to be inserted", object: "Object", ok: "Ok", redo: "Redo (Ctrl+Shift+Z)", removeText: "Remove", removeTitle: "Remove selected fields (Ctrl+Del)", removeField: "Remove this field (Ctrl+Del)", repairTitle: "Repair JSON: fix quotes and escape characters, remove comments and JSONP notation, turn JavaScript objects into JSON.", searchTitle: "Search fields and values", searchNextResultTitle: "Next result (Enter)", searchPreviousResultTitle: "Previous result (Shift + Enter)", selectNode: "Select a node...", showAll: "show all", showMore: "show more", showMoreStatus: "displaying ${visibleChilds} of ${totalChilds} items.", sort: "Sort", sortTitle: "Sort the childs of this ${type}", sortTitleShort: "Sort contents", sortFieldLabel: "Field:", sortDirectionLabel: "Direction:", sortFieldTitle: "Select the nested field by which to sort the array or object", sortAscending: "Ascending", sortAscendingTitle: "Sort the selected field in ascending order", sortDescending: "Descending", sortDescendingTitle: "Sort the selected field in descending order", string: "String", transform: "Transform", transformTitle: "Filter, sort, or transform the childs of this ${type}", transformTitleShort: "Filter, sort, or transform contents", extract: "Extract", extractTitle: "Extract this ${type}", transformQueryTitle: "Enter a JMESPath query", transformWizardLabel: "Wizard", transformWizardFilter: "Filter", transformWizardSortBy: "Sort by", transformWizardSelectFields: "Select fields", transformQueryLabel: "Query", transformPreviewLabel: "Preview", type: "Type", typeTitle: "Change the type of this field", openUrl: "Ctrl+Click or Ctrl+Enter to open url in new window", undo: "Undo last action (Ctrl+Z)", validationCannotMove: "Cannot move a field into a child of itself", autoType: 'Field type "auto". The field type is automatically determined from the value and can be a string, number, boolean, or null.', objectType: 'Field type "object". An object contains an unordered set of key/value pairs.', arrayType: 'Field type "array". An array contains an ordered collection of values.', stringType: 'Field type "string". Field type is not determined from the value, but always returned as string.', modeEditorTitle: "Switch Editor Mode", modeCodeText: "Code", modeCodeTitle: "Switch to code highlighter", modeFormText: "Form", modeFormTitle: "Switch to form editor", modeTextText: "Text", modeTextTitle: "Switch to plain text editor", modeTreeText: "Tree", modeTreeTitle: "Switch to tree editor", modeViewText: "View", modeViewTitle: "Switch to tree view", modePreviewText: "Preview", modePreviewTitle: "Switch to preview mode", examples: "Examples", default: "Default", containsInvalidProperties: "Contains invalid properties", containsInvalidItems: "Contains invalid items" }, es: { array: "Matriz", auto: "Auto", appendText: "Agregar", appendTitle: "Agregue un nuevo campo con el tipo 'auto' despu\xE9s de este campo (Ctrl + Shift + Ins)", appendSubmenuTitle: "Seleccione el tipo de campo que se agregar\xE1", appendTitleAuto: "Agregue un nuevo campo con el tipo 'auto' (Ctrl + Shift + Ins)", ascending: "Ascendente", ascendingTitle: "Ordene los elementos secundarios de este ${type} en orden ascendente", actionsMenu: "Haga clic para abrir el men\xFA de acciones (Ctrl + M)", cannotParseFieldError: "No se puede parsear el campo en JSON", cannotParseValueError: "No se puede parsear el valor en JSON", collapseAll: "Contraer todos los campos", compactTitle: "Compactar datos JSON, eliminar todos los espacios en blanco (Ctrl + Shift + I)", descending: "Descendente", descendingTitle: "Ordene los hijos de este ${type} en orden descendente", drag: "Arrastre para mover este campo (Alt + May\xFAs + Flechas)", duplicateKey: "llave duplicada", duplicateText: "Duplicar", duplicateTitle: "Duplicar campos seleccionados (Ctrl + D)", duplicateField: "Duplicar este campo (Ctrl + D)", duplicateFieldError: "Nombre de campo duplicado", empty: "vacio", expandAll: "Expandir todos los campos", expandTitle: `Haga clic para expandir/contraer este campo (Ctrl + E). 
-  Ctrl+Clic para expandir/contraer incluyendo todos los ni\xF1os.`, formatTitle: "Formatee los datos JSON, con la sangr\xEDa y los avances de l\xEDnea adecuados (Ctrl + I)", insert: "Insertar", insertTitle: "Inserte un nuevo campo con el tipo 'auto' antes de este campo (Ctrl + Ins)", insertSub: "Seleccione el tipo de campo a insertar", object: "Objeto", ok: "Ok", redo: "Rehacer (Ctrl+May\xFAs+Z)", removeText: "Eliminar", removeTitle: "Eliminar campos seleccionados (Ctrl+Supr)", removeField: "Eliminar este campo (Ctrl+Supr)", repairTitle: "Reparar JSON: corrija comillas y caracteres de escape, elimine comentarios y notaci\xF3n JSONP, convierta objetos JavaScript en JSON.", searchTitle: "Campos de b\xFAsqueda y valores", searchNextResultTitle: "Siguiente resultado (Entrar)", searchPreviousResultTitle: "Resultado anterior (Shift + Enter)", selectNode: "Seleccione un nodo...", showAll: "mostrar todo", showMore: "mostrar m\xE1s", showMoreStatus: "mostrando ${visibleChilds} de ${totalChilds} elementos.", sort: "Ordenar", sortTitle: "Ordene los hijos de este ${type}", sortTitleShort: "Ordenar contenidos", sortFieldLabel: "Campo:", sortDirectionLabel: "Direcci\xF3n:", sortFieldTitle: "Seleccione el campo anidado por el cual ordenar la matriz u objeto", sortAscending: "Ascendente", sortAscendingTitle: "Ordenar el campo seleccionado en orden ascendente", sortDescending: "Descendente", sortDescendingTitle: "Ordenar por el campo seleccionado, en orden descendente", string: "Texto", transform: "Transformar", transformTitle: "Filtrar, ordenar o transformar los hijos de este ${type}", transformTitleShort: "Filtrar, ordenar o transformar contenidos", extract: "Extraer", extractTitle: "Extrae este ${type}", transformQueryTitle: "Ingrese una consulta JMESPath", transformWizardLabel: "Wizard", transformWizardFilter: "Filtro", transformWizardSortBy: "Ordenar por", transformWizardSelectFields: "Seleccione un campo", transformQueryLabel: "Consulta", transformPreviewLabel: "Vista Previa", type: "Tipo", typeTitle: "Cambiar el tipo de campo", openUrl: "Ctrl+Click o Ctrl+Enter para abrir la URL en una nueva ventana", undo: "Deshacer la \xFAltima acci\xF3n (Ctrl+Z)", validationCannotMove: "No se puede mover un campo a un hijo de s\xED mismo.", autoType: 'Tipo de campo "auto". El tipo de campo se determina autom\xE1ticamente a partir del valor y puede ser una cadena, un n\xFAmero, un booleano o un valor nulo.', objectType: 'Tipo de campo "objeto".  Un objeto contiene un conjunto desordenado de pares clave/valor.', arrayType: 'Tipo de campo "matriz".  Una matriz contiene una colecci\xF3n ordenada de valores.', stringType: 'Tipo de campo "cadena".  El tipo de campo no se determina a partir del valor,  pero siempre se devuelve como una cadena.', modeEditorTitle: "Cambiar modo de editor", modeCodeText: "C\xF3digo", modeCodeTitle: "Cambiar al resaltador de c\xF3digo", modeFormText: "Formulario", modeFormTitle: "Cambiar al editor de formularios", modeTextText: "Texto", modeTextTitle: "Cambiar al editor de texto sin formato", modeTreeText: "\xC1rbol", modeTreeTitle: "Cambiar al editor de \xE1rbol", modeViewText: "Vista", modeViewTitle: "Cambiar a la vista de \xE1rbol", modePreviewText: "Vista Previa", modePreviewTitle: "Cambiar al modo de vista previa", examples: "Ejemplos", default: "Predeterminado", containsInvalidProperties: "Contiene propiedades no v\xE1lidas", containsInvalidItems: "Contiene \xEDtems no v\xE1lidos" }, "zh-CN": { array: "\u6570\u7EC4", auto: "\u81EA\u52A8", appendText: "\u8FFD\u52A0", appendTitle: "\u5728\u6B64\u5B57\u6BB5\u540E\u8FFD\u52A0\u4E00\u4E2A\u7C7B\u578B\u4E3A\u201Cauto\u201D\u7684\u65B0\u5B57\u6BB5 (Ctrl+Shift+Ins)", appendSubmenuTitle: "\u9009\u62E9\u8981\u8FFD\u52A0\u7684\u5B57\u6BB5\u7C7B\u578B", appendTitleAuto: "\u8FFD\u52A0\u7C7B\u578B\u4E3A\u201Cauto\u201D\u7684\u65B0\u5B57\u6BB5 (Ctrl+Shift+Ins)", ascending: "\u5347\u5E8F", ascendingTitle: "\u5347\u5E8F\u6392\u5217${type}\u7684\u5B50\u8282\u70B9", actionsMenu: "\u70B9\u51FB\u6253\u5F00\u52A8\u4F5C\u83DC\u5355(Ctrl+M)", cannotParseFieldError: "\u65E0\u6CD5\u5C06\u5B57\u6BB5\u89E3\u6790\u4E3AJSON", cannotParseValueError: "\u65E0\u6CD5\u5C06\u503C\u89E3\u6790\u4E3AJSON", collapseAll: "\u7F29\u8FDB\u6240\u6709\u5B57\u6BB5", compactTitle: "\u538B\u7F29JSON\u6570\u636E\uFF0C\u5220\u9664\u6240\u6709\u7A7A\u683C (Ctrl+Shift+I)", descending: "\u964D\u5E8F", descendingTitle: "\u964D\u5E8F\u6392\u5217${type}\u7684\u5B50\u8282\u70B9", drag: "\u62D6\u62FD\u79FB\u52A8\u8BE5\u8282\u70B9(Alt+Shift+Arrows)", duplicateKey: "\u91CD\u590D\u952E", duplicateText: "\u590D\u5236", duplicateTitle: "\u590D\u5236\u9009\u4E2D\u5B57\u6BB5(Ctrl+D)", duplicateField: "\u590D\u5236\u8BE5\u5B57\u6BB5(Ctrl+D)", duplicateFieldError: "\u91CD\u590D\u7684\u5B57\u6BB5\u540D\u79F0", empty: "\u6E05\u7A7A", expandAll: "\u5C55\u5F00\u6240\u6709\u5B57\u6BB5", expandTitle: `\u70B9\u51FB \u5C55\u5F00/\u6536\u7F29 \u8BE5\u5B57\u6BB5(Ctrl+E). 
-Ctrl+Click \u5C55\u5F00/\u6536\u7F29 \u5305\u542B\u6240\u6709\u5B50\u8282\u70B9.`, formatTitle: "\u4F7F\u7528\u9002\u5F53\u7684\u7F29\u8FDB\u548C\u6362\u884C\u7B26\u683C\u5F0F\u5316JSON\u6570\u636E (Ctrl+I)", insert: "\u63D2\u5165", insertTitle: "\u5728\u6B64\u5B57\u6BB5\u524D\u63D2\u5165\u7C7B\u578B\u4E3A\u201Cauto\u201D\u7684\u65B0\u5B57\u6BB5 (Ctrl+Ins)", insertSub: "\u9009\u62E9\u8981\u63D2\u5165\u7684\u5B57\u6BB5\u7C7B\u578B", object: "\u5BF9\u8C61", ok: "Ok", redo: "\u91CD\u505A (Ctrl+Shift+Z)", removeText: "\u79FB\u9664", removeTitle: "\u79FB\u9664\u9009\u4E2D\u5B57\u6BB5 (Ctrl+Del)", removeField: "\u79FB\u9664\u8BE5\u5B57\u6BB5 (Ctrl+Del)", repairTitle: "\u4FEE\u590DJSON\uFF1A\u4FEE\u590D\u5F15\u53F7\u548C\u8F6C\u4E49\u7B26\uFF0C\u5220\u9664\u6CE8\u91CA\u548CJSONP\u8868\u793A\u6CD5\uFF0C\u5C06JavaScript\u5BF9\u8C61\u8F6C\u6362\u4E3AJSON\u3002", selectNode: "\u9009\u62E9\u4E00\u4E2A\u8282\u70B9...", showAll: "\u5C55\u793A\u5168\u90E8", showMore: "\u5C55\u793A\u66F4\u591A", showMoreStatus: "\u663E\u793A${totalChilds}\u7684${visibleChilds}\u9879\u76EE.", sort: "\u6392\u5E8F", sortTitle: "\u6392\u5E8F${type}\u7684\u5B50\u8282\u70B9", sortTitleShort: "\u5185\u5BB9\u6392\u5E8F", sortFieldLabel: "\u5B57\u6BB5\uFF1A", sortDirectionLabel: "\u65B9\u5411\uFF1A", sortFieldTitle: "\u9009\u62E9\u7528\u4E8E\u5BF9\u6570\u7EC4\u6216\u5BF9\u8C61\u6392\u5E8F\u7684\u5D4C\u5957\u5B57\u6BB5", sortAscending: "\u5347\u5E8F\u6392\u5E8F", sortAscendingTitle: "\u6309\u7167\u8BE5\u5B57\u6BB5\u5347\u5E8F\u6392\u5E8F", sortDescending: "\u964D\u5E8F\u6392\u5E8F", sortDescendingTitle: "\u6309\u7167\u8BE5\u5B57\u6BB5\u964D\u5E8F\u6392\u5E8F", string: "\u5B57\u7B26\u4E32", transform: "\u53D8\u6362", transformTitle: "\u7B5B\u9009\uFF0C\u6392\u5E8F\uFF0C\u6216\u8005\u8F6C\u6362${type}\u7684\u5B50\u8282\u70B9", transformTitleShort: "\u7B5B\u9009\uFF0C\u6392\u5E8F\uFF0C\u6216\u8005\u8F6C\u6362\u5185\u5BB9", extract: "\u63D0\u53D6", extractTitle: "\u63D0\u53D6\u8FD9\u4E2A ${type}", transformQueryTitle: "\u8F93\u5165JMESPath\u67E5\u8BE2", transformWizardLabel: "\u5411\u5BFC", transformWizardFilter: "\u7B5B\u9009", transformWizardSortBy: "\u6392\u5E8F", transformWizardSelectFields: "\u9009\u62E9\u5B57\u6BB5", transformQueryLabel: "\u67E5\u8BE2", transformPreviewLabel: "\u9884\u89C8", type: "\u7C7B\u578B", typeTitle: "\u66F4\u6539\u5B57\u6BB5\u7C7B\u578B", openUrl: "Ctrl+Click \u6216\u8005 Ctrl+Enter \u5728\u65B0\u7A97\u53E3\u6253\u5F00\u94FE\u63A5", undo: "\u64A4\u9500\u4E0A\u6B21\u52A8\u4F5C (Ctrl+Z)", validationCannotMove: "\u65E0\u6CD5\u5C06\u5B57\u6BB5\u79FB\u5165\u5176\u5B50\u8282\u70B9", autoType: '\u5B57\u6BB5\u7C7B\u578B "auto". \u5B57\u6BB5\u7C7B\u578B\u7531\u503C\u81EA\u52A8\u786E\u5B9A \u53EF\u4EE5\u4E3A string\uFF0Cnumber\uFF0Cboolean\uFF0C\u6216\u8005 null.', objectType: '\u5B57\u6BB5\u7C7B\u578B "object". \u5BF9\u8C61\u5305\u542B\u4E00\u7EC4\u65E0\u5E8F\u7684\u952E/\u503C\u5BF9.', arrayType: '\u5B57\u6BB5\u7C7B\u578B "array". \u6570\u7EC4\u5305\u542B\u503C\u7684\u6709\u5E8F\u96C6\u5408.', stringType: '\u5B57\u6BB5\u7C7B\u578B "string". \u5B57\u6BB5\u7C7B\u578B\u7531\u503C\u81EA\u52A8\u786E\u5B9A\uFF0C\u4F46\u59CB\u7EC8\u4F5C\u4E3A\u5B57\u7B26\u4E32\u8FD4\u56DE.', modeCodeText: "\u4EE3\u7801", modeCodeTitle: "\u5207\u6362\u81F3\u4EE3\u7801\u9AD8\u4EAE", modeFormText: "\u8868\u5355", modeFormTitle: "\u5207\u6362\u81F3\u8868\u5355\u7F16\u8F91", modeTextText: "\u6587\u672C", modeTextTitle: "\u5207\u6362\u81F3\u6587\u672C\u7F16\u8F91", modeTreeText: "\u6811", modeTreeTitle: "\u5207\u6362\u81F3\u6811\u7F16\u8F91", modeViewText: "\u89C6\u56FE", modeViewTitle: "\u5207\u6362\u81F3\u6811\u89C6\u56FE", modePreviewText: "\u9884\u89C8", modePreviewTitle: "\u5207\u6362\u81F3\u9884\u89C8\u6A21\u5F0F", examples: "\u4F8B\u5B50", default: "\u7F3A\u7701", containsInvalidProperties: "\u5305\u542B\u65E0\u6548\u7684\u5C5E\u6027", containsInvalidItems: "\u5305\u542B\u65E0\u6548\u9879\u76EE" }, "pt-BR": { array: "Lista", auto: "Automatico", appendText: "Adicionar", appendTitle: "Adicionar novo campo com tipo 'auto' depois deste campo (Ctrl+Shift+Ins)", appendSubmenuTitle: "Selecione o tipo do campo a ser adicionado", appendTitleAuto: "Adicionar novo campo com tipo 'auto' (Ctrl+Shift+Ins)", ascending: "Ascendente", ascendingTitle: "Organizar filhor do tipo ${type} em crescente", actionsMenu: "Clique para abrir o menu de a\xE7\xF5es (Ctrl+M)", cannotParseFieldError: "N\xE3o \xE9 poss\xEDvel analisar o campo no JSON", cannotParseValueError: "N\xE3o \xE9 poss\xEDvel analisar o valor em JSON", collapseAll: "Fechar todos campos", compactTitle: "Dados JSON compactos, remova todos os espa\xE7os em branco (Ctrl+Shift+I)", descending: "Descendente", descendingTitle: "Organizar o filhos do tipo ${type} em decrescente", duplicateKey: "chave duplicada", drag: "Arraste para mover este campo (Alt+Shift+Arrows)", duplicateText: "Duplicar", duplicateTitle: "Duplicar campos selecionados (Ctrl+D)", duplicateField: "Duplicar este campo (Ctrl+D)", duplicateFieldError: "Nome do campo duplicado", empty: "vazio", expandAll: "Expandir todos campos", expandTitle: "Clique para expandir/encolher este campo (Ctrl+E). \nCtrl+Click para expandir/encolher incluindo todos os filhos.", formatTitle: "Formate dados JSON, com recuo e feeds de linha adequados (Ctrl+I)", insert: "Inserir", insertTitle: "Inserir um novo campo do tipo 'auto' antes deste campo (Ctrl+Ins)", insertSub: "Selecionar o tipo de campo a ser inserido", object: "Objeto", ok: "Ok", redo: "Refazer (Ctrl+Shift+Z)", removeText: "Remover", removeTitle: "Remover campos selecionados (Ctrl+Del)", removeField: "Remover este campo (Ctrl+Del)", repairTitle: "Repare JSON: corrija aspas e caracteres de escape, remova coment\xE1rios e nota\xE7\xE3o JSONP, transforme objetos JavaScript em JSON.", selectNode: "Selecione um n\xF3dulo...", showAll: "mostrar todos", showMore: "mostrar mais", showMoreStatus: "exibindo ${visibleChilds} de ${totalChilds} itens.", sort: "Organizar", sortTitle: "Organizar os filhos deste ${type}", sortTitleShort: "Organizar os filhos", sortFieldLabel: "Campo:", sortDirectionLabel: "Dire\xE7\xE3o:", sortFieldTitle: "Selecione um campo filho pelo qual ordenar o array ou objeto", sortAscending: "Ascendente", sortAscendingTitle: "Ordenar o campo selecionado por ordem ascendente", sortDescending: "Descendente", sortDescendingTitle: "Ordenar o campo selecionado por ordem descendente", string: "Texto", transform: "Transformar", transformTitle: "Filtrar, ordenar ou transformar os filhos deste ${type}", transformTitleShort: "Filtrar, ordenar ou transformar conte\xFAdos", transformQueryTitle: "Insira uma express\xE3o JMESPath", transformWizardLabel: "Assistente", transformWizardFilter: "Filtro", transformWizardSortBy: "Ordenar por", transformWizardSelectFields: "Selecionar campos", transformQueryLabel: "Express\xE3o", transformPreviewLabel: "Visualizar", type: "Tipo", typeTitle: "Mudar o tipo deste campo", openUrl: "Ctrl+Click ou Ctrl+Enter para abrir link em nova janela", undo: "Desfazer \xFAltimo a\xE7\xE3o (Ctrl+Z)", validationCannotMove: "N\xE3o pode mover um campo como filho dele mesmo", autoType: 'Campo do tipo "auto". O tipo do campo \xE9 determinao automaticamente a partir do seu valor e pode ser texto, n\xFAmero, verdade/falso ou nulo.', objectType: 'Campo do tipo "objeto". Um objeto cont\xE9m uma lista de pares com chave e valor.', arrayType: 'Campo do tipo "lista". Uma lista contem uma cole\xE7\xE3o de valores ordenados.', stringType: 'Campo do tipo "string". Campo do tipo nao \xE9 determinado atrav\xE9s do seu valor, mas sempre retornara um texto.', examples: "Exemplos", default: "Revelia", containsInvalidProperties: "Cont\xE9m propriedades inv\xE1lidas", containsInvalidItems: "Cont\xE9m itens inv\xE1lidos" }, tr: { array: "Dizin", auto: "Otomatik", appendText: "Ekle", appendTitle: "Bu alan\u0131n alt\u0131na 'otomatik' tipinde yeni bir alan ekle (Ctrl+Shift+Ins)", appendSubmenuTitle: "Eklenecek alan\u0131n tipini se\xE7", appendTitleAuto: "'Otomatik' tipinde yeni bir alan ekle (Ctrl+Shift+Ins)", ascending: "Artan", ascendingTitle: "${type}'\u0131n alt tiplerini artan d\xFCzende s\u0131rala", actionsMenu: "Aksiyon men\xFCs\xFCn\xFC a\xE7mak i\xE7in t\u0131klay\u0131n (Ctrl+M)", collapseAll: "T\xFCm alanlar\u0131 kapat", descending: "Azalan", descendingTitle: "${type}'\u0131n alt tiplerini azalan d\xFCzende s\u0131rala", drag: "Bu alan\u0131 ta\u015F\u0131mak i\xE7in s\xFCr\xFCkleyin (Alt+Shift+Arrows)", duplicateKey: "Var olan anahtar", duplicateText: "A\u015Fa\u011F\u0131ya kopyala", duplicateTitle: "Se\xE7ili alanlardan bir daha olu\u015Ftur (Ctrl+D)", duplicateField: "Bu alandan bir daha olu\u015Ftur (Ctrl+D)", duplicateFieldError: "Duplicate field name", cannotParseFieldError: "Alan JSON'a ayr\u0131\u015Ft\u0131r\u0131lam\u0131yor", cannotParseValueError: "JSON'a de\u011Fer ayr\u0131\u015Ft\u0131r\u0131lam\u0131yor", empty: "bo\u015F", expandAll: "T\xFCm alanlar\u0131 a\xE7", expandTitle: `Bu alan\u0131 a\xE7mak/kapatmak i\xE7in t\u0131kla (Ctrl+E). 
-Alt alanlarda dahil t\xFCm alanlar\u0131 a\xE7mak i\xE7in Ctrl+Click `, insert: "Ekle", insertTitle: "Bu alan\u0131n \xFCst\xFCne 'otomatik' tipinde yeni bir alan ekle (Ctrl+Ins)", insertSub: "Araya eklenecek alan\u0131n tipini se\xE7", object: "Nesne", ok: "Tamam", redo: "Yeniden yap (Ctrl+Shift+Z)", removeText: "Kald\u0131r", removeTitle: "Se\xE7ilen alanlar\u0131 kald\u0131r (Ctrl+Del)", removeField: "Bu alan\u0131 kald\u0131r (Ctrl+Del)", selectNode: "Bir nesne se\xE7...", showAll: "t\xFCm\xFCn\xFC g\xF6ster", showMore: "daha fazla g\xF6ster", showMoreStatus: "${totalChilds} alan\u0131n ${visibleChilds} alt alanlar\u0131 g\xF6steriliyor", sort: "S\u0131rala", sortTitle: "${type}'\u0131n alt alanlar\u0131n\u0131 s\u0131rala", sortTitleShort: "\u0130\xE7erikleri s\u0131rala", sortFieldLabel: "Alan:", sortDirectionLabel: "Y\xF6n:", sortFieldTitle: "Diziyi veya nesneyi s\u0131ralamak i\xE7in i\xE7 i\xE7e ge\xE7mi\u015F alan\u0131 se\xE7in", sortAscending: "Artan", sortAscendingTitle: "Se\xE7ili alan\u0131 artan d\xFCzende s\u0131rala", sortDescending: "Azalan", sortDescendingTitle: "Se\xE7ili alan\u0131 azalan d\xFCzende s\u0131rala", string: "Karakter Dizisi", transform: "D\xF6n\xFC\u015Ft\xFCr", transformTitle: "${type}'\u0131n alt alanlar\u0131n\u0131 filtrele, s\u0131rala veya d\xF6n\xFC\u015Ft\xFCr", transformTitleShort: "\u0130\xE7erikleri filterele, s\u0131rala veya d\xF6n\xFC\u015Ft\xFCr", transformQueryTitle: "JMESPath sorgusu gir", transformWizardLabel: "Sihirbaz", transformWizardFilter: "Filtre", transformWizardSortBy: "S\u0131rala", transformWizardSelectFields: "Alanlar\u0131 se\xE7", transformQueryLabel: "Sorgu", transformPreviewLabel: "\xD6nizleme", type: "Tip", typeTitle: "Bu alan\u0131n tipini de\u011Fi\u015Ftir", openUrl: "URL'i yeni bir pencerede a\xE7mak i\xE7in Ctrl+Click veya Ctrl+Enter", undo: "Son de\u011Fi\u015Fikli\u011Fi geri al (Ctrl+Z)", validationCannotMove: "Alt alan olarak ta\u015F\u0131nam\u0131yor", autoType: 'Alan tipi "otomatik". Alan t\xFCr\xFC otomatik olarak de\u011Ferden belirlenirve bir dize, say\u0131, boolean veya null olabilir.', objectType: 'Alan tipi "nesne". Bir nesne, s\u0131ralanmam\u0131\u015F bir anahtar / de\u011Fer \xE7ifti k\xFCmesi i\xE7erir.', arrayType: 'Alan tipi "dizi". Bir dizi, d\xFCzenli de\u011Ferler koleksiyonu i\xE7erir.', stringType: 'Alan tipi "karakter dizisi". Alan t\xFCr\xFC de\u011Ferden belirlenmez,ancak her zaman karakter dizisi olarak d\xF6nd\xFCr\xFCl\xFCr.', modeCodeText: "Kod", modeCodeTitle: "Kod vurgulay\u0131c\u0131ya ge\xE7", modeFormText: "Form", modeFormTitle: "Form d\xFCzenleyiciye ge\xE7", modeTextText: "Metin", modeTextTitle: "D\xFCz metin d\xFCzenleyiciye ge\xE7", modeTreeText: "A\u011Fa\xE7", modeTreeTitle: "A\u011Fa\xE7 d\xFCzenleyiciye ge\xE7", modeViewText: "G\xF6r\xFCn\xFCm", modeViewTitle: "A\u011Fa\xE7 g\xF6r\xFCn\xFCm\xFCne ge\xE7", examples: "\xD6rnekler", default: "Varsay\u0131lan", containsInvalidProperties: "Ge\xE7ersiz \xF6zellikler i\xE7eriyor", containsInvalidItems: "Ge\xE7ersiz \xF6\u011Feler i\xE7eriyor" }, ja: { array: "\u914D\u5217", auto: "\u30AA\u30FC\u30C8", appendText: "\u8FFD\u52A0", appendTitle: '\u6B21\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u306B"\u30AA\u30FC\u30C8"\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u3092\u8FFD\u52A0 (Ctrl+Shift+Ins)', appendSubmenuTitle: "\u8FFD\u52A0\u3059\u308B\u30D5\u30A3\u30FC\u30EB\u30C9\u306E\u578B\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044", appendTitleAuto: '"\u30AA\u30FC\u30C8"\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u3092\u8FFD\u52A0 (Ctrl+Shift+Ins)', ascending: "\u6607\u9806", ascendingTitle: "${type}\u306E\u5B50\u8981\u7D20\u3092\u6607\u9806\u306B\u4E26\u3079\u66FF\u3048", actionsMenu: "\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u30A2\u30AF\u30B7\u30E7\u30F3\u30E1\u30CB\u30E5\u30FC\u3092\u958B\u304F (Ctrl+M)", collapseAll: "\u3059\u3079\u3066\u3092\u6298\u308A\u305F\u305F\u3080", descending: "\u964D\u9806", descendingTitle: "${type}\u306E\u5B50\u8981\u7D20\u3092\u964D\u9806\u306B\u4E26\u3079\u66FF\u3048", drag: "\u30C9\u30E9\u30C3\u30B0\u3057\u3066\u9078\u629E\u4E2D\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u3092\u79FB\u52D5 (Alt+Shift+Arrows)", duplicateKey: "\u8907\u88FD\u30AD\u30FC", duplicateText: "\u8907\u88FD", duplicateTitle: "\u9078\u629E\u4E2D\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u3092\u8907\u88FD (Ctrl+D)", duplicateField: "\u9078\u629E\u4E2D\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u3092\u8907\u88FD (Ctrl+D)", duplicateFieldError: "\u30D5\u30A3\u30FC\u30EB\u30C9\u540D\u304C\u91CD\u8907\u3057\u3066\u3044\u307E\u3059", cannotParseFieldError: "JSON\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u3092\u89E3\u6790\u3067\u304D\u307E\u305B\u3093", cannotParseValueError: "JSON\u306E\u5024\u3092\u89E3\u6790\u3067\u304D\u307E\u305B\u3093", empty: "\u7A7A", expandAll: "\u3059\u3079\u3066\u3092\u5C55\u958B", expandTitle: `\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u30D5\u30A3\u30FC\u30EB\u30C9\u3092\u5C55\u958B/\u6298\u308A\u305F\u305F\u3080 (Ctrl+E). 
-Ctrl+Click \u3067\u3059\u3079\u3066\u306E\u5B50\u8981\u7D20\u3092\u5C55\u958B/\u6298\u308A\u305F\u305F\u3080`, insert: "\u633F\u5165", insertTitle: "\u9078\u629E\u4E2D\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u306E\u524D\u306B\u65B0\u3057\u3044\u30D5\u30A3\u30FC\u30EB\u30C9\u3092\u633F\u5165 (Ctrl+Ins)", insertSub: "\u633F\u5165\u3059\u308B\u30D5\u30A3\u30FC\u30EB\u30C9\u306E\u578B\u3092\u9078\u629E", object: "\u30AA\u30D6\u30B8\u30A7\u30AF\u30C8", ok: "\u5B9F\u884C", redo: "\u3084\u308A\u76F4\u3059 (Ctrl+Shift+Z)", removeText: "\u524A\u9664", removeTitle: "\u9078\u629E\u4E2D\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u3092\u524A\u9664 (Ctrl+Del)", removeField: "\u9078\u629E\u4E2D\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u3092\u524A\u9664 (Ctrl+Del)", selectNode: "\u30CE\u30FC\u30C9\u3092\u9078\u629E...", showAll: "\u3059\u3079\u3066\u3092\u8868\u793A", showMore: "\u3082\u3063\u3068\u898B\u308B", showMoreStatus: "${totalChilds}\u500B\u306E\u30A2\u30A4\u30C6\u30E0\u306E\u3046\u3061 ${visibleChilds}\u500B\u3092\u8868\u793A\u3057\u3066\u3044\u307E\u3059\u3002", sort: "\u4E26\u3079\u66FF\u3048", sortTitle: "${type}\u306E\u5B50\u8981\u7D20\u3092\u4E26\u3079\u66FF\u3048", sortTitleShort: "\u4E26\u3079\u66FF\u3048", sortFieldLabel: "\u30D5\u30A3\u30FC\u30EB\u30C9:", sortDirectionLabel: "\u9806\u5E8F:", sortFieldTitle: "\u914D\u5217\u307E\u305F\u306F\u30AA\u30D6\u30B8\u30A7\u30AF\u30C8\u3092\u4E26\u3073\u66FF\u3048\u308B\u305F\u3081\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u3092\u9078\u629E", sortAscending: "\u6607\u9806", sortAscendingTitle: "\u9078\u629E\u4E2D\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u3092\u6607\u9806\u306B\u4E26\u3073\u66FF\u3048", sortDescending: "\u964D\u9806", sortDescendingTitle: "\u9078\u629E\u4E2D\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u3092\u964D\u9806\u306B\u4E26\u3073\u66FF\u3048", string: "\u6587\u5B57\u5217", transform: "\u5909\u63DB", transformTitle: "${type}\u306E\u5B50\u8981\u7D20\u3092\u30D5\u30A3\u30EB\u30BF\u30FC\u30FB\u4E26\u3073\u66FF\u3048\u30FB\u5909\u63DB\u3059\u308B", transformTitleShort: "\u5185\u5BB9\u3092\u30D5\u30A3\u30EB\u30BF\u30FC\u30FB\u4E26\u3073\u66FF\u3048\u30FB\u5909\u63DB\u3059\u308B", extract: "\u62BD\u51FA", extractTitle: "${type}\u3092\u62BD\u51FA", transformQueryTitle: "JMESPath\u30AF\u30A8\u30EA\u3092\u5165\u529B", transformWizardLabel: "\u30A6\u30A3\u30B6\u30FC\u30C9", transformWizardFilter: "\u30D5\u30A3\u30EB\u30BF\u30FC", transformWizardSortBy: "\u4E26\u3073\u66FF\u3048", transformWizardSelectFields: "\u30D5\u30A3\u30FC\u30EB\u30C9\u3092\u9078\u629E", transformQueryLabel: "\u30AF\u30A8\u30EA", transformPreviewLabel: "\u30D7\u30EC\u30D3\u30E5\u30FC", type: "\u578B", typeTitle: "\u9078\u629E\u4E2D\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u306E\u578B\u3092\u5909\u66F4", openUrl: "Ctrl+Click \u307E\u305F\u306F Ctrl+Enter \u3067 \u65B0\u898F\u30A6\u30A3\u30F3\u30C9\u30A6\u3067URL\u3092\u958B\u304F", undo: "\u5143\u306B\u623B\u3059 (Ctrl+Z)", validationCannotMove: "\u5B50\u8981\u7D20\u306B\u79FB\u52D5\u3067\u304D\u307E\u305B\u3093 ", autoType: "\u30AA\u30FC\u30C8\uFF1A \u30D5\u30A3\u30FC\u30EB\u30C9\u306E\u578B\u306F\u5024\u304B\u3089\u81EA\u52D5\u7684\u306B\u6C7A\u5B9A\u3055\u308C\u307E\u3059\u3002 (\u6587\u5B57\u5217\u30FB\u6570\u5024\u30FB\u30D6\u30FC\u30EB\u30FBnull)", objectType: "\u30AA\u30D6\u30B8\u30A7\u30AF\u30C8\uFF1A \u30AA\u30D6\u30B8\u30A7\u30AF\u30C8\u306F\u9806\u5E8F\u304C\u6C7A\u307E\u3063\u3066\u3044\u306A\u3044\u30AD\u30FC\u3068\u5024\u306E\u30DA\u30A2\u7D44\u307F\u5408\u308F\u305B\u3067\u3059\u3002", arrayType: "\u914D\u5217\uFF1A \u914D\u5217\u306F\u9806\u5E8F\u304C\u6C7A\u307E\u3063\u3066\u3044\u308B\u5024\u306E\u96C6\u5408\u4F53\u3067\u3059\u3002", stringType: "\u6587\u5B57\u5217\uFF1A \u30D5\u30A3\u30FC\u30EB\u30C9\u578B\u306F\u5024\u304B\u3089\u6C7A\u5B9A\u3055\u308C\u307E\u305B\u3093\u304C\u3001\u5E38\u306B\u6587\u5B57\u5217\u3068\u3057\u3066\u8FD4\u3055\u308C\u307E\u3059\u3002", modeCodeText: "\u30B3\u30FC\u30C9\u30E2\u30FC\u30C9", modeCodeTitle: "\u30CF\u30A4\u30E9\u30A4\u30C8\u30E2\u30FC\u30C9\u306B\u5207\u308A\u66FF\u3048", modeFormText: "\u30D5\u30A9\u30FC\u30E0\u30E2\u30FC\u30C9", modeFormTitle: "\u30D5\u30A9\u30FC\u30E0\u30E2\u30FC\u30C9\u306B\u5207\u308A\u66FF\u3048", modeTextText: "\u30C6\u30AD\u30B9\u30C8\u30E2\u30FC\u30C9", modeTextTitle: "\u30C6\u30AD\u30B9\u30C8\u30E2\u30FC\u30C9\u306B\u5207\u308A\u66FF\u3048", modeTreeText: "\u30C4\u30EA\u30FC\u30E2\u30FC\u30C9", modeTreeTitle: "\u30C4\u30EA\u30FC\u30E2\u30FC\u30C9\u306B\u5207\u308A\u66FF\u3048", modeViewText: "\u30D3\u30E5\u30FC\u30E2\u30FC\u30C9", modeViewTitle: "\u30D3\u30E5\u30FC\u30E2\u30FC\u30C9\u306B\u5207\u308A\u66FF\u3048", modePreviewText: "\u30D7\u30EC\u30D3\u30E5\u30FC", modePreviewTitle: "\u30D7\u30EC\u30D3\u30E5\u30FC\u306B\u5207\u308A\u66FF\u3048", examples: "\u4F8B", default: "\u30C7\u30D5\u30A9\u30EB\u30C8", containsInvalidProperties: "\u7121\u52B9\u306A\u30D7\u30ED\u30D1\u30C6\u30A3\u304C\u542B\u307E\u308C\u3066\u3044\u307E\u3059", containsInvalidItems: "\u7121\u52B9\u306A\u30A2\u30A4\u30C6\u30E0\u304C\u542B\u307E\u308C\u3066\u3044\u307E\u3059" }, "fr-FR": { array: "Liste", auto: "Auto", appendText: "Ajouter", appendTitle: "Ajouter un champ de type 'auto' apr\xE8s ce champ (Ctrl+Shift+Ins)", appendSubmenuTitle: "S\xE9lectionner le type du champ \xE0 ajouter", appendTitleAuto: "Ajouter un champ de type 'auto' (Ctrl+Shift+Ins)", ascending: "Ascendant", ascendingTitle: "Trier les enfants de ce ${type} par ordre ascendant", actionsMenu: "Ouvrir le menu des actions (Ctrl+M)", collapseAll: "Regrouper", descending: "Descendant", descendingTitle: "Trier les enfants de ce ${type} par ordre descendant", drag: "D\xE9placer (Alt+Shift+Arrows)", duplicateKey: "Dupliquer la cl\xE9", duplicateText: "Dupliquer", duplicateTitle: "Dupliquer les champs s\xE9lectionn\xE9s (Ctrl+D)", duplicateField: "Dupliquer ce champ (Ctrl+D)", duplicateFieldError: "Dupliquer le nom de champ", cannotParseFieldError: "Champ impossible \xE0 parser en JSON", cannotParseValueError: "Valeur impossible \xE0 parser en JSON", empty: "vide", expandAll: "\xC9tendre", expandTitle: `\xC9tendre/regrouper ce champ (Ctrl+E). 
-Ctrl+Click pour \xE9tendre/regrouper avec tous les champs.`, insert: "Ins\xE9rer", insertTitle: "Ins\xE9rer un champ de type 'auto' avant ce champ (Ctrl+Ins)", insertSub: "S\xE9lectionner le type de champ \xE0 ins\xE9rer", object: "Objet", ok: "Ok", redo: "Rejouer (Ctrl+Shift+Z)", removeText: "Supprimer", removeTitle: "Supprimer les champs s\xE9lectionn\xE9s (Ctrl+Del)", removeField: "Supprimer ce champ (Ctrl+Del)", searchTitle: "Rechercher champs et valeurs", searchNextResultTitle: "R\xE9sultat suivant (Enter)", searchPreviousResultTitle: "R\xE9sultat pr\xE9c\xE9dent (Shift + Enter)", selectNode: "S\xE9lectionner un n\u0153ud...", showAll: "voir tout", showMore: "voir plus", showMoreStatus: "${visibleChilds} \xE9l\xE9ments affich\xE9s de ${totalChilds}.", sort: "Trier", sortTitle: "Trier les champs de ce ${type}", sortTitleShort: "Trier", sortFieldLabel: "Champ:", sortDirectionLabel: "Direction:", sortFieldTitle: "S\xE9lectionner les champs permettant de trier les listes et objet", sortAscending: "Ascendant", sortAscendingTitle: "Trier les champs s\xE9lectionn\xE9s par ordre ascendant", sortDescending: "Descendant", sortDescendingTitle: "Trier les champs s\xE9lectionn\xE9s par ordre descendant", string: "Cha\xEEne", transform: "Transformer", transformTitle: "Filtrer, trier, or transformer les enfants de ce ${type}", transformTitleShort: "Filtrer, trier ou transformer le contenu", extract: "Extraire", extractTitle: "Extraire ce ${type}", transformQueryTitle: "Saisir une requ\xEAte JMESPath", transformWizardLabel: "Assistant", transformWizardFilter: "Filtrer", transformWizardSortBy: "Trier par", transformWizardSelectFields: "S\xE9lectionner les champs", transformQueryLabel: "Requ\xEAte", transformPreviewLabel: "Pr\xE9visualisation", type: "Type", typeTitle: "Changer le type de ce champ", openUrl: "Ctrl+Click ou Ctrl+Enter pour ouvrir l'url dans une autre fen\xEAtre", undo: "Annuler la derni\xE8re action (Ctrl+Z)", validationCannotMove: "Cannot move a field into a child of itself", autoType: 'Champe de type "auto". Ce type de champ est automatiquement d\xE9termin\xE9 en fonction de la valeur et peut \xEAtre de type "cha\xEEne", "nombre", "bool\xE9en" ou null.', objectType: 'Champ de type "objet". Un objet contient un ensemble non ordonn\xE9 de paires cl\xE9/valeur.', arrayType: 'Champ de type "liste". Une liste contient une collection ordonn\xE9e de valeurs.', stringType: `Champ de type "cha\xEEne". Ce type de champ n'est pas d\xE9termin\xE9 en fonction de la valeur, mais retourne syst\xE9matiquement une cha\xEEne de caract\xE8res.`, modeEditorTitle: "Changer mode d'\xE9dition", modeCodeText: "Code", modeCodeTitle: "Activer surlignage code", modeFormText: "Formulaire", modeFormTitle: "Activer formulaire", modeTextText: "Texte", modeTextTitle: "Activer \xE9diteur texte", modeTreeText: "Arbre", modeTreeTitle: "Activer \xE9diteur arbre", modeViewText: "Lecture seule", modeViewTitle: "Activer vue arbre", modePreviewText: "Pr\xE9visualisation", modePreviewTitle: "Activer mode pr\xE9visualiser", examples: "Exemples", default: "D\xE9faut", containsInvalidProperties: "Contient des propri\xE9t\xE9s non valides", containsInvalidItems: "Contient des \xE9l\xE9ments invalides" }, de: { array: "Auflistung", auto: "Auto", appendText: "anh\xE4ngen", appendTitle: "F\xFCgen Sie nach diesem Feld ein neues Feld mit dem Typ 'auto' ein (Strg+Umschalt+Ein)", appendSubmenuTitle: "W\xE4hlen Sie den Typ des neuen Feldes", appendTitleAuto: "Ein neues Feld vom Typ 'auto' hinzuf\xFCgen (Strg+Umschalt+Ein)", ascending: "Aufsteigend", ascendingTitle: "Sortieren Sie die Elemente dieses ${type} in aufsteigender Reihenfolge", actionsMenu: "Klicken Sie zum \xD6ffnen des Aktionsmen\xFCs (Strg+M)", cannotParseFieldError: "Feld kann nicht in JSON geparst werden", cannotParseValueError: "Wert kann nicht in JSON geparst werden", collapseAll: "Alle Felder zuklappen", compactTitle: "JSON-Daten verdichten, alle Leerzeichen entfernen (Strg+Umschalt+\\)", descending: "Absteigend", descendingTitle: "Sortieren Sie die Elemente dieses ${type} in absteigender Reihenfolge", drag: "Ziehen, um dieses Feld zu verschieben (Alt+Umschalt+Pfeile)", duplicateKey: "Doppelter Schl\xFCssel", duplicateText: "Duplikat", duplicateTitle: "Ausgew\xE4hlte Felder duplizieren (Strg+D)", duplicateField: "Dieses Feld duplizieren (Strg+D)", duplicateFieldError: "Doppelter Feldname", empty: "leer", expandAll: "Alle Felder anzeigen", expandTitle: `Klicken Sie, um dieses Feld zu erweitern/zu kollabieren (Strg+E). 
-Strg+Klicken Sie, um dieses Feld einschlie\xDFlich aller Elemente zu erweitern/zu kollabieren.`, formatTitle: "JSON-Daten mit korrekter Einr\xFCckung und Zeilenvorsch\xFCben formatieren (Strg+\\)", insert: "einf\xFCgen", insertTitle: "F\xFCgen Sie vor diesem Feld ein neues Feld mit dem Typ 'auto' ein (Strg+Einfg)", insertSub: "W\xE4hlen Sie den Typ des neuen Feldes", object: "Objekt", ok: "Ok", redo: "Wiederholen (Strg+Umschalt+Z)", removeText: "entfernen", removeTitle: "Ausgew\xE4hlte Felder entfernen (Strg+Entf)", removeField: "Dieses Feld entfernen (Strg+Entf)", repairTitle: "JSON reparieren: Anf\xFChrungszeichen und Escape-Zeichen korrigieren, Kommentare und JSONP-Notation entfernen, JavaScript-Objekte in JSON umwandeln.", searchTitle: "Suchfelder und Werte", searchNextResultTitle: "N\xE4chstes Ergebnis (Enter)", searchPreviousResultTitle: "Vorheriges Ergebnis (Umschalt + Eingabe)", selectNode: "W\xE4hlen Sie einen Knoten aus...", showAll: "alle anzeigen", showMore: "mehr anzeigen", showMoreStatus: "Anzeige von ${visibleChilds} von ${totalChilds}-Elementen.", sort: "Sortieren", sortTitle: "Sortieren Sie die Elemente dieses ${type}", sortTitleShort: "Inhalt sortieren", sortFieldLabel: "Feld:", sortDirectionLabel: "Richtung:", sortFieldTitle: "W\xE4hlen Sie das verschachtelte Feld, nach dem das Array oder Objekt sortiert werden soll.", sortAscending: "Aufsteigend", sortAscendingTitle: "Sortieren Sie das ausgew\xE4hlte Feld in aufsteigender Reihenfolge", sortDescending: "Absteigend", sortDescendingTitle: "Sortieren Sie das ausgew\xE4hlte Feld in absteigender Reihenfolge", string: "Zeichenfolge", transform: "Verwandeln", transformTitle: "Die Elemente dieses ${type} filtern, sortieren oder transformieren", transformTitleShort: "Inhalte filtern, sortieren oder transformieren", extract: "Auszug", extractTitle: "Extrahieren Sie diesen ${type}", transformQueryTitle: "Eine JMESPath-Abfrage eingeben", transformWizardLabel: "Zauberer", transformWizardFilter: "Filter", transformWizardSortBy: "Sortieren nach", transformWizardSelectFields: "Felder ausw\xE4hlen", transformQueryLabel: "Anfrage", transformPreviewLabel: "Vorschau", type: "Geben Sie  ein.", typeTitle: "\xC4ndern Sie den Typ dieses Feldes", openUrl: "Strg+Klicken oder Strg+Eingabe, um die URL in einem neuen Fenster zu \xF6ffnen", undo: "Letzte Aktion r\xFCckg\xE4ngig machen (Strg+Z)", validationCannotMove: "Kann ein Feld nicht in ein Kind seiner selbst verschieben", autoType: 'Feldtyp "auto". Der Feldtyp wird automatisch aus dem Wert bestimmt und kann ein String, eine Zahl, boolesch oder null sein.', objectType: 'Feldtyp "Objekt". Ein Objekt enth\xE4lt eine ungeordnete Menge von Schl\xFCssel/Wert-Paaren.', arrayType: 'Feldtyp "Array". Ein Array enth\xE4lt eine geordnete Sammlung von Werten.', stringType: 'Feldtyp "Zeichenfolge". Der Feldtyp wird nicht aus dem Wert bestimmt, sondern immer als Zeichenfolge zur\xFCckgegeben.', modeEditorTitle: "Editor-Modus umschalten", modeCodeText: "Code", modeCodeTitle: "Umschalten auf Code-Highlighter", modeFormText: "Formular", modeFormTitle: "Zum Formular-Editor wechseln", modeTextText: "Text", modeTextTitle: "Zum Editor f\xFCr einfachen Text wechseln", modeTreeText: "Baum", modeTreeTitle: "Zum Baum-Editor wechseln", modeViewText: "Siehe", modeViewTitle: "Zur Baumansicht wechseln", modePreviewText: "Vorschau", modePreviewTitle: "In den Vorschau-Modus wechseln", examples: "Beispiele", default: "Standardm\xE4\xDFig", containsInvalidProperties: "Enth\xE4lt ung\xFCltige Eigenschaften", containsInvalidItems: "Enth\xE4lt ung\xFCltige Elemente" }, ru: { array: "\u041C\u0430\u0441\u0441\u0438\u0432", auto: "\u0410\u0432\u0442\u043E", appendText: "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C", appendTitle: "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043D\u043E\u0432\u043E\u0435 \u043F\u043E\u043B\u0435 \u0441 \u0442\u0438\u043F\u043E\u043C '\u0430\u0432\u0442\u043E' \u043F\u043E\u0441\u043B\u0435 \u044D\u0442\u043E\u0433\u043E \u043F\u043E\u043B\u044F (Ctrl+Shift+Ins)", appendSubmenuTitle: "\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u0442\u0438\u043F \u043F\u043E\u043B\u044F \u0434\u043B\u044F \u0434\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u044F", appendTitleAuto: "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043D\u043E\u0432\u043E\u0435 \u043F\u043E\u043B\u0435 \u0441 \u0442\u0438\u043F\u043E\u043C '\u0430\u0432\u0442\u043E' (Ctrl+Shift+Ins)", ascending: "\u041F\u043E \u0432\u043E\u0437\u0440\u0430\u0441\u0442\u0430\u043D\u0438\u044E", ascendingTitle: "\u0421\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C ${type} \u043F\u043E \u0432\u043E\u0437\u0440\u0430\u0441\u0442\u0430\u043D\u0438\u044E", actionsMenu: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u0434\u043B\u044F \u043E\u0442\u043A\u0440\u044B\u0442\u0438\u044F \u043C\u0435\u043D\u044E \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0439 (Ctrl+M)", cannotParseFieldError: "\u041D\u0435\u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E \u043F\u0440\u0435\u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u0442\u044C \u043F\u043E\u043B\u0435 \u0432 JSON", cannotParseValueError: "\u041D\u0435\u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E \u043F\u0440\u0435\u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u0442\u044C \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435 \u0432 JSON", collapseAll: "\u0421\u0432\u0435\u0440\u043D\u0443\u0442\u044C \u0432\u0441\u0435", compactTitle: "\u041C\u0438\u043D\u0438\u0444\u0438\u043A\u0430\u0446\u0438\u044F JSON (Ctrl+Shift+I)", descending: "\u041F\u043E \u0443\u0431\u044B\u0432\u0430\u043D\u0438\u044E", descendingTitle: "\u0421\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C ${type} \u043F\u043E \u0443\u0431\u044B\u0432\u0430\u043D\u0438\u044E", drag: "\u041F\u043E\u0442\u044F\u043D\u0438\u0442\u0435 \u0434\u043B\u044F \u043F\u0435\u0440\u0435\u043C\u0435\u0449\u0435\u043D\u0438\u044F \u044D\u0442\u043E\u0433\u043E \u043F\u043E\u043B\u044F (Alt+Shift+Arrows)", duplicateKey: "\u043F\u043E\u0432\u0442\u043E\u0440\u044F\u044E\u0449\u0438\u0439\u0441\u044F \u043A\u043B\u044E\u0447", duplicateText: "\u0414\u0443\u0431\u043B\u0438\u0440\u043E\u0432\u0430\u0442\u044C", duplicateTitle: "\u0414\u0443\u0431\u043B\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u043F\u043E\u043B\u0435\u0439 (Ctrl+D)", duplicateField: "\u0414\u0443\u0431\u043B\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043F\u043E\u043B\u0435 (Ctrl+D)", duplicateFieldError: "\u0414\u0443\u0431\u043B\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u044F \u043F\u043E\u043B\u044F", empty: "\u043F\u0443\u0441\u0442\u043E\u0439", expandAll: "\u0420\u0430\u0437\u0432\u0435\u0440\u043D\u0443\u0442\u044C \u0432\u0441\u0435", expandTitle: `\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u0434\u043B\u044F \u0440\u0430\u0441\u043A\u0440\u044B\u0442\u0438\u044F/\u0441\u043A\u0440\u044B\u0442\u0438\u044F \u043F\u043E\u043B\u044F (Ctrl+E)
-\u0438\u043B\u0438 Ctrl+Click \u0434\u043B\u044F \u0440\u0430\u0441\u043A\u0440\u044B\u0442\u0438\u044F/\u0441\u043A\u0440\u044B\u0442\u0438\u044F \u0432\u0441\u0435\u0445 \u043F\u043E\u0442\u043E\u043C\u043A\u043E\u0432.`, formatTitle: "\u0424\u043E\u0440\u043C\u0430\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 JSON (Ctrl+I)", insert: "\u0412\u0441\u0442\u0430\u0432\u0438\u0442\u044C", insertTitle: "\u0412\u0441\u0442\u0430\u0432\u0438\u0442\u044C \u043D\u043E\u0432\u043E\u0435 \u043F\u043E\u043B\u0435 \u0441 \u0442\u0438\u043F\u043E\u043C '\u0430\u0432\u0442\u043E' \u043F\u0435\u0440\u0435\u0434 \u044D\u0442\u0438\u043C \u043F\u043E\u043B\u0435\u043C (Ctrl+Ins)", insertSub: "\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u0442\u0438\u043F \u043F\u043E\u043B\u044F \u0434\u043B\u044F \u0432\u0441\u0442\u0430\u0432\u043A\u0438", object: "\u041E\u0431\u044A\u0435\u043A\u0442", ok: "\u041E\u041A", redo: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u044C (Ctrl+Shift+Z)", removeText: "\u0423\u0434\u0430\u043B\u0438\u0442\u044C", removeTitle: "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0432\u044B\u0431\u0440\u0430\u043D\u043D\u044B\u0435 \u043F\u043E\u043B\u044F (Ctrl+Del)", removeField: "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043F\u043E\u043B\u0435 (Ctrl+Del)", repairTitle: "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0435 JSON: \u0438\u0441\u043F\u0440\u0430\u0432\u044C\u0442\u0435 \u043A\u0430\u0432\u044B\u0447\u043A\u0438 \u0438 escape-\u0441\u0438\u043C\u0432\u043E\u043B\u044B, \u0443\u0434\u0430\u043B\u0438\u0442\u0435 \u043A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0438 \u0438 \u043D\u043E\u0442\u0430\u0446\u0438\u044E JSONP, \u043C\u043E\u0434\u0438\u0444\u0438\u0446\u0438\u0440\u0443\u0439\u0442\u0435 \u043E\u0431\u044A\u0435\u043A\u0442\u044B JavaScript \u0432 JSON.", searchTitle: "\u041F\u043E\u0438\u0441\u043A", searchNextResultTitle: "\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439 \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442 (Enter)", searchPreviousResultTitle: "\u041F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0438\u0439 \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442 (Shift + Enter)", selectNode: "\u0412\u044B\u0431\u043E\u0440 \u0443\u0437\u043B\u0430...", showAll: "\u043F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0432\u0441\u0435", showMore: "\u0431\u043E\u043B\u044C\u0448\u0435", showMoreStatus: "${visibleChilds} \u0438\u0437 ${totalChilds}", sort: "\u0421\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u043A\u0430", sortTitle: "\u0421\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u043A\u0430 \u043F\u043E\u0442\u043E\u043C\u043A\u043E\u0432 \u0442\u0438\u043F\u0430 ${type}", sortTitleShort: "\u0421\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u043A\u0430 \u0441\u043E\u0434\u0435\u0440\u0436\u0438\u043C\u043E\u0433\u043E", sortFieldLabel: "\u041F\u043E\u043B\u0435:", sortDirectionLabel: "\u041D\u0430\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435:", sortFieldTitle: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043F\u043E\u043B\u0435 \u0434\u043B\u044F \u0441\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u043A\u0438 \u043C\u0430\u0441\u0441\u0438\u0432\u0430 \u0438\u043B\u0438 \u043E\u0431\u044A\u0435\u043A\u0442\u0430", sortAscending: "\u041F\u043E \u0432\u043E\u0437\u0440\u0430\u0441\u0442\u0430\u043D\u0438\u044E", sortAscendingTitle: "\u0421\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u043A\u0430 \u0432\u044B\u0431\u0440\u0430\u043D\u043D\u043E\u0433\u043E \u043F\u043E\u0440\u044F \u043F\u043E \u0432\u043E\u0437\u0440\u0430\u0441\u0442\u0430\u043D\u0438\u044E", sortDescending: "\u041F\u043E \u0443\u0431\u044B\u0432\u0430\u043D\u0438\u044E", sortDescendingTitle: "\u0421\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u043A\u0430 \u0432\u044B\u0431\u0440\u0430\u043D\u043D\u043E\u0433\u043E \u043F\u043E\u0440\u044F \u043F\u043E \u0443\u0431\u044B\u0432\u0430\u043D\u0438\u044E", string: "\u0421\u0442\u0440\u043E\u043A\u0430", transform: "\u041C\u043E\u0434\u0438\u0444\u0438\u043A\u0430\u0446\u0438\u044F", transformTitle: "\u0424\u0438\u043B\u044C\u0442\u0440\u0430\u0446\u0438\u044F, \u0441\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u043A\u0430 \u0438\u043B\u0438 \u043C\u043E\u0434\u0438\u0444\u0438\u043A\u0430\u0446\u0438\u044F \u0434\u0430\u043D\u043D\u044B\u0445 \u0442\u0438\u043F\u0430 ${type}", transformTitleShort: "\u0424\u0438\u043B\u044C\u0442\u0440\u0430\u0446\u0438\u044F, \u0441\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u043A\u0430 \u0438\u043B\u0438 \u043C\u043E\u0434\u0438\u0444\u0438\u043A\u0430\u0446\u0438\u044F \u0434\u0430\u043D\u043D\u044B\u0445", extract: "\u0418\u0437\u0432\u043B\u0435\u0447\u0435\u043D\u0438\u0435", extractTitle: "\u0418\u0437\u0432\u043B\u0435\u0447\u044C \u0442\u0438\u043F ${type}", transformQueryTitle: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 JMESpath \u0437\u0430\u043F\u0440\u043E\u0441", transformWizardLabel: "\u041C\u0430\u0441\u0442\u0435\u0440", transformWizardFilter: "\u0424\u0438\u043B\u044C\u0442\u0440", transformWizardSortBy: "\u0421\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u043A\u0430", transformWizardSelectFields: "\u041F\u043E\u043B\u044F", transformQueryLabel: "\u0417\u0430\u043F\u0440\u043E\u0441", transformPreviewLabel: "\u041F\u0440\u043E\u0441\u043C\u043E\u0442\u0440", type: "\u0422\u0438\u043F", typeTitle: "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0442\u0438\u043F \u044D\u0442\u043E\u0433\u043E \u043F\u043E\u043B\u044F", openUrl: "Ctrl+Click \u0438\u043B\u0438 Ctrl+Enter \u0434\u043B\u044F \u043E\u0442\u043A\u0440\u044B\u0442\u0438\u044F url \u0432 \u043D\u043E\u0432\u043E\u043C \u043E\u043A\u043D\u0435", undo: "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C (Ctrl+Z)", validationCannotMove: "\u041F\u043E\u043B\u0435 \u043D\u0435 \u043C\u043E\u0436\u0435\u0442 \u0431\u044B\u0442\u044C \u043F\u0435\u0440\u0435\u043C\u0435\u0449\u0435\u043D\u043E \u0432 \u043F\u043E\u0442\u043E\u043C\u043A\u0430", autoType: "\u0422\u0438\u043F \u043F\u043E\u043B\u044F \u0430\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438 \u043E\u043F\u0440\u0435\u0434\u0435\u043B\u044F\u0435\u0442\u0441\u044F \u043F\u043E \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u044E \u0438 \u043C\u043E\u0436\u0435\u0442 \u0431\u044B\u0442\u044C \u0441\u0442\u0440\u043E\u043A\u043E\u0439, \u0447\u0438\u0441\u043B\u043E\u043C, \u043B\u043E\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u043C \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435\u043C \u0438\u043B\u0438 null.", objectType: "\u041E\u0431\u044A\u0435\u043A\u0442 \u0441\u043E\u0434\u0435\u0440\u0436\u0438\u0442 \u043D\u0435\u0443\u043F\u043E\u0440\u044F\u0434\u043E\u0447\u0435\u043D\u043D\u044B\u0439 \u043D\u0430\u0431\u043E\u0440 \u043F\u0430\u0440 \u043A\u043B\u044E\u0447/\u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435.", arrayType: "\u041C\u0430\u0441\u0441\u0438\u0432 \u0441\u043E\u0434\u0435\u0440\u0436\u0438\u0442 \u0443\u043F\u043E\u0440\u044F\u0434\u043E\u0447\u0435\u043D\u043D\u044B\u0439 \u043D\u0430\u0431\u043E\u0440 \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0439.", stringType: "\u0422\u0438\u043F \u043F\u043E\u043B\u044F \u043D\u0435 \u043E\u043F\u0440\u0435\u0434\u0435\u043B\u044F\u0435\u0442\u0441\u044F \u0438\u0437 \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u044F, \u043D\u043E \u0432\u0441\u0435\u0433\u0434\u0430 \u0432\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0441\u044F \u043A\u0430\u043A \u0441\u0442\u0440\u043E\u043A\u0430.", modeEditorTitle: "\u041F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u0440\u0435\u0436\u0438\u043C\u0430 \u0440\u0435\u0434\u0430\u043A\u0442\u043E\u0440\u0430", modeCodeText: "\u041A\u043E\u0434", modeCodeTitle: "\u041F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0432 \u0440\u0435\u0436\u0438\u043C \u0440\u0435\u0434\u0430\u043A\u0442\u043E\u0440\u0430 \u043A\u043E\u0434\u0430", modeFormText: "\u0424\u043E\u0440\u043C\u0430", modeFormTitle: "\u041F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0432 \u0440\u0435\u0436\u0438\u043C \u0444\u043E\u0440\u043C\u044B", modeTextText: "\u0422\u0435\u043A\u0441\u0442", modeTextTitle: "\u041F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0432 \u0440\u0435\u0436\u0438\u043C \u0440\u0435\u0434\u0430\u043A\u0442\u043E\u0440\u0430 \u0442\u0435\u043A\u0441\u0442\u0430", modeTreeText: "\u0414\u0435\u0440\u0435\u0432\u043E", modeTreeTitle: "\u041F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0432 \u0440\u0435\u0436\u0438\u043C \u0440\u0435\u0434\u0430\u043A\u0442\u043E\u0440\u0430 \u0434\u0435\u0440\u0435\u0432\u0430", modeViewText: "\u041F\u0440\u043E\u0441\u043C\u043E\u0442\u0440 \u0434\u0435\u0440\u0435\u0432\u0430", modeViewTitle: "\u041F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0432 \u0440\u0435\u0436\u0438\u043C \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430 \u0434\u0435\u0440\u0435\u0432\u0430", modePreviewText: "\u041F\u0440\u043E\u0441\u043C\u043E\u0442\u0440", modePreviewTitle: "\u041F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0432 \u0440\u0435\u0436\u0438\u043C \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430", examples: "\u041F\u0440\u0438\u043C\u0435\u0440\u044B", default: "\u041F\u043E \u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E", containsInvalidProperties: "\u0421\u043E\u0434\u0435\u0440\u0436\u0438\u0442 \u043D\u0435\u0434\u043E\u043F\u0443\u0441\u0442\u0438\u043C\u044B\u0435 \u0441\u0432\u043E\u0439\u0441\u0442\u0432\u0430", containsInvalidItems: "\u0421\u043E\u0434\u0435\u0440\u0436\u0438\u0442 \u043D\u0435\u0434\u043E\u043F\u0443\u0441\u0442\u0438\u043C\u044B\u0435 \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B" }, ko: { array: "\uBC30\uC5F4", auto: "\uC790\uB3D9", appendText: "\uCD94\uAC00", appendTitle: '\uC120\uD0DD\uD55C \uC694\uC18C \uC544\uB798\uC5D0 "\uC790\uB3D9" \uC694\uC18C\uB97C \uCD94\uAC00\uD569\uB2C8\uB2E4. (Ctrl + Shift + Ins)', appendSubmenuTitle: "\uCD94\uAC00\uD560 \uC694\uC18C\uC758 \uC720\uD615\uC744 \uC120\uD0DD\uD574\uC8FC\uC138\uC694.", appendTitleAuto: '"\uC790\uB3D9" \uC694\uC18C\uB97C \uCD94\uAC00\uD569\uB2C8\uB2E4. (Ctrl + Shift + Ins)', ascending: "\uC624\uB984\uCC28\uC21C", ascendingTitle: "\uC120\uD0DD\uD55C ${type}\uC758 \uD558\uC704 \uC694\uC18C\uB97C \uC624\uB984\uCC28\uC21C \uC815\uB82C\uD569\uB2C8\uB2E4.", actionsMenu: "\uBA54\uB274 \uC5F4\uAE30 (Ctrl + M)", cannotParseFieldError: "JSON\uC758 \uC694\uC18C\uB97C \uD574\uC11D\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.", cannotParseValueError: "JSON\uC758 \uAC12\uC744 \uD574\uC11D\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.", collapseAll: "\uBAA8\uB450 \uC811\uAE30", compactTitle: "\uBAA8\uB4E0 \uACF5\uBC31\uC744 \uC81C\uAC70\uD558\uC5EC JSON \uB370\uC774\uD130\uB97C \uC791\uAC8C \uB9CC\uB4ED\uB2C8\uB2E4. (Ctrl + Shift + I)", descending: "\uB0B4\uB9BC\uCC28\uC21C", descendingTitle: "\uC120\uD0DD\uD55C ${type}\uC758 \uD558\uC704 \uC694\uC18C\uB97C \uB0B4\uB9BC\uCC28\uC21C\uC73C\uB85C \uC815\uB82C", drag: "\uB4DC\uB798\uADF8\uD558\uC5EC \uC694\uC18C\uB97C \uC774\uB3D9\uD569\uB2C8\uB2E4. (Alt + Shift + Arrows)", duplicateKey: "\uBCF5\uC81C\uD0A4", duplicateText: "\uBCF5\uC81C", duplicateTitle: "\uC120\uD0DD\uD55C \uC694\uC18C\uB97C \uBCF5\uC81C\uD569\uB2C8\uB2E4. (Ctrl + D)", duplicateField: "\uC120\uD0DD\uD55C \uC694\uC18C\uB97C \uBCF5\uC81C\uD569\uB2C8\uB2E4. (Ctrl + D)", duplicateFieldError: "\uC694\uC18C \uC774\uB984\uC774 \uC911\uBCF5\uB418\uC5C8\uC2B5\uB2C8\uB2E4.", empty: "\uBE44\uC5B4\uC788\uC74C", expandAll: "\uBAA8\uB450 \uC5F4\uAE30", expandTitle: `\uD074\uB9AD\uD558\uC5EC \uC694\uC18C\uB97C \uC5F4\uAC70\uB098 \uB2EB\uC2B5\uB2C8\uB2E4. (Ctrl + E) 
-Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC70\uB098 \uB2EB\uC2B5\uB2C8\uB2E4.`, formatTitle: "\uC801\uC808\uD55C \uB4E4\uC5EC\uC4F0\uAE30 \uBC0F \uC904\uBC14\uAFC8\uC73C\uB85C JSON \uB370\uC774\uD130\uB97C \uC815\uD615\uD654\uD569\uB2C8\uB2E4. (Ctrl + I)", insert: "\uC0BD\uC785", insertTitle: "\uC120\uD0DD\uD55C \uC694\uC18C \uC704\uC5D0 \uC0C8\uC694\uC18C\uB97C \uC0BD\uC785\uD569\uB2C8\uB2E4. (Ctrl + Ins)", insertSub: "\uC0BD\uC785\uD560 \uC694\uC18C\uC758 \uC720\uD615\uC744 \uC120\uD0DD\uD574\uC8FC\uC138\uC694.", object: "\uAC1D\uCCB4", ok: "\uD655\uC778", redo: "\uB2E4\uC2DC \uC2E4\uD589 (Ctrl + Shift + Z)", removeText: "\uC0AD\uC81C", removeTitle: "\uC120\uD0DD\uD55C \uC694\uC18C\uB97C \uC0AD\uC81C\uD569\uB2C8\uB2E4. (Ctrl + Del)", removeField: "\uC120\uD0DD\uD55C \uC694\uC18C\uB97C \uC0AD\uC81C\uD569\uB2C8\uB2E4. (Ctrl + Del)", repairTitle: "JSON \uAD50\uC815: JSON \uB0B4\uC758 \uC8FC\uC11D\uACFC JSONP \uD45C\uAE30\uBC95\uC744 \uC9C0\uC6B0\uACE0 \uB530\uC634\uD45C\uC640 \uC774\uC2A4\uCF00\uC774\uD504 \uBB38\uC790\uB97C \uC218\uC815\uD569\uB2C8\uB2E4.", searchTitle: "\uC694\uC18C \uB610\uB294 \uAC12 \uCC3E\uAE30", searchNextResultTitle: "\uB2E4\uC74C\uC73C\uB85C \uCC3E\uAE30 (Enter)", searchPreviousResultTitle: "\uC774\uC804\uC73C\uB85C \uCC3E\uAE30 (Shift + Enter)", selectNode: "\uC694\uC18C\uB97C \uC120\uD0DD\uD574\uC8FC\uC138\uC694...", showAll: "\uBAA8\uB450\uBCF4\uAE30", showMore: "\uB354\uBCF4\uAE30", showMoreStatus: "${totalChilds} \uAC1C\uC758 \uD56D\uBAA9 \uC911 ${visibleChilds} \uAC1C\uB97C \uD45C\uC2DC\uD569\uB2C8\uB2E4.", sort: "\uC815\uB82C", sortTitle: "\uC120\uD0DD\uD55C ${type}\uC758 \uD558\uC704 \uC694\uC18C\uB97C \uC815\uB82C\uD569\uB2C8\uB2E4.", sortTitleShort: "\uC815\uB82C", sortFieldLabel: "\uC694\uC18C:", sortDirectionLabel: "\uC21C\uC11C:", sortFieldTitle: "\uBC30\uC5F4\uC774\uB098 \uAC1D\uCCB4\uB97C \uC815\uB82C\uD558\uB294 \uC694\uC18C\uB97C \uC120\uD0DD\uD574\uC8FC\uC138\uC694.", sortAscending: "\uC624\uB984\uCC28\uC21C", sortAscendingTitle: "\uC120\uD0DD\uD55C \uC694\uC18C\uB97C \uC624\uB984\uCC28\uC21C\uC73C\uB85C \uC815\uB82C\uD569\uB2C8\uB2E4.", sortDescending: "\uB0B4\uB9BC\uCC28\uC21C", sortDescendingTitle: "\uC120\uD0DD\uD55C \uC694\uC18C\uB97C \uB0B4\uB9BC\uCC28\uC21C\uC73C\uB85C \uC815\uB82C\uD569\uB2C8\uB2E4.", string: "\uBB38\uC790", transform: "\uBCC0\uD658", transformTitle: "\uC120\uD0DD\uD55C ${type}\uC758 \uD558\uC704 \uC694\uC18C\uB97C \uD544\uD130\uD558\uAC70\uB098 \uC815\uB82C \uB610\uB294 \uBCC0\uD658\uD569\uB2C8\uB2E4.", transformTitleShort: "\uB0B4\uC6A9\uC744 \uD544\uD130\uD558\uAC70\uB098 \uC815\uB82C \uB610\uB294 \uBCC0\uD658\uD569\uB2C8\uB2E4.", extract: "\uCD94\uCD9C", extractTitle: "\uC120\uD0DD\uD55C ${type}\uC758 \uAC12\uC744 \uCD5C\uC0C1\uC704\uC5D0 \uC704\uCE58\uC2DC\uD0B5\uB2C8\uB2E4.", transformQueryTitle: "JMESPath \uCFFC\uB9AC\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.", transformWizardLabel: "\uB9C8\uBC95\uC0AC", transformWizardFilter: "\uD544\uD130", transformWizardSortBy: "\uC815\uB82C", transformWizardSelectFields: "\uC694\uC18C\uB97C \uC120\uD0DD\uD574\uC8FC\uC138\uC694.", transformQueryLabel: "\uCFFC\uB9AC", transformPreviewLabel: "\uBBF8\uB9AC\uBCF4\uAE30", type: "\uC720\uD615", typeTitle: "\uC120\uD0DD\uD55C \uC694\uC18C\uC758 \uC720\uD615\uC744 \uBCC0\uACBD\uD569\uB2C8\uB2E4.", openUrl: "Ctrl + Click \uB610\uB294 Ctrl + Enter\uB85C \uC0C8 \uCC3D\uC5D0\uC11C URL \uC5F4\uAE30", undo: "\uC2E4\uD589 \uCDE8\uC18C (Ctrl + Z)", validationCannotMove: "\uD558\uC704 \uC694\uC18C\uB85C \uC774\uB3D9\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.", autoType: "\uC790\uB3D9: \uC694\uC18C\uC758 \uD615\uC2DD\uC774 \uAC12\uC758 \uC720\uD615\uC73C\uB85C \uACB0\uC815\uB429\uB2C8\uB2E4. \uBB38\uC790, \uC22B\uC790, \uBD80\uC6B8, \uB610\uB294 null\uB9CC \uD5C8\uC6A9\uB429\uB2C8\uB2E4.", objectType: "\uAC1D\uCCB4: \uC21C\uC11C\uB300\uB85C \uB098\uC5F4\uB418\uC9C0 \uC54A\uC740 \uC774\uB984/\uAC12 \uC30D\uC73C\uB85C \uC774\uB8E8\uC5B4\uC9C4 \uC9D1\uD569\uC785\uB2C8\uB2E4.", arrayType: "\uBC30\uC5F4: \uC21C\uC11C\uB300\uB85C \uB098\uC5F4\uB41C \uAC12\uC758 \uC9D1\uD569\uC785\uB2C8\uB2E4.", stringType: "\uBB38\uC790: \uC694\uC18C\uC758 \uC720\uD615\uC774 \uAC12\uC5D0\uC11C \uACB0\uC815\uB418\uC9C0 \uC54A\uC9C0\uB9CC \uD56D\uC0C1 \uBB38\uC790\uB85C \uBC18\uD658\uB429\uB2C8\uB2E4.", modeEditorTitle: "\uD3B8\uC9D1\uAE30 \uC720\uD615 \uBCC0\uACBD", modeCodeText: "\uCF54\uB4DC", modeCodeTitle: "\uD615\uC2DD \uAD50\uC815\uC744 \uB3C4\uC640\uC8FC\uB294 \uAE30\uB2A5\uC774 \uD3EC\uD568\uB41C \uBB38\uC790 \uD3B8\uC9D1\uAE30", modeFormText: "\uC785\uB825 \uC591\uC2DD", modeFormTitle: "\uC815\uD574\uC9C4 \uC694\uC18C\uC5D0 \uAC12\uC744 \uC785\uB825\uD558\uB294 \uD3B8\uC9D1\uAE30", modeTextText: "\uBB38\uC790", modeTextTitle: "\uB2E8\uC21C \uBB38\uC790 \uD3B8\uC9D1\uAE30", modeTreeText: "\uD2B8\uB9AC", modeTreeTitle: "\uD2B8\uB9AC \uAD6C\uC870\uB85C \uD45C\uC2DC\uB418\uB294 \uD3B8\uC9D1\uAE30", modeViewText: "\uBCF4\uAE30", modeViewTitle: "\uC77D\uAE30\uC804\uC6A9 \uD2B8\uB9AC \uAD6C\uC870\uB85C JSON\uC744 \uD45C\uC2DC", modePreviewText: "\uBBF8\uB9AC\uBCF4\uAE30", modePreviewTitle: "\uC77D\uAE30\uC804\uC6A9 \uBB38\uC790\uB85C JSON\uC744 \uD45C\uC2DC", examples: "\uC608\uC81C", default: "\uAE30\uBCF8\uAC12", containsInvalidProperties: "\uC798\uBABB\uB41C \uC18D\uC131\uC774 \uD3EC\uD568\uB418\uC5B4 \uC788\uC2B5\uB2C8\uB2E4.", containsInvalidItems: "\uC798\uBABB\uB41C \uD56D\uBAA9\uC774 \uD3EC\uD568\uB418\uC5B4 \uC788\uC2B5\uB2C8\uB2E4" } }, i2 = Object.keys(r), s = "en", o2 = typeof navigator != "undefined" ? navigator.language || navigator.userLanguage : undefined, a = i2.find(function(e2) {
+        var r = { en: { array: "Array", auto: "Auto", appendText: "Append", appendTitle: "Append a new field with type 'auto' after this field (Ctrl+Shift+Ins)", appendSubmenuTitle: "Select the type of the field to be appended", appendTitleAuto: "Append a new field with type 'auto' (Ctrl+Shift+Ins)", ascending: "Ascending", ascendingTitle: "Sort the childs of this ${type} in ascending order", actionsMenu: "Click to open the actions menu (Ctrl+M)", cannotParseFieldError: "Cannot parse field into JSON", cannotParseValueError: "Cannot parse value into JSON", collapseAll: "Collapse all fields", compactTitle: "Compact JSON data, remove all whitespaces (Ctrl+Shift+I)", descending: "Descending", descendingTitle: "Sort the childs of this ${type} in descending order", drag: "Drag to move this field (Alt+Shift+Arrows)", duplicateKey: "duplicate key", duplicateText: "Duplicate", duplicateTitle: "Duplicate selected fields (Ctrl+D)", duplicateField: "Duplicate this field (Ctrl+D)", duplicateFieldError: "Duplicate field name", empty: "empty", expandAll: "Expand all fields", expandTitle: `Click to expand/collapse this field (Ctrl+E). 
+Ctrl+Click to expand/collapse including all childs.`, formatTitle: "Format JSON data, with proper indentation and line feeds (Ctrl+I)", insert: "Insert", insertTitle: "Insert a new field with type 'auto' before this field (Ctrl+Ins)", insertSub: "Select the type of the field to be inserted", object: "Object", ok: "Ok", redo: "Redo (Ctrl+Shift+Z)", removeText: "Remove", removeTitle: "Remove selected fields (Ctrl+Del)", removeField: "Remove this field (Ctrl+Del)", repairTitle: "Repair JSON: fix quotes and escape characters, remove comments and JSONP notation, turn JavaScript objects into JSON.", searchTitle: "Search fields and values", searchNextResultTitle: "Next result (Enter)", searchPreviousResultTitle: "Previous result (Shift + Enter)", selectNode: "Select a node...", showAll: "show all", showMore: "show more", showMoreStatus: "displaying ${visibleChilds} of ${totalChilds} items.", sort: "Sort", sortTitle: "Sort the childs of this ${type}", sortTitleShort: "Sort contents", sortFieldLabel: "Field:", sortDirectionLabel: "Direction:", sortFieldTitle: "Select the nested field by which to sort the array or object", sortAscending: "Ascending", sortAscendingTitle: "Sort the selected field in ascending order", sortDescending: "Descending", sortDescendingTitle: "Sort the selected field in descending order", string: "String", transform: "Transform", transformTitle: "Filter, sort, or transform the childs of this ${type}", transformTitleShort: "Filter, sort, or transform contents", extract: "Extract", extractTitle: "Extract this ${type}", transformQueryTitle: "Enter a JMESPath query", transformWizardLabel: "Wizard", transformWizardFilter: "Filter", transformWizardSortBy: "Sort by", transformWizardSelectFields: "Select fields", transformQueryLabel: "Query", transformPreviewLabel: "Preview", type: "Type", typeTitle: "Change the type of this field", openUrl: "Ctrl+Click or Ctrl+Enter to open url in new window", undo: "Undo last action (Ctrl+Z)", validationCannotMove: "Cannot move a field into a child of itself", autoType: 'Field type "auto". The field type is automatically determined from the value and can be a string, number, boolean, or null.', objectType: 'Field type "object". An object contains an unordered set of key/value pairs.', arrayType: 'Field type "array". An array contains an ordered collection of values.', stringType: 'Field type "string". Field type is not determined from the value, but always returned as string.', modeEditorTitle: "Switch Editor Mode", modeCodeText: "Code", modeCodeTitle: "Switch to code highlighter", modeFormText: "Form", modeFormTitle: "Switch to form editor", modeTextText: "Text", modeTextTitle: "Switch to plain text editor", modeTreeText: "Tree", modeTreeTitle: "Switch to tree editor", modeViewText: "View", modeViewTitle: "Switch to tree view", modePreviewText: "Preview", modePreviewTitle: "Switch to preview mode", examples: "Examples", default: "Default", containsInvalidProperties: "Contains invalid properties", containsInvalidItems: "Contains invalid items" }, es: { array: "Matriz", auto: "Auto", appendText: "Agregar", appendTitle: "Agregue un nuevo campo con el tipo 'auto' después de este campo (Ctrl + Shift + Ins)", appendSubmenuTitle: "Seleccione el tipo de campo que se agregará", appendTitleAuto: "Agregue un nuevo campo con el tipo 'auto' (Ctrl + Shift + Ins)", ascending: "Ascendente", ascendingTitle: "Ordene los elementos secundarios de este ${type} en orden ascendente", actionsMenu: "Haga clic para abrir el menú de acciones (Ctrl + M)", cannotParseFieldError: "No se puede parsear el campo en JSON", cannotParseValueError: "No se puede parsear el valor en JSON", collapseAll: "Contraer todos los campos", compactTitle: "Compactar datos JSON, eliminar todos los espacios en blanco (Ctrl + Shift + I)", descending: "Descendente", descendingTitle: "Ordene los hijos de este ${type} en orden descendente", drag: "Arrastre para mover este campo (Alt + Mayús + Flechas)", duplicateKey: "llave duplicada", duplicateText: "Duplicar", duplicateTitle: "Duplicar campos seleccionados (Ctrl + D)", duplicateField: "Duplicar este campo (Ctrl + D)", duplicateFieldError: "Nombre de campo duplicado", empty: "vacio", expandAll: "Expandir todos los campos", expandTitle: `Haga clic para expandir/contraer este campo (Ctrl + E). 
+  Ctrl+Clic para expandir/contraer incluyendo todos los niños.`, formatTitle: "Formatee los datos JSON, con la sangría y los avances de línea adecuados (Ctrl + I)", insert: "Insertar", insertTitle: "Inserte un nuevo campo con el tipo 'auto' antes de este campo (Ctrl + Ins)", insertSub: "Seleccione el tipo de campo a insertar", object: "Objeto", ok: "Ok", redo: "Rehacer (Ctrl+Mayús+Z)", removeText: "Eliminar", removeTitle: "Eliminar campos seleccionados (Ctrl+Supr)", removeField: "Eliminar este campo (Ctrl+Supr)", repairTitle: "Reparar JSON: corrija comillas y caracteres de escape, elimine comentarios y notación JSONP, convierta objetos JavaScript en JSON.", searchTitle: "Campos de búsqueda y valores", searchNextResultTitle: "Siguiente resultado (Entrar)", searchPreviousResultTitle: "Resultado anterior (Shift + Enter)", selectNode: "Seleccione un nodo...", showAll: "mostrar todo", showMore: "mostrar más", showMoreStatus: "mostrando ${visibleChilds} de ${totalChilds} elementos.", sort: "Ordenar", sortTitle: "Ordene los hijos de este ${type}", sortTitleShort: "Ordenar contenidos", sortFieldLabel: "Campo:", sortDirectionLabel: "Dirección:", sortFieldTitle: "Seleccione el campo anidado por el cual ordenar la matriz u objeto", sortAscending: "Ascendente", sortAscendingTitle: "Ordenar el campo seleccionado en orden ascendente", sortDescending: "Descendente", sortDescendingTitle: "Ordenar por el campo seleccionado, en orden descendente", string: "Texto", transform: "Transformar", transformTitle: "Filtrar, ordenar o transformar los hijos de este ${type}", transformTitleShort: "Filtrar, ordenar o transformar contenidos", extract: "Extraer", extractTitle: "Extrae este ${type}", transformQueryTitle: "Ingrese una consulta JMESPath", transformWizardLabel: "Wizard", transformWizardFilter: "Filtro", transformWizardSortBy: "Ordenar por", transformWizardSelectFields: "Seleccione un campo", transformQueryLabel: "Consulta", transformPreviewLabel: "Vista Previa", type: "Tipo", typeTitle: "Cambiar el tipo de campo", openUrl: "Ctrl+Click o Ctrl+Enter para abrir la URL en una nueva ventana", undo: "Deshacer la última acción (Ctrl+Z)", validationCannotMove: "No se puede mover un campo a un hijo de sí mismo.", autoType: 'Tipo de campo "auto". El tipo de campo se determina automáticamente a partir del valor y puede ser una cadena, un número, un booleano o un valor nulo.', objectType: 'Tipo de campo "objeto".  Un objeto contiene un conjunto desordenado de pares clave/valor.', arrayType: 'Tipo de campo "matriz".  Una matriz contiene una colección ordenada de valores.', stringType: 'Tipo de campo "cadena".  El tipo de campo no se determina a partir del valor,  pero siempre se devuelve como una cadena.', modeEditorTitle: "Cambiar modo de editor", modeCodeText: "Código", modeCodeTitle: "Cambiar al resaltador de código", modeFormText: "Formulario", modeFormTitle: "Cambiar al editor de formularios", modeTextText: "Texto", modeTextTitle: "Cambiar al editor de texto sin formato", modeTreeText: "Árbol", modeTreeTitle: "Cambiar al editor de árbol", modeViewText: "Vista", modeViewTitle: "Cambiar a la vista de árbol", modePreviewText: "Vista Previa", modePreviewTitle: "Cambiar al modo de vista previa", examples: "Ejemplos", default: "Predeterminado", containsInvalidProperties: "Contiene propiedades no válidas", containsInvalidItems: "Contiene ítems no válidos" }, "zh-CN": { array: "数组", auto: "自动", appendText: "追加", appendTitle: "在此字段后追加一个类型为“auto”的新字段 (Ctrl+Shift+Ins)", appendSubmenuTitle: "选择要追加的字段类型", appendTitleAuto: "追加类型为“auto”的新字段 (Ctrl+Shift+Ins)", ascending: "升序", ascendingTitle: "升序排列${type}的子节点", actionsMenu: "点击打开动作菜单(Ctrl+M)", cannotParseFieldError: "无法将字段解析为JSON", cannotParseValueError: "无法将值解析为JSON", collapseAll: "缩进所有字段", compactTitle: "压缩JSON数据，删除所有空格 (Ctrl+Shift+I)", descending: "降序", descendingTitle: "降序排列${type}的子节点", drag: "拖拽移动该节点(Alt+Shift+Arrows)", duplicateKey: "重复键", duplicateText: "复制", duplicateTitle: "复制选中字段(Ctrl+D)", duplicateField: "复制该字段(Ctrl+D)", duplicateFieldError: "重复的字段名称", empty: "清空", expandAll: "展开所有字段", expandTitle: `点击 展开/收缩 该字段(Ctrl+E). 
+Ctrl+Click 展开/收缩 包含所有子节点.`, formatTitle: "使用适当的缩进和换行符格式化JSON数据 (Ctrl+I)", insert: "插入", insertTitle: "在此字段前插入类型为“auto”的新字段 (Ctrl+Ins)", insertSub: "选择要插入的字段类型", object: "对象", ok: "Ok", redo: "重做 (Ctrl+Shift+Z)", removeText: "移除", removeTitle: "移除选中字段 (Ctrl+Del)", removeField: "移除该字段 (Ctrl+Del)", repairTitle: "修复JSON：修复引号和转义符，删除注释和JSONP表示法，将JavaScript对象转换为JSON。", selectNode: "选择一个节点...", showAll: "展示全部", showMore: "展示更多", showMoreStatus: "显示${totalChilds}的${visibleChilds}项目.", sort: "排序", sortTitle: "排序${type}的子节点", sortTitleShort: "内容排序", sortFieldLabel: "字段：", sortDirectionLabel: "方向：", sortFieldTitle: "选择用于对数组或对象排序的嵌套字段", sortAscending: "升序排序", sortAscendingTitle: "按照该字段升序排序", sortDescending: "降序排序", sortDescendingTitle: "按照该字段降序排序", string: "字符串", transform: "变换", transformTitle: "筛选，排序，或者转换${type}的子节点", transformTitleShort: "筛选，排序，或者转换内容", extract: "提取", extractTitle: "提取这个 ${type}", transformQueryTitle: "输入JMESPath查询", transformWizardLabel: "向导", transformWizardFilter: "筛选", transformWizardSortBy: "排序", transformWizardSelectFields: "选择字段", transformQueryLabel: "查询", transformPreviewLabel: "预览", type: "类型", typeTitle: "更改字段类型", openUrl: "Ctrl+Click 或者 Ctrl+Enter 在新窗口打开链接", undo: "撤销上次动作 (Ctrl+Z)", validationCannotMove: "无法将字段移入其子节点", autoType: '字段类型 "auto". 字段类型由值自动确定 可以为 string，number，boolean，或者 null.', objectType: '字段类型 "object". 对象包含一组无序的键/值对.', arrayType: '字段类型 "array". 数组包含值的有序集合.', stringType: '字段类型 "string". 字段类型由值自动确定，但始终作为字符串返回.', modeCodeText: "代码", modeCodeTitle: "切换至代码高亮", modeFormText: "表单", modeFormTitle: "切换至表单编辑", modeTextText: "文本", modeTextTitle: "切换至文本编辑", modeTreeText: "树", modeTreeTitle: "切换至树编辑", modeViewText: "视图", modeViewTitle: "切换至树视图", modePreviewText: "预览", modePreviewTitle: "切换至预览模式", examples: "例子", default: "缺省", containsInvalidProperties: "包含无效的属性", containsInvalidItems: "包含无效项目" }, "pt-BR": { array: "Lista", auto: "Automatico", appendText: "Adicionar", appendTitle: "Adicionar novo campo com tipo 'auto' depois deste campo (Ctrl+Shift+Ins)", appendSubmenuTitle: "Selecione o tipo do campo a ser adicionado", appendTitleAuto: "Adicionar novo campo com tipo 'auto' (Ctrl+Shift+Ins)", ascending: "Ascendente", ascendingTitle: "Organizar filhor do tipo ${type} em crescente", actionsMenu: "Clique para abrir o menu de ações (Ctrl+M)", cannotParseFieldError: "Não é possível analisar o campo no JSON", cannotParseValueError: "Não é possível analisar o valor em JSON", collapseAll: "Fechar todos campos", compactTitle: "Dados JSON compactos, remova todos os espaços em branco (Ctrl+Shift+I)", descending: "Descendente", descendingTitle: "Organizar o filhos do tipo ${type} em decrescente", duplicateKey: "chave duplicada", drag: "Arraste para mover este campo (Alt+Shift+Arrows)", duplicateText: "Duplicar", duplicateTitle: "Duplicar campos selecionados (Ctrl+D)", duplicateField: "Duplicar este campo (Ctrl+D)", duplicateFieldError: "Nome do campo duplicado", empty: "vazio", expandAll: "Expandir todos campos", expandTitle: `Clique para expandir/encolher este campo (Ctrl+E). 
+Ctrl+Click para expandir/encolher incluindo todos os filhos.`, formatTitle: "Formate dados JSON, com recuo e feeds de linha adequados (Ctrl+I)", insert: "Inserir", insertTitle: "Inserir um novo campo do tipo 'auto' antes deste campo (Ctrl+Ins)", insertSub: "Selecionar o tipo de campo a ser inserido", object: "Objeto", ok: "Ok", redo: "Refazer (Ctrl+Shift+Z)", removeText: "Remover", removeTitle: "Remover campos selecionados (Ctrl+Del)", removeField: "Remover este campo (Ctrl+Del)", repairTitle: "Repare JSON: corrija aspas e caracteres de escape, remova comentários e notação JSONP, transforme objetos JavaScript em JSON.", selectNode: "Selecione um nódulo...", showAll: "mostrar todos", showMore: "mostrar mais", showMoreStatus: "exibindo ${visibleChilds} de ${totalChilds} itens.", sort: "Organizar", sortTitle: "Organizar os filhos deste ${type}", sortTitleShort: "Organizar os filhos", sortFieldLabel: "Campo:", sortDirectionLabel: "Direção:", sortFieldTitle: "Selecione um campo filho pelo qual ordenar o array ou objeto", sortAscending: "Ascendente", sortAscendingTitle: "Ordenar o campo selecionado por ordem ascendente", sortDescending: "Descendente", sortDescendingTitle: "Ordenar o campo selecionado por ordem descendente", string: "Texto", transform: "Transformar", transformTitle: "Filtrar, ordenar ou transformar os filhos deste ${type}", transformTitleShort: "Filtrar, ordenar ou transformar conteúdos", transformQueryTitle: "Insira uma expressão JMESPath", transformWizardLabel: "Assistente", transformWizardFilter: "Filtro", transformWizardSortBy: "Ordenar por", transformWizardSelectFields: "Selecionar campos", transformQueryLabel: "Expressão", transformPreviewLabel: "Visualizar", type: "Tipo", typeTitle: "Mudar o tipo deste campo", openUrl: "Ctrl+Click ou Ctrl+Enter para abrir link em nova janela", undo: "Desfazer último ação (Ctrl+Z)", validationCannotMove: "Não pode mover um campo como filho dele mesmo", autoType: 'Campo do tipo "auto". O tipo do campo é determinao automaticamente a partir do seu valor e pode ser texto, número, verdade/falso ou nulo.', objectType: 'Campo do tipo "objeto". Um objeto contém uma lista de pares com chave e valor.', arrayType: 'Campo do tipo "lista". Uma lista contem uma coleção de valores ordenados.', stringType: 'Campo do tipo "string". Campo do tipo nao é determinado através do seu valor, mas sempre retornara um texto.', examples: "Exemplos", default: "Revelia", containsInvalidProperties: "Contém propriedades inválidas", containsInvalidItems: "Contém itens inválidos" }, tr: { array: "Dizin", auto: "Otomatik", appendText: "Ekle", appendTitle: "Bu alanın altına 'otomatik' tipinde yeni bir alan ekle (Ctrl+Shift+Ins)", appendSubmenuTitle: "Eklenecek alanın tipini seç", appendTitleAuto: "'Otomatik' tipinde yeni bir alan ekle (Ctrl+Shift+Ins)", ascending: "Artan", ascendingTitle: "${type}'ın alt tiplerini artan düzende sırala", actionsMenu: "Aksiyon menüsünü açmak için tıklayın (Ctrl+M)", collapseAll: "Tüm alanları kapat", descending: "Azalan", descendingTitle: "${type}'ın alt tiplerini azalan düzende sırala", drag: "Bu alanı taşımak için sürükleyin (Alt+Shift+Arrows)", duplicateKey: "Var olan anahtar", duplicateText: "Aşağıya kopyala", duplicateTitle: "Seçili alanlardan bir daha oluştur (Ctrl+D)", duplicateField: "Bu alandan bir daha oluştur (Ctrl+D)", duplicateFieldError: "Duplicate field name", cannotParseFieldError: "Alan JSON'a ayrıştırılamıyor", cannotParseValueError: "JSON'a değer ayrıştırılamıyor", empty: "boş", expandAll: "Tüm alanları aç", expandTitle: `Bu alanı açmak/kapatmak için tıkla (Ctrl+E). 
+Alt alanlarda dahil tüm alanları açmak için Ctrl+Click `, insert: "Ekle", insertTitle: "Bu alanın üstüne 'otomatik' tipinde yeni bir alan ekle (Ctrl+Ins)", insertSub: "Araya eklenecek alanın tipini seç", object: "Nesne", ok: "Tamam", redo: "Yeniden yap (Ctrl+Shift+Z)", removeText: "Kaldır", removeTitle: "Seçilen alanları kaldır (Ctrl+Del)", removeField: "Bu alanı kaldır (Ctrl+Del)", selectNode: "Bir nesne seç...", showAll: "tümünü göster", showMore: "daha fazla göster", showMoreStatus: "${totalChilds} alanın ${visibleChilds} alt alanları gösteriliyor", sort: "Sırala", sortTitle: "${type}'ın alt alanlarını sırala", sortTitleShort: "İçerikleri sırala", sortFieldLabel: "Alan:", sortDirectionLabel: "Yön:", sortFieldTitle: "Diziyi veya nesneyi sıralamak için iç içe geçmiş alanı seçin", sortAscending: "Artan", sortAscendingTitle: "Seçili alanı artan düzende sırala", sortDescending: "Azalan", sortDescendingTitle: "Seçili alanı azalan düzende sırala", string: "Karakter Dizisi", transform: "Dönüştür", transformTitle: "${type}'ın alt alanlarını filtrele, sırala veya dönüştür", transformTitleShort: "İçerikleri filterele, sırala veya dönüştür", transformQueryTitle: "JMESPath sorgusu gir", transformWizardLabel: "Sihirbaz", transformWizardFilter: "Filtre", transformWizardSortBy: "Sırala", transformWizardSelectFields: "Alanları seç", transformQueryLabel: "Sorgu", transformPreviewLabel: "Önizleme", type: "Tip", typeTitle: "Bu alanın tipini değiştir", openUrl: "URL'i yeni bir pencerede açmak için Ctrl+Click veya Ctrl+Enter", undo: "Son değişikliği geri al (Ctrl+Z)", validationCannotMove: "Alt alan olarak taşınamıyor", autoType: 'Alan tipi "otomatik". Alan türü otomatik olarak değerden belirlenirve bir dize, sayı, boolean veya null olabilir.', objectType: 'Alan tipi "nesne". Bir nesne, sıralanmamış bir anahtar / değer çifti kümesi içerir.', arrayType: 'Alan tipi "dizi". Bir dizi, düzenli değerler koleksiyonu içerir.', stringType: 'Alan tipi "karakter dizisi". Alan türü değerden belirlenmez,ancak her zaman karakter dizisi olarak döndürülür.', modeCodeText: "Kod", modeCodeTitle: "Kod vurgulayıcıya geç", modeFormText: "Form", modeFormTitle: "Form düzenleyiciye geç", modeTextText: "Metin", modeTextTitle: "Düz metin düzenleyiciye geç", modeTreeText: "Ağaç", modeTreeTitle: "Ağaç düzenleyiciye geç", modeViewText: "Görünüm", modeViewTitle: "Ağaç görünümüne geç", examples: "Örnekler", default: "Varsayılan", containsInvalidProperties: "Geçersiz özellikler içeriyor", containsInvalidItems: "Geçersiz öğeler içeriyor" }, ja: { array: "配列", auto: "オート", appendText: "追加", appendTitle: '次のフィールドに"オート"のフィールドを追加 (Ctrl+Shift+Ins)', appendSubmenuTitle: "追加するフィールドの型を選択してください", appendTitleAuto: '"オート"のフィールドを追加 (Ctrl+Shift+Ins)', ascending: "昇順", ascendingTitle: "${type}の子要素を昇順に並べ替え", actionsMenu: "クリックしてアクションメニューを開く (Ctrl+M)", collapseAll: "すべてを折りたたむ", descending: "降順", descendingTitle: "${type}の子要素を降順に並べ替え", drag: "ドラッグして選択中のフィールドを移動 (Alt+Shift+Arrows)", duplicateKey: "複製キー", duplicateText: "複製", duplicateTitle: "選択中のフィールドを複製 (Ctrl+D)", duplicateField: "選択中のフィールドを複製 (Ctrl+D)", duplicateFieldError: "フィールド名が重複しています", cannotParseFieldError: "JSONのフィールドを解析できません", cannotParseValueError: "JSONの値を解析できません", empty: "空", expandAll: "すべてを展開", expandTitle: `クリックしてフィールドを展開/折りたたむ (Ctrl+E). 
+Ctrl+Click ですべての子要素を展開/折りたたむ`, insert: "挿入", insertTitle: "選択中のフィールドの前に新しいフィールドを挿入 (Ctrl+Ins)", insertSub: "挿入するフィールドの型を選択", object: "オブジェクト", ok: "実行", redo: "やり直す (Ctrl+Shift+Z)", removeText: "削除", removeTitle: "選択中のフィールドを削除 (Ctrl+Del)", removeField: "選択中のフィールドを削除 (Ctrl+Del)", selectNode: "ノードを選択...", showAll: "すべてを表示", showMore: "もっと見る", showMoreStatus: "${totalChilds}個のアイテムのうち ${visibleChilds}個を表示しています。", sort: "並べ替え", sortTitle: "${type}の子要素を並べ替え", sortTitleShort: "並べ替え", sortFieldLabel: "フィールド:", sortDirectionLabel: "順序:", sortFieldTitle: "配列またはオブジェクトを並び替えるためのフィールドを選択", sortAscending: "昇順", sortAscendingTitle: "選択中のフィールドを昇順に並び替え", sortDescending: "降順", sortDescendingTitle: "選択中のフィールドを降順に並び替え", string: "文字列", transform: "変換", transformTitle: "${type}の子要素をフィルター・並び替え・変換する", transformTitleShort: "内容をフィルター・並び替え・変換する", extract: "抽出", extractTitle: "${type}を抽出", transformQueryTitle: "JMESPathクエリを入力", transformWizardLabel: "ウィザード", transformWizardFilter: "フィルター", transformWizardSortBy: "並び替え", transformWizardSelectFields: "フィールドを選択", transformQueryLabel: "クエリ", transformPreviewLabel: "プレビュー", type: "型", typeTitle: "選択中のフィールドの型を変更", openUrl: "Ctrl+Click または Ctrl+Enter で 新規ウィンドウでURLを開く", undo: "元に戻す (Ctrl+Z)", validationCannotMove: "子要素に移動できません ", autoType: "オート： フィールドの型は値から自動的に決定されます。 (文字列・数値・ブール・null)", objectType: "オブジェクト： オブジェクトは順序が決まっていないキーと値のペア組み合わせです。", arrayType: "配列： 配列は順序が決まっている値の集合体です。", stringType: "文字列： フィールド型は値から決定されませんが、常に文字列として返されます。", modeCodeText: "コードモード", modeCodeTitle: "ハイライトモードに切り替え", modeFormText: "フォームモード", modeFormTitle: "フォームモードに切り替え", modeTextText: "テキストモード", modeTextTitle: "テキストモードに切り替え", modeTreeText: "ツリーモード", modeTreeTitle: "ツリーモードに切り替え", modeViewText: "ビューモード", modeViewTitle: "ビューモードに切り替え", modePreviewText: "プレビュー", modePreviewTitle: "プレビューに切り替え", examples: "例", default: "デフォルト", containsInvalidProperties: "無効なプロパティが含まれています", containsInvalidItems: "無効なアイテムが含まれています" }, "fr-FR": { array: "Liste", auto: "Auto", appendText: "Ajouter", appendTitle: "Ajouter un champ de type 'auto' après ce champ (Ctrl+Shift+Ins)", appendSubmenuTitle: "Sélectionner le type du champ à ajouter", appendTitleAuto: "Ajouter un champ de type 'auto' (Ctrl+Shift+Ins)", ascending: "Ascendant", ascendingTitle: "Trier les enfants de ce ${type} par ordre ascendant", actionsMenu: "Ouvrir le menu des actions (Ctrl+M)", collapseAll: "Regrouper", descending: "Descendant", descendingTitle: "Trier les enfants de ce ${type} par ordre descendant", drag: "Déplacer (Alt+Shift+Arrows)", duplicateKey: "Dupliquer la clé", duplicateText: "Dupliquer", duplicateTitle: "Dupliquer les champs sélectionnés (Ctrl+D)", duplicateField: "Dupliquer ce champ (Ctrl+D)", duplicateFieldError: "Dupliquer le nom de champ", cannotParseFieldError: "Champ impossible à parser en JSON", cannotParseValueError: "Valeur impossible à parser en JSON", empty: "vide", expandAll: "Étendre", expandTitle: `Étendre/regrouper ce champ (Ctrl+E). 
+Ctrl+Click pour étendre/regrouper avec tous les champs.`, insert: "Insérer", insertTitle: "Insérer un champ de type 'auto' avant ce champ (Ctrl+Ins)", insertSub: "Sélectionner le type de champ à insérer", object: "Objet", ok: "Ok", redo: "Rejouer (Ctrl+Shift+Z)", removeText: "Supprimer", removeTitle: "Supprimer les champs sélectionnés (Ctrl+Del)", removeField: "Supprimer ce champ (Ctrl+Del)", searchTitle: "Rechercher champs et valeurs", searchNextResultTitle: "Résultat suivant (Enter)", searchPreviousResultTitle: "Résultat précédent (Shift + Enter)", selectNode: "Sélectionner un nœud...", showAll: "voir tout", showMore: "voir plus", showMoreStatus: "${visibleChilds} éléments affichés de ${totalChilds}.", sort: "Trier", sortTitle: "Trier les champs de ce ${type}", sortTitleShort: "Trier", sortFieldLabel: "Champ:", sortDirectionLabel: "Direction:", sortFieldTitle: "Sélectionner les champs permettant de trier les listes et objet", sortAscending: "Ascendant", sortAscendingTitle: "Trier les champs sélectionnés par ordre ascendant", sortDescending: "Descendant", sortDescendingTitle: "Trier les champs sélectionnés par ordre descendant", string: "Chaîne", transform: "Transformer", transformTitle: "Filtrer, trier, or transformer les enfants de ce ${type}", transformTitleShort: "Filtrer, trier ou transformer le contenu", extract: "Extraire", extractTitle: "Extraire ce ${type}", transformQueryTitle: "Saisir une requête JMESPath", transformWizardLabel: "Assistant", transformWizardFilter: "Filtrer", transformWizardSortBy: "Trier par", transformWizardSelectFields: "Sélectionner les champs", transformQueryLabel: "Requête", transformPreviewLabel: "Prévisualisation", type: "Type", typeTitle: "Changer le type de ce champ", openUrl: "Ctrl+Click ou Ctrl+Enter pour ouvrir l'url dans une autre fenêtre", undo: "Annuler la dernière action (Ctrl+Z)", validationCannotMove: "Cannot move a field into a child of itself", autoType: 'Champe de type "auto". Ce type de champ est automatiquement déterminé en fonction de la valeur et peut être de type "chaîne", "nombre", "booléen" ou null.', objectType: 'Champ de type "objet". Un objet contient un ensemble non ordonné de paires clé/valeur.', arrayType: 'Champ de type "liste". Une liste contient une collection ordonnée de valeurs.', stringType: `Champ de type "chaîne". Ce type de champ n'est pas déterminé en fonction de la valeur, mais retourne systématiquement une chaîne de caractères.`, modeEditorTitle: "Changer mode d'édition", modeCodeText: "Code", modeCodeTitle: "Activer surlignage code", modeFormText: "Formulaire", modeFormTitle: "Activer formulaire", modeTextText: "Texte", modeTextTitle: "Activer éditeur texte", modeTreeText: "Arbre", modeTreeTitle: "Activer éditeur arbre", modeViewText: "Lecture seule", modeViewTitle: "Activer vue arbre", modePreviewText: "Prévisualisation", modePreviewTitle: "Activer mode prévisualiser", examples: "Exemples", default: "Défaut", containsInvalidProperties: "Contient des propriétés non valides", containsInvalidItems: "Contient des éléments invalides" }, de: { array: "Auflistung", auto: "Auto", appendText: "anhängen", appendTitle: "Fügen Sie nach diesem Feld ein neues Feld mit dem Typ 'auto' ein (Strg+Umschalt+Ein)", appendSubmenuTitle: "Wählen Sie den Typ des neuen Feldes", appendTitleAuto: "Ein neues Feld vom Typ 'auto' hinzufügen (Strg+Umschalt+Ein)", ascending: "Aufsteigend", ascendingTitle: "Sortieren Sie die Elemente dieses ${type} in aufsteigender Reihenfolge", actionsMenu: "Klicken Sie zum Öffnen des Aktionsmenüs (Strg+M)", cannotParseFieldError: "Feld kann nicht in JSON geparst werden", cannotParseValueError: "Wert kann nicht in JSON geparst werden", collapseAll: "Alle Felder zuklappen", compactTitle: "JSON-Daten verdichten, alle Leerzeichen entfernen (Strg+Umschalt+\\)", descending: "Absteigend", descendingTitle: "Sortieren Sie die Elemente dieses ${type} in absteigender Reihenfolge", drag: "Ziehen, um dieses Feld zu verschieben (Alt+Umschalt+Pfeile)", duplicateKey: "Doppelter Schlüssel", duplicateText: "Duplikat", duplicateTitle: "Ausgewählte Felder duplizieren (Strg+D)", duplicateField: "Dieses Feld duplizieren (Strg+D)", duplicateFieldError: "Doppelter Feldname", empty: "leer", expandAll: "Alle Felder anzeigen", expandTitle: `Klicken Sie, um dieses Feld zu erweitern/zu kollabieren (Strg+E). 
+Strg+Klicken Sie, um dieses Feld einschließlich aller Elemente zu erweitern/zu kollabieren.`, formatTitle: "JSON-Daten mit korrekter Einrückung und Zeilenvorschüben formatieren (Strg+\\)", insert: "einfügen", insertTitle: "Fügen Sie vor diesem Feld ein neues Feld mit dem Typ 'auto' ein (Strg+Einfg)", insertSub: "Wählen Sie den Typ des neuen Feldes", object: "Objekt", ok: "Ok", redo: "Wiederholen (Strg+Umschalt+Z)", removeText: "entfernen", removeTitle: "Ausgewählte Felder entfernen (Strg+Entf)", removeField: "Dieses Feld entfernen (Strg+Entf)", repairTitle: "JSON reparieren: Anführungszeichen und Escape-Zeichen korrigieren, Kommentare und JSONP-Notation entfernen, JavaScript-Objekte in JSON umwandeln.", searchTitle: "Suchfelder und Werte", searchNextResultTitle: "Nächstes Ergebnis (Enter)", searchPreviousResultTitle: "Vorheriges Ergebnis (Umschalt + Eingabe)", selectNode: "Wählen Sie einen Knoten aus...", showAll: "alle anzeigen", showMore: "mehr anzeigen", showMoreStatus: "Anzeige von ${visibleChilds} von ${totalChilds}-Elementen.", sort: "Sortieren", sortTitle: "Sortieren Sie die Elemente dieses ${type}", sortTitleShort: "Inhalt sortieren", sortFieldLabel: "Feld:", sortDirectionLabel: "Richtung:", sortFieldTitle: "Wählen Sie das verschachtelte Feld, nach dem das Array oder Objekt sortiert werden soll.", sortAscending: "Aufsteigend", sortAscendingTitle: "Sortieren Sie das ausgewählte Feld in aufsteigender Reihenfolge", sortDescending: "Absteigend", sortDescendingTitle: "Sortieren Sie das ausgewählte Feld in absteigender Reihenfolge", string: "Zeichenfolge", transform: "Verwandeln", transformTitle: "Die Elemente dieses ${type} filtern, sortieren oder transformieren", transformTitleShort: "Inhalte filtern, sortieren oder transformieren", extract: "Auszug", extractTitle: "Extrahieren Sie diesen ${type}", transformQueryTitle: "Eine JMESPath-Abfrage eingeben", transformWizardLabel: "Zauberer", transformWizardFilter: "Filter", transformWizardSortBy: "Sortieren nach", transformWizardSelectFields: "Felder auswählen", transformQueryLabel: "Anfrage", transformPreviewLabel: "Vorschau", type: "Geben Sie  ein.", typeTitle: "Ändern Sie den Typ dieses Feldes", openUrl: "Strg+Klicken oder Strg+Eingabe, um die URL in einem neuen Fenster zu öffnen", undo: "Letzte Aktion rückgängig machen (Strg+Z)", validationCannotMove: "Kann ein Feld nicht in ein Kind seiner selbst verschieben", autoType: 'Feldtyp "auto". Der Feldtyp wird automatisch aus dem Wert bestimmt und kann ein String, eine Zahl, boolesch oder null sein.', objectType: 'Feldtyp "Objekt". Ein Objekt enthält eine ungeordnete Menge von Schlüssel/Wert-Paaren.', arrayType: 'Feldtyp "Array". Ein Array enthält eine geordnete Sammlung von Werten.', stringType: 'Feldtyp "Zeichenfolge". Der Feldtyp wird nicht aus dem Wert bestimmt, sondern immer als Zeichenfolge zurückgegeben.', modeEditorTitle: "Editor-Modus umschalten", modeCodeText: "Code", modeCodeTitle: "Umschalten auf Code-Highlighter", modeFormText: "Formular", modeFormTitle: "Zum Formular-Editor wechseln", modeTextText: "Text", modeTextTitle: "Zum Editor für einfachen Text wechseln", modeTreeText: "Baum", modeTreeTitle: "Zum Baum-Editor wechseln", modeViewText: "Siehe", modeViewTitle: "Zur Baumansicht wechseln", modePreviewText: "Vorschau", modePreviewTitle: "In den Vorschau-Modus wechseln", examples: "Beispiele", default: "Standardmäßig", containsInvalidProperties: "Enthält ungültige Eigenschaften", containsInvalidItems: "Enthält ungültige Elemente" }, ru: { array: "Массив", auto: "Авто", appendText: "Добавить", appendTitle: "Добавить новое поле с типом 'авто' после этого поля (Ctrl+Shift+Ins)", appendSubmenuTitle: "Выбрать тип поля для добавления", appendTitleAuto: "Добавить новое поле с типом 'авто' (Ctrl+Shift+Ins)", ascending: "По возрастанию", ascendingTitle: "Сортировать ${type} по возрастанию", actionsMenu: "Нажмите для открытия меню действий (Ctrl+M)", cannotParseFieldError: "Невозможно преобразовать поле в JSON", cannotParseValueError: "Невозможно преобразовать значение в JSON", collapseAll: "Свернуть все", compactTitle: "Минификация JSON (Ctrl+Shift+I)", descending: "По убыванию", descendingTitle: "Сортировать ${type} по убыванию", drag: "Потяните для перемещения этого поля (Alt+Shift+Arrows)", duplicateKey: "повторяющийся ключ", duplicateText: "Дублировать", duplicateTitle: "Дублирование полей (Ctrl+D)", duplicateField: "Дублировать поле (Ctrl+D)", duplicateFieldError: "Дублирование названия поля", empty: "пустой", expandAll: "Развернуть все", expandTitle: `Нажмите для раскрытия/скрытия поля (Ctrl+E)
+или Ctrl+Click для раскрытия/скрытия всех потомков.`, formatTitle: "Форматирование JSON (Ctrl+I)", insert: "Вставить", insertTitle: "Вставить новое поле с типом 'авто' перед этим полем (Ctrl+Ins)", insertSub: "Выбрать тип поля для вставки", object: "Объект", ok: "ОК", redo: "Повторить (Ctrl+Shift+Z)", removeText: "Удалить", removeTitle: "Удалить выбранные поля (Ctrl+Del)", removeField: "Удалить поле (Ctrl+Del)", repairTitle: "Восстановите JSON: исправьте кавычки и escape-символы, удалите комментарии и нотацию JSONP, модифицируйте объекты JavaScript в JSON.", searchTitle: "Поиск", searchNextResultTitle: "Следующий результат (Enter)", searchPreviousResultTitle: "Предыдущий результат (Shift + Enter)", selectNode: "Выбор узла...", showAll: "показать все", showMore: "больше", showMoreStatus: "${visibleChilds} из ${totalChilds}", sort: "Сортировка", sortTitle: "Сортировка потомков типа ${type}", sortTitleShort: "Сортировка содержимого", sortFieldLabel: "Поле:", sortDirectionLabel: "Направление:", sortFieldTitle: "Выберите поле для сортировки массива или объекта", sortAscending: "По возрастанию", sortAscendingTitle: "Сортировка выбранного поря по возрастанию", sortDescending: "По убыванию", sortDescendingTitle: "Сортировка выбранного поря по убыванию", string: "Строка", transform: "Модификация", transformTitle: "Фильтрация, сортировка или модификация данных типа ${type}", transformTitleShort: "Фильтрация, сортировка или модификация данных", extract: "Извлечение", extractTitle: "Извлечь тип ${type}", transformQueryTitle: "Введите JMESpath запрос", transformWizardLabel: "Мастер", transformWizardFilter: "Фильтр", transformWizardSortBy: "Сортировка", transformWizardSelectFields: "Поля", transformQueryLabel: "Запрос", transformPreviewLabel: "Просмотр", type: "Тип", typeTitle: "Изменить тип этого поля", openUrl: "Ctrl+Click или Ctrl+Enter для открытия url в новом окне", undo: "Отменить (Ctrl+Z)", validationCannotMove: "Поле не может быть перемещено в потомка", autoType: "Тип поля автоматически определяется по значению и может быть строкой, числом, логическим значением или null.", objectType: "Объект содержит неупорядоченный набор пар ключ/значение.", arrayType: "Массив содержит упорядоченный набор значений.", stringType: "Тип поля не определяется из значения, но всегда возвращается как строка.", modeEditorTitle: "Переключение режима редактора", modeCodeText: "Код", modeCodeTitle: "Переключить в режим редактора кода", modeFormText: "Форма", modeFormTitle: "Переключить в режим формы", modeTextText: "Текст", modeTextTitle: "Переключить в режим редактора текста", modeTreeText: "Дерево", modeTreeTitle: "Переключить в режим редактора дерева", modeViewText: "Просмотр дерева", modeViewTitle: "Переключить в режим просмотра дерева", modePreviewText: "Просмотр", modePreviewTitle: "Переключить в режим просмотра", examples: "Примеры", default: "По умолчанию", containsInvalidProperties: "Содержит недопустимые свойства", containsInvalidItems: "Содержит недопустимые элементы" }, ko: { array: "배열", auto: "자동", appendText: "추가", appendTitle: '선택한 요소 아래에 "자동" 요소를 추가합니다. (Ctrl + Shift + Ins)', appendSubmenuTitle: "추가할 요소의 유형을 선택해주세요.", appendTitleAuto: '"자동" 요소를 추가합니다. (Ctrl + Shift + Ins)', ascending: "오름차순", ascendingTitle: "선택한 ${type}의 하위 요소를 오름차순 정렬합니다.", actionsMenu: "메뉴 열기 (Ctrl + M)", cannotParseFieldError: "JSON의 요소를 해석할 수 없습니다.", cannotParseValueError: "JSON의 값을 해석할 수 없습니다.", collapseAll: "모두 접기", compactTitle: "모든 공백을 제거하여 JSON 데이터를 작게 만듭니다. (Ctrl + Shift + I)", descending: "내림차순", descendingTitle: "선택한 ${type}의 하위 요소를 내림차순으로 정렬", drag: "드래그하여 요소를 이동합니다. (Alt + Shift + Arrows)", duplicateKey: "복제키", duplicateText: "복제", duplicateTitle: "선택한 요소를 복제합니다. (Ctrl + D)", duplicateField: "선택한 요소를 복제합니다. (Ctrl + D)", duplicateFieldError: "요소 이름이 중복되었습니다.", empty: "비어있음", expandAll: "모두 열기", expandTitle: `클릭하여 요소를 열거나 닫습니다. (Ctrl + E) 
+Ctrl + Click으로 모든 하위 요소를 열거나 닫습니다.`, formatTitle: "적절한 들여쓰기 및 줄바꿈으로 JSON 데이터를 정형화합니다. (Ctrl + I)", insert: "삽입", insertTitle: "선택한 요소 위에 새요소를 삽입합니다. (Ctrl + Ins)", insertSub: "삽입할 요소의 유형을 선택해주세요.", object: "객체", ok: "확인", redo: "다시 실행 (Ctrl + Shift + Z)", removeText: "삭제", removeTitle: "선택한 요소를 삭제합니다. (Ctrl + Del)", removeField: "선택한 요소를 삭제합니다. (Ctrl + Del)", repairTitle: "JSON 교정: JSON 내의 주석과 JSONP 표기법을 지우고 따옴표와 이스케이프 문자를 수정합니다.", searchTitle: "요소 또는 값 찾기", searchNextResultTitle: "다음으로 찾기 (Enter)", searchPreviousResultTitle: "이전으로 찾기 (Shift + Enter)", selectNode: "요소를 선택해주세요...", showAll: "모두보기", showMore: "더보기", showMoreStatus: "${totalChilds} 개의 항목 중 ${visibleChilds} 개를 표시합니다.", sort: "정렬", sortTitle: "선택한 ${type}의 하위 요소를 정렬합니다.", sortTitleShort: "정렬", sortFieldLabel: "요소:", sortDirectionLabel: "순서:", sortFieldTitle: "배열이나 객체를 정렬하는 요소를 선택해주세요.", sortAscending: "오름차순", sortAscendingTitle: "선택한 요소를 오름차순으로 정렬합니다.", sortDescending: "내림차순", sortDescendingTitle: "선택한 요소를 내림차순으로 정렬합니다.", string: "문자", transform: "변환", transformTitle: "선택한 ${type}의 하위 요소를 필터하거나 정렬 또는 변환합니다.", transformTitleShort: "내용을 필터하거나 정렬 또는 변환합니다.", extract: "추출", extractTitle: "선택한 ${type}의 값을 최상위에 위치시킵니다.", transformQueryTitle: "JMESPath 쿼리를 입력해주세요.", transformWizardLabel: "마법사", transformWizardFilter: "필터", transformWizardSortBy: "정렬", transformWizardSelectFields: "요소를 선택해주세요.", transformQueryLabel: "쿼리", transformPreviewLabel: "미리보기", type: "유형", typeTitle: "선택한 요소의 유형을 변경합니다.", openUrl: "Ctrl + Click 또는 Ctrl + Enter로 새 창에서 URL 열기", undo: "실행 취소 (Ctrl + Z)", validationCannotMove: "하위 요소로 이동할 수 없습니다.", autoType: "자동: 요소의 형식이 값의 유형으로 결정됩니다. 문자, 숫자, 부울, 또는 null만 허용됩니다.", objectType: "객체: 순서대로 나열되지 않은 이름/값 쌍으로 이루어진 집합입니다.", arrayType: "배열: 순서대로 나열된 값의 집합입니다.", stringType: "문자: 요소의 유형이 값에서 결정되지 않지만 항상 문자로 반환됩니다.", modeEditorTitle: "편집기 유형 변경", modeCodeText: "코드", modeCodeTitle: "형식 교정을 도와주는 기능이 포함된 문자 편집기", modeFormText: "입력 양식", modeFormTitle: "정해진 요소에 값을 입력하는 편집기", modeTextText: "문자", modeTextTitle: "단순 문자 편집기", modeTreeText: "트리", modeTreeTitle: "트리 구조로 표시되는 편집기", modeViewText: "보기", modeViewTitle: "읽기전용 트리 구조로 JSON을 표시", modePreviewText: "미리보기", modePreviewTitle: "읽기전용 문자로 JSON을 표시", examples: "예제", default: "기본값", containsInvalidProperties: "잘못된 속성이 포함되어 있습니다.", containsInvalidItems: "잘못된 항목이 포함되어 있습니다" } }, i2 = Object.keys(r), s = "en", o2 = typeof navigator != "undefined" ? navigator.language || navigator.userLanguage : undefined, a = i2.find(function(e2) {
           return e2 === o2;
         }) || s;
         function l(t2) {
@@ -1352,8 +1457,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           try {
             var t2 = (0, i2.m)(e2);
             this._setTextAndFireOnChange(t2);
-          } catch (e3) {
-          }
+          } catch (e3) {}
         }, t.focus = function() {
           this.dom.transform.focus();
         }, t.set = function(e2) {
@@ -1378,8 +1482,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           this.options.escapeUnicode === true ? this.text = (0, m.escapeUnicodeChars)(e2) : this.text = e2, this.json = t2, this._renderPreview(), this.json === undefined ? (n3 = this).executeWithBusyMessage(function() {
             try {
               n3.json = n3.get(), n3._renderPreview(), n3._pushHistory();
-            } catch (e3) {
-            }
+            } catch (e3) {}
           }, "parsing...") : this._pushHistory(), this._debouncedValidate();
         }, t._setTextAndFireOnChange = function(e2, t2) {
           this._setText(e2, t2), this._onChange();
@@ -1436,15 +1539,19 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           if (typeof e2 == "boolean" || e2 instanceof Boolean || e2 === null || typeof e2 == "number" || e2 instanceof Number || typeof e2 == "string" || e2 instanceof String || e2 instanceof Date)
             return JSON.stringify(e2);
           if (Array.isArray(e2)) {
-            for (var o3 = e2, r2 = t2, s2 = n3, a = i3, l = r2 ? s2 + r2 : undefined, c = r2 ? "[\n" : "[", h = 0;h < o3.length; h++) {
+            for (var o3 = e2, r2 = t2, s2 = n3, a = i3, l = r2 ? s2 + r2 : undefined, c = r2 ? `[
+` : "[", h = 0;h < o3.length; h++) {
               var d = o3[h];
-              if (r2 && (c += l), c += d !== undefined && typeof d != "function" ? k(d, r2, l, a) : "null", h < o3.length - 1 && (c += r2 ? ",\n" : ","), c.length > a)
+              if (r2 && (c += l), c += d !== undefined && typeof d != "function" ? k(d, r2, l, a) : "null", h < o3.length - 1 && (c += r2 ? `,
+` : ","), c.length > a)
                 return c + "...";
             }
-            return c += r2 ? "\n" + s2 + "]" : "]";
+            return c += r2 ? `
+` + s2 + "]" : "]";
           }
           if (e2 && I(e2) === "object") {
-            var u, g = e2, p = t2, s2 = n3, m = i3, f = p ? s2 + p : undefined, C = true, y = p ? "{\n" : "{";
+            var u, g = e2, p = t2, s2 = n3, m = i3, f = p ? s2 + p : undefined, C = true, y = p ? `{
+` : "{";
             if (typeof g.toJSON == "function")
               return k(g.toJSON(), p, s2, m);
             for (u in g)
@@ -1452,10 +1559,12 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
                 return Object.prototype.hasOwnProperty.call(e3, t3);
               }(g, u)) {
                 var v = g[u];
-                if (C ? C = false : y += p ? ",\n" : ",", (y = (y += p ? f + '"' + u + '": ' : '"' + u + '":') + k(v, p, f, m)).length > m)
+                if (C ? C = false : y += p ? `,
+` : ",", (y = (y += p ? f + '"' + u + '": ' : '"' + u + '":') + k(v, p, f, m)).length > m)
                   return y + "...";
               }
-            return y += p ? "\n" + s2 + "}" : "}";
+            return y += p ? `
+` + s2 + "}" : "}";
           }
         }
         function T(e2, t2) {
@@ -1652,8 +1761,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
                   ((t4 = o3[n5].key) == null ? undefined : t4.line) === i4.row && i4.column >= o3[n5].key.column && i4.column <= o3[n5].keyEnd.column && (e4 = n5.slice(0, n5.lastIndexOf("/"))), (e4 = ((t4 = o3[n5].value) == null ? undefined : t4.line) === i4.row && ((t4 = o3[n5].value) == null ? undefined : t4.line) === ((t4 = o3[n5].valueEnd) == null ? undefined : t4.line) && i4.column >= o3[n5].value.column && i4.column <= o3[n5].valueEnd.column ? n5 : e4) && (t4 = l2(e4, c2.suggestions, ""), r2(t4));
                 });
               });
-            } catch (e4) {
-            }
+            } catch (e4) {}
           } }]) && s(e2.prototype, t2), i3 && s(e2, i3), Object.defineProperty(e2, "prototype", { writable: false }), e2;
           var e2, t2, i3;
         }();
@@ -1668,8 +1776,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
         function b() {
           try {
             this.format();
-          } catch (e2) {
-          }
+          } catch (e2) {}
         }
         t.create = function(e2) {
           var t2, n3, i3, o3 = this, r2 = 1 < arguments.length && arguments[1] !== undefined ? arguments[1] : {}, s2 = (r2.statusBar === undefined && (r2.statusBar = true), r2.mainMenuBar = r2.mainMenuBar !== false, r2.enableSort = r2.enableSort !== false, r2.enableTransform = r2.enableTransform !== false, r2.createQuery = r2.createQuery || u.V, r2.executeQuery = r2.executeQuery || u.e, r2.showErrorTable = r2.showErrorTable !== undefined ? r2.showErrorTable : ["text", "preview"], typeof (this.options = r2).indentation == "number" ? this.indentation = Number(r2.indentation) : this.indentation = 2, (0, d.AI)(this.options.languages), (0, d.xC)(this.options.language), r2.ace || l()), a2 = (this.mode = r2.mode === "code" ? "code" : "text", this.mode === "code" && s2 === undefined && (this.mode = "text", console.warn("Failed to load Ace editor, falling back to plain text mode. Please use a JSONEditor bundle including Ace, or pass Ace as via the configuration option `ace`.")), this.theme = r2.theme || I, this.theme === I && s2 && (0, m.J)(), r2.onTextSelectionChange && this.onTextSelectionChange(r2.onTextSelectionChange), this), e2 = (this.container = e2, this.dom = {}, this.aceEditor = undefined, this.textarea = undefined, this.validateSchema = null, this.annotations = [], this.lastSchemaErrors = undefined, this._debouncedValidate = (0, C.debounce)(this._validateAndCatch.bind(this), this.DEBOUNCE_INTERVAL), this.width = e2.clientWidth, this.height = e2.clientHeight, this.frame = document.createElement("div"), this.frame.className = "jsoneditor jsoneditor-mode-" + this.options.mode, this.frame.onclick = function(e3) {
@@ -1807,8 +1914,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           try {
             var t2 = (0, i2.m)(e2);
             this.updateText(t2);
-          } catch (e3) {
-          }
+          } catch (e3) {}
         }, t.focus = function() {
           this.textarea && this.textarea.focus(), this.aceEditor && this.aceEditor.focus();
         }, t.resize = function() {
@@ -1874,8 +1980,10 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
               return e4.dataPath === t3.path;
             }), n3 = e3.map(function(e4) {
               return e4.message;
-            }).join("\n");
-            return n3 ? { row: t3.line, column: t3.column, text: "Schema validation error" + (e3.length !== 1 ? "s" : "") + ": \n" + n3, type: "warning", source: "jsoneditor" } : {};
+            }).join(`
+`);
+            return n3 ? { row: t3.line, column: t3.column, text: "Schema validation error" + (e3.length !== 1 ? "s" : "") + `: 
+` + n3, type: "warning", source: "jsoneditor" } : {};
           }), this._refreshAnnotations()), this.errorTable.setErrors(i3, e2), this.aceEditor && this.aceEditor.resize(false);
         }, t.getTextSelection = function() {
           var e2, t2, n3, i3 = {};
@@ -1955,7 +2063,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             if (typeof Symbol != "undefined" && e3[Symbol.iterator] != null || e3["@@iterator"] != null)
               return Array.from(e3);
           }(e2) || m(e2) || function() {
-            throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+            throw new TypeError(`Invalid attempt to spread non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
           }();
         }
         function H(e2, t2) {
@@ -1988,7 +2097,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
               return a2;
             }
           }(e2, t2) || m(e2, t2) || function() {
-            throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+            throw new TypeError(`Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
           }();
         }
         function x(e2, t2) {
@@ -2010,13 +2120,13 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
               }
             } };
           if (Array.isArray(e2) || (s2 = m(e2)) || t2 && e2 && typeof e2.length == "number")
-            return s2 && (e2 = s2), r2 = 0, { s: t2 = function() {
-            }, n: function() {
+            return s2 && (e2 = s2), r2 = 0, { s: t2 = function() {}, n: function() {
               return r2 >= e2.length ? { done: true } : { done: false, value: e2[r2++] };
             }, e: function(e3) {
               throw e3;
             }, f: t2 };
-          throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+          throw new TypeError(`Invalid attempt to iterate non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
         }
         function m(e2, t2) {
           var n3;
@@ -2771,7 +2881,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           } }, { key: "_escapeJSON", value: function(e3) {
             for (var t3 = "", n4 = 0;n4 < e3.length; ) {
               var i3 = e3.charAt(n4);
-              i3 === "\n" ? t3 += "\\n" : i3 === "\\" ? (t3 += i3, n4++, (i3 = e3.charAt(n4)) !== "" && '"\\/bfnrtu'.indexOf(i3) !== -1 || (t3 += "\\"), t3 += i3) : t3 += i3 === '"' ? '\\"' : i3, n4++;
+              i3 === `
+` ? t3 += "\\n" : i3 === "\\" ? (t3 += i3, n4++, (i3 = e3.charAt(n4)) !== "" && '"\\/bfnrtu'.indexOf(i3) !== -1 || (t3 += "\\"), t3 += i3) : t3 += i3 === '"' ? "\\\"" : i3, n4++;
             }
             return t3;
           } }, { key: "updateNodeName", value: function() {
@@ -3143,8 +3254,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
               r2(e3.path).setInternalValue(e3.newValue);
             } } };
           }
-          return t2 = e2, (n3 = [{ key: "onChange", value: function() {
-          } }, { key: "add", value: function(e3, t3) {
+          return t2 = e2, (n3 = [{ key: "onChange", value: function() {} }, { key: "add", value: function(e3, t3) {
             this.index++, this.history[this.index] = { action: e3, params: t3, timestamp: new Date }, this.index < this.history.length - 1 && this.history.splice(this.index + 1, this.history.length - this.index - 1), this.onChange();
           } }, { key: "clear", value: function() {
             this.history = [], this.index = -1, this.onChange();
@@ -3271,7 +3381,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
                     break;
                   }
               }
-              this._setActiveResult(n4, false), t3 !== undefined ? (t3 = this.results.length, this.dom.results.textContent = t3 === 0 ? "no\xA0results" : t3 === 1 ? "1\xA0result" : e3 < t3 ? e3 + "+\xA0results" : t3 + "\xA0results") : this.dom.results.textContent = "";
+              this._setActiveResult(n4, false), t3 !== undefined ? (t3 = this.results.length, this.dom.results.textContent = t3 === 0 ? "no results" : t3 === 1 ? "1 result" : e3 < t3 ? e3 + "+ results" : t3 + " results") : this.dom.results.textContent = "";
             }
           } }, { key: "_onKeyDown", value: function(e3) {
             var t3 = e3.which;
@@ -3330,7 +3440,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
               var e3, t3 = document.createElement("span");
               t3.className = "jsoneditor-treepath-element", t3.innerText = n4.name, t3.onclick = function(e4) {
                 this.selectionCallback && this.selectionCallback(e4);
-              }.bind(r2, n4), r2.path.appendChild(t3), n4.children.length && ((e3 = document.createElement("span")).className = "jsoneditor-treepath-seperator", e3.textContent = "\u25BA", e3.onclick = function() {
+              }.bind(r2, n4), r2.path.appendChild(t3), n4.children.length && ((e3 = document.createElement("span")).className = "jsoneditor-treepath-seperator", e3.textContent = "►", e3.onclick = function() {
                 r2.contentMenuClicked = true;
                 var t4 = [];
                 n4.children.forEach(function(e4) {
@@ -3370,11 +3480,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             y2.hide(), y2.onmouseselection(this.__hint, y2.rs);
           }
           var h2, n3, d2, o3, u2, g2, p2, m2, f2, C2, i3, y2, v2, I2, b2, A2;
-          this.container = e2, this.dom = {}, this.highlighter = new S, this.selection = undefined, this.multiselection = { nodes: [] }, this.validateSchema = null, this.validationSequence = 0, this.errorNodes = [], this.lastSchemaErrors = undefined, this.node = null, this.focusTarget = null, this._setOptions(t2), t2.autocomplete && (this.autocomplete = ((h2 = (h2 = t2.autocomplete) || {}).filter = h2.filter || "start", h2.trigger = h2.trigger || "keydown", h2.confirmKeys = h2.confirmKeys || [39, 35, 9], h2.caseSensitive = h2.caseSensitive || false, u2 = o3 = "", (g2 = document.createElement("div")).style.position = "relative", g2.style.outline = "0", g2.style.border = "0", g2.style.margin = "0", g2.style.padding = "0", (p2 = document.createElement("div")).className = "autocomplete dropdown", p2.style.position = "absolute", p2.style.visibility = "hidden", m2 = p2, f2 = [], i3 = -1, I2 = y2 = { rs: v2 = { onArrowDown: function() {
-          }, onArrowUp: function() {
-          }, onEnter: function() {
-          }, onTab: function() {
-          }, startFrom: C2 = 0, options: [], element: null, elementHint: null, elementStyle: null, wrapper: g2, show: function(e3, t3, n4) {
+          this.container = e2, this.dom = {}, this.highlighter = new S, this.selection = undefined, this.multiselection = { nodes: [] }, this.validateSchema = null, this.validationSequence = 0, this.errorNodes = [], this.lastSchemaErrors = undefined, this.node = null, this.focusTarget = null, this._setOptions(t2), t2.autocomplete && (this.autocomplete = ((h2 = (h2 = t2.autocomplete) || {}).filter = h2.filter || "start", h2.trigger = h2.trigger || "keydown", h2.confirmKeys = h2.confirmKeys || [39, 35, 9], h2.caseSensitive = h2.caseSensitive || false, u2 = o3 = "", (g2 = document.createElement("div")).style.position = "relative", g2.style.outline = "0", g2.style.border = "0", g2.style.margin = "0", g2.style.padding = "0", (p2 = document.createElement("div")).className = "autocomplete dropdown", p2.style.position = "absolute", p2.style.visibility = "hidden", m2 = p2, f2 = [], i3 = -1, I2 = y2 = { rs: v2 = { onArrowDown: function() {}, onArrowUp: function() {}, onEnter: function() {}, onTab: function() {}, startFrom: C2 = 0, options: [], element: null, elementHint: null, elementStyle: null, wrapper: g2, show: function(e3, t3, n4) {
             var i4 = this;
             this.startFrom = t3, this.wrapper.remove(), this.elementHint && (this.elementHint.remove(), this.elementHint = null), o3 === "" && (o3 = window.getComputedStyle(e3).getPropertyValue("font-size")), u2 === "" && (u2 = window.getComputedStyle(e3).getPropertyValue("font-family")), p2.style.marginLeft = "0", p2.style.marginTop = e3.getBoundingClientRect().height + "px", this.options = n4.map(String), this.element !== e3 && (this.element = e3, this.elementStyle = { zIndex: this.element.style.zIndex, position: this.element.style.position, backgroundColor: this.element.style.backgroundColor, borderColor: this.element.style.borderColor }), this.element.style.zIndex = 3, this.element.style.position = "relative", this.element.style.backgroundColor = "transparent", this.element.style.borderColor = "transparent", this.elementHint = e3.cloneNode(), this.elementHint.className = "autocomplete hint", this.elementHint.style.zIndex = 2, this.elementHint.style.position = "absolute", this.elementHint.onfocus = function() {
               i4.element.focus();
@@ -3386,7 +3492,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           }, hideDropDown: function() {
             this.wrapper.remove(), this.elementHint && (this.elementHint.remove(), this.elementHint = null, I2.hide(), this.element.style.zIndex = this.elementStyle.zIndex, this.element.style.position = this.elementStyle.position, this.element.style.backgroundColor = this.elementStyle.backgroundColor, this.element.style.borderColor = this.elementStyle.borderColor);
           }, repaint: function(e3) {
-            var e3 = (e3 = e3.innerText).replace("\n", ""), t3 = this.options.length, n4 = e3.substring(this.startFrom);
+            var e3 = (e3 = e3.innerText).replace(`
+`, ""), t3 = this.options.length, n4 = e3.substring(this.startFrom);
             d2 = e3.substring(0, this.startFrom);
             for (var i4 = 0;i4 < t3; i4++) {
               var o4 = this.options[i4];
@@ -3411,14 +3518,14 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             i3 !== -1 && f2[i3] && (f2[i3].className = "item"), f2[e3].className = "item hover", i3 = e3;
           }, move: function(e3) {
             return m2.style.visibility === "hidden" ? "" : (C2 + e3 !== -1 && C2 + e3 !== f2.length && (C2 += e3, y2.highlight(C2)), f2[C2].__hint);
-          }, onmouseselection: function() {
-          } }, b2 = function(e3) {
+          }, onmouseselection: function() {} }, b2 = function(e3) {
             var t3 = (e3 = e3 || window.event).keyCode;
             if (this.elementHint != null && t3 !== 33 && t3 !== 34)
               if (t3 === 27)
                 v2.hideDropDown(), v2.element.focus(), e3.preventDefault(), e3.stopPropagation();
               else {
-                var n4, i4 = (i4 = this.element.innerText).replace("\n", "");
+                var n4, i4 = (i4 = this.element.innerText).replace(`
+`, "");
                 if (0 <= h2.confirmKeys.indexOf(t3))
                   t3 === 9 && this.elementHint.innerText.length === 0 && v2.onTab(), 0 < this.elementHint.innerText.length && this.element.innerText !== this.elementHint.realInnerText && (this.element.innerText = this.elementHint.realInnerText, v2.hideDropDown(), r2(this.element), t3 === 9) && (v2.element.focus(), e3.preventDefault(), e3.stopPropagation());
                 else if (t3 === 13)
@@ -3583,8 +3690,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
                   var t3;
                   try {
                     t3 = e4 && e4.path ? n3.findNodeByPath(e4.path) : null;
-                  } catch (e5) {
-                  }
+                  } catch (e5) {}
                   return t3 || console.warn("Ignoring validation error: node not found. Path:", e4.path, "Error:", e4), { node: t3, error: e4, type: "customValidation" };
                 }).filter(function(e4) {
                   return e4 && e4.node && e4.error && e4.error.message;
@@ -3790,8 +3896,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
         t.tryRequireAjv = function() {
           try {
             return n2(2229);
-          } catch (e2) {
-          }
+          } catch (e2) {}
         };
       },
       5467: function(e, t, n2) {
@@ -3939,7 +4044,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
                 return typeof e3 == "string" ? l(e3, t2) : (n3 = (n3 = {}.toString.call(e3).slice(8, -1)) === "Object" && e3.constructor ? e3.constructor.name : n3) === "Map" || n3 === "Set" ? Array.from(e3) : n3 === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n3) ? l(e3, t2) : undefined;
             }
           }(e2) || function() {
-            throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+            throw new TypeError(`Invalid attempt to spread non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
           }();
         }
         function l(e2, t2) {
@@ -4069,7 +4175,10 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           if (e2.hasChildNodes()) {
             for (var i3 = e2.childNodes, o3 = "", r2 = 0, s2 = i3.length;r2 < s2; r2++) {
               var a2, l2 = i3[r2];
-              l2.nodeName === "DIV" || l2.nodeName === "P" ? ((a2 = (a2 = i3[r2 - 1]) ? a2.nodeName : undefined) && a2 !== "DIV" && a2 !== "P" && a2 !== "BR" && (o3 !== "" && (o3 += "\n"), t2.flush()), o3 += k(l2, t2), t2.set("\n")) : l2.nodeName === "BR" ? (o3 += t2.flush(), t2.set("\n")) : o3 += k(l2, t2);
+              l2.nodeName === "DIV" || l2.nodeName === "P" ? ((a2 = (a2 = i3[r2 - 1]) ? a2.nodeName : undefined) && a2 !== "DIV" && a2 !== "P" && a2 !== "BR" && (o3 !== "" && (o3 += `
+`), t2.flush()), o3 += k(l2, t2), t2.set(`
+`)) : l2.nodeName === "BR" ? (o3 += t2.flush(), t2.set(`
+`)) : o3 += k(l2, t2);
             }
             return o3;
           }
@@ -4189,15 +4298,21 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
         }
         function oe(t2) {
           var e2, n3, i3, o3, r2 = 0, s2 = 0;
-          return typeof t2.selectionStart == "number" && typeof t2.selectionEnd == "number" ? (r2 = t2.selectionStart, s2 = t2.selectionEnd) : (o3 = document.selection.createRange()) && o3.parentElement() === t2 && (i3 = t2.value.length, e2 = t2.value.replace(/\r\n/g, "\n"), (n3 = t2.createTextRange()).moveToBookmark(o3.getBookmark()), (o3 = t2.createTextRange()).collapse(false), -1 < n3.compareEndPoints("StartToEnd", o3) ? r2 = s2 = i3 : (r2 = -n3.moveStart("character", -i3), r2 += e2.slice(0, r2).split("\n").length - 1, -1 < n3.compareEndPoints("EndToEnd", o3) ? s2 = i3 : (s2 = -n3.moveEnd("character", -i3), s2 += e2.slice(0, s2).split("\n").length - 1))), { startIndex: r2, endIndex: s2, start: a2(r2), end: a2(s2) };
+          return typeof t2.selectionStart == "number" && typeof t2.selectionEnd == "number" ? (r2 = t2.selectionStart, s2 = t2.selectionEnd) : (o3 = document.selection.createRange()) && o3.parentElement() === t2 && (i3 = t2.value.length, e2 = t2.value.replace(/\r\n/g, `
+`), (n3 = t2.createTextRange()).moveToBookmark(o3.getBookmark()), (o3 = t2.createTextRange()).collapse(false), -1 < n3.compareEndPoints("StartToEnd", o3) ? r2 = s2 = i3 : (r2 = -n3.moveStart("character", -i3), r2 += e2.slice(0, r2).split(`
+`).length - 1, -1 < n3.compareEndPoints("EndToEnd", o3) ? s2 = i3 : (s2 = -n3.moveEnd("character", -i3), s2 += e2.slice(0, s2).split(`
+`).length - 1))), { startIndex: r2, endIndex: s2, start: a2(r2), end: a2(s2) };
           function a2(e3) {
             e3 = t2.value.substring(0, e3);
-            return { row: (e3.match(/\n/g) || []).length + 1, column: e3.length - e3.lastIndexOf("\n") };
+            return { row: (e3.match(/\n/g) || []).length + 1, column: e3.length - e3.lastIndexOf(`
+`) };
           }
         }
         function re(e2, t2, n3) {
           var e2 = e2.value || "";
-          return 0 < t2 && 0 < n3 ? (e2 = e2.split("\n", t2), t2 = Math.min(e2.length, t2), n3 = Math.min(e2[t2 - 1].length, n3 - 1), n3 = t2 === 1 ? n3 : n3 + 1, e2.slice(0, t2 - 1).join("\n").length + n3) : -1;
+          return 0 < t2 && 0 < n3 ? (e2 = e2.split(`
+`, t2), t2 = Math.min(e2.length, t2), n3 = Math.min(e2[t2 - 1].length, n3 - 1), n3 = t2 === 1 ? n3 : n3 + 1, e2.slice(0, t2 - 1).join(`
+`).length + n3) : -1;
         }
         function se(e2, t2) {
           var n3, i3 = [];
@@ -4228,8 +4343,16 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
         }
         function le(n3, e2) {
           var i3;
-          return n3 ? (i3 = "", n3.title && (i3 += n3.title), n3.description && (0 < i3.length && (i3 += "\n"), i3 += n3.description), n3.default && (0 < i3.length && (i3 += "\n\n"), i3 = (i3 += (0, s.Tl)("default", undefined, e2) + "\n") + JSON.stringify(n3.default, null, 2)), Array.isArray(n3.examples) && 0 < n3.examples.length && (0 < i3.length && (i3 += "\n\n"), i3 += (0, s.Tl)("examples", undefined, e2) + "\n", n3.examples.forEach(function(e3, t2) {
-            i3 += JSON.stringify(e3, null, 2), t2 !== n3.examples.length - 1 && (i3 += "\n");
+          return n3 ? (i3 = "", n3.title && (i3 += n3.title), n3.description && (0 < i3.length && (i3 += `
+`), i3 += n3.description), n3.default && (0 < i3.length && (i3 += `
+
+`), i3 = (i3 += (0, s.Tl)("default", undefined, e2) + `
+`) + JSON.stringify(n3.default, null, 2)), Array.isArray(n3.examples) && 0 < n3.examples.length && (0 < i3.length && (i3 += `
+
+`), i3 += (0, s.Tl)("examples", undefined, e2) + `
+`, n3.examples.forEach(function(e3, t2) {
+            i3 += JSON.stringify(e3, null, 2), t2 !== n3.examples.length - 1 && (i3 += `
+`);
           })), i3) : "";
         }
         function N(e2, t2) {
@@ -4329,8 +4452,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
         else
           try {
             i2 = n2(7598);
-          } catch (e2) {
-          }
+          } catch (e2) {}
         e.exports = i2;
       },
       6990: function(i2, e, C) {
@@ -4612,7 +4734,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
                 var i4 = n4, n4 = (i4 = n4 && n4.getRootNode && (i4 = n4.getRootNode()) && i4 != n4 ? i4 : document).ownerDocument || i4;
                 if (t3 && r2.hasCssString(t3, i4))
                   return null;
-                t3 && (e3 += "\n/*# sourceURL=ace/css/" + t3 + " */");
+                t3 && (e3 += `
+/*# sourceURL=ace/css/` + t3 + " */");
                 var o3 = r2.createElement("style");
                 o3.appendChild(n4.createTextNode(e3)), t3 && (o3.id = t3), (i4 = i4 == n4 ? r2.getDocumentHead(n4) : i4).insertBefore(o3, i4.firstChild);
               }
@@ -4783,7 +4906,165 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           }
           e2.prototype.warn = h, e2.prototype.reportError = a2, r2.implement(e2.prototype, s2), t2.AppConfig = e2;
         }), ace.define("ace/theme/textmate-css", ["require", "exports", "module"], function(e2, t2, n3) {
-          n3.exports = '.ace-tm .ace_gutter {\n  background: #f0f0f0;\n  color: #333;\n}\n\n.ace-tm .ace_print-margin {\n  width: 1px;\n  background: #e8e8e8;\n}\n\n.ace-tm .ace_fold {\n    background-color: #6B72E6;\n}\n\n.ace-tm {\n  background-color: #FFFFFF;\n  color: black;\n}\n\n.ace-tm .ace_cursor {\n  color: black;\n}\n        \n.ace-tm .ace_invisible {\n  color: rgb(191, 191, 191);\n}\n\n.ace-tm .ace_storage,\n.ace-tm .ace_keyword {\n  color: blue;\n}\n\n.ace-tm .ace_constant {\n  color: rgb(197, 6, 11);\n}\n\n.ace-tm .ace_constant.ace_buildin {\n  color: rgb(88, 72, 246);\n}\n\n.ace-tm .ace_constant.ace_language {\n  color: rgb(88, 92, 246);\n}\n\n.ace-tm .ace_constant.ace_library {\n  color: rgb(6, 150, 14);\n}\n\n.ace-tm .ace_invalid {\n  background-color: rgba(255, 0, 0, 0.1);\n  color: red;\n}\n\n.ace-tm .ace_support.ace_function {\n  color: rgb(60, 76, 114);\n}\n\n.ace-tm .ace_support.ace_constant {\n  color: rgb(6, 150, 14);\n}\n\n.ace-tm .ace_support.ace_type,\n.ace-tm .ace_support.ace_class {\n  color: rgb(109, 121, 222);\n}\n\n.ace-tm .ace_keyword.ace_operator {\n  color: rgb(104, 118, 135);\n}\n\n.ace-tm .ace_string {\n  color: rgb(3, 106, 7);\n}\n\n.ace-tm .ace_comment {\n  color: rgb(76, 136, 107);\n}\n\n.ace-tm .ace_comment.ace_doc {\n  color: rgb(0, 102, 255);\n}\n\n.ace-tm .ace_comment.ace_doc.ace_tag {\n  color: rgb(128, 159, 191);\n}\n\n.ace-tm .ace_constant.ace_numeric {\n  color: rgb(0, 0, 205);\n}\n\n.ace-tm .ace_variable {\n  color: rgb(49, 132, 149);\n}\n\n.ace-tm .ace_xml-pe {\n  color: rgb(104, 104, 91);\n}\n\n.ace-tm .ace_entity.ace_name.ace_function {\n  color: #0000A2;\n}\n\n\n.ace-tm .ace_heading {\n  color: rgb(12, 7, 255);\n}\n\n.ace-tm .ace_list {\n  color:rgb(185, 6, 144);\n}\n\n.ace-tm .ace_meta.ace_tag {\n  color:rgb(0, 22, 142);\n}\n\n.ace-tm .ace_string.ace_regex {\n  color: rgb(255, 0, 0)\n}\n\n.ace-tm .ace_marker-layer .ace_selection {\n  background: rgb(181, 213, 255);\n}\n.ace-tm.ace_multiselect .ace_selection.ace_start {\n  box-shadow: 0 0 3px 0px white;\n}\n.ace-tm .ace_marker-layer .ace_step {\n  background: rgb(252, 255, 0);\n}\n\n.ace-tm .ace_marker-layer .ace_stack {\n  background: rgb(164, 229, 101);\n}\n\n.ace-tm .ace_marker-layer .ace_bracket {\n  margin: -1px 0 0 -1px;\n  border: 1px solid rgb(192, 192, 192);\n}\n\n.ace-tm .ace_marker-layer .ace_active-line {\n  background: rgba(0, 0, 0, 0.07);\n}\n\n.ace-tm .ace_gutter-active-line {\n    background-color : #dcdcdc;\n}\n\n.ace-tm .ace_marker-layer .ace_selected-word {\n  background: rgb(250, 250, 255);\n  border: 1px solid rgb(200, 200, 250);\n}\n\n.ace-tm .ace_indent-guide {\n  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;\n}\n\n.ace-tm .ace_indent-guide-active {\n  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAAZSURBVHjaYvj///9/hivKyv8BAAAA//8DACLqBhbvk+/eAAAAAElFTkSuQmCC") right repeat-y;\n}\n';
+          n3.exports = `.ace-tm .ace_gutter {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.ace-tm .ace_print-margin {
+  width: 1px;
+  background: #e8e8e8;
+}
+
+.ace-tm .ace_fold {
+    background-color: #6B72E6;
+}
+
+.ace-tm {
+  background-color: #FFFFFF;
+  color: black;
+}
+
+.ace-tm .ace_cursor {
+  color: black;
+}
+        
+.ace-tm .ace_invisible {
+  color: rgb(191, 191, 191);
+}
+
+.ace-tm .ace_storage,
+.ace-tm .ace_keyword {
+  color: blue;
+}
+
+.ace-tm .ace_constant {
+  color: rgb(197, 6, 11);
+}
+
+.ace-tm .ace_constant.ace_buildin {
+  color: rgb(88, 72, 246);
+}
+
+.ace-tm .ace_constant.ace_language {
+  color: rgb(88, 92, 246);
+}
+
+.ace-tm .ace_constant.ace_library {
+  color: rgb(6, 150, 14);
+}
+
+.ace-tm .ace_invalid {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: red;
+}
+
+.ace-tm .ace_support.ace_function {
+  color: rgb(60, 76, 114);
+}
+
+.ace-tm .ace_support.ace_constant {
+  color: rgb(6, 150, 14);
+}
+
+.ace-tm .ace_support.ace_type,
+.ace-tm .ace_support.ace_class {
+  color: rgb(109, 121, 222);
+}
+
+.ace-tm .ace_keyword.ace_operator {
+  color: rgb(104, 118, 135);
+}
+
+.ace-tm .ace_string {
+  color: rgb(3, 106, 7);
+}
+
+.ace-tm .ace_comment {
+  color: rgb(76, 136, 107);
+}
+
+.ace-tm .ace_comment.ace_doc {
+  color: rgb(0, 102, 255);
+}
+
+.ace-tm .ace_comment.ace_doc.ace_tag {
+  color: rgb(128, 159, 191);
+}
+
+.ace-tm .ace_constant.ace_numeric {
+  color: rgb(0, 0, 205);
+}
+
+.ace-tm .ace_variable {
+  color: rgb(49, 132, 149);
+}
+
+.ace-tm .ace_xml-pe {
+  color: rgb(104, 104, 91);
+}
+
+.ace-tm .ace_entity.ace_name.ace_function {
+  color: #0000A2;
+}
+
+
+.ace-tm .ace_heading {
+  color: rgb(12, 7, 255);
+}
+
+.ace-tm .ace_list {
+  color:rgb(185, 6, 144);
+}
+
+.ace-tm .ace_meta.ace_tag {
+  color:rgb(0, 22, 142);
+}
+
+.ace-tm .ace_string.ace_regex {
+  color: rgb(255, 0, 0)
+}
+
+.ace-tm .ace_marker-layer .ace_selection {
+  background: rgb(181, 213, 255);
+}
+.ace-tm.ace_multiselect .ace_selection.ace_start {
+  box-shadow: 0 0 3px 0px white;
+}
+.ace-tm .ace_marker-layer .ace_step {
+  background: rgb(252, 255, 0);
+}
+
+.ace-tm .ace_marker-layer .ace_stack {
+  background: rgb(164, 229, 101);
+}
+
+.ace-tm .ace_marker-layer .ace_bracket {
+  margin: -1px 0 0 -1px;
+  border: 1px solid rgb(192, 192, 192);
+}
+
+.ace-tm .ace_marker-layer .ace_active-line {
+  background: rgba(0, 0, 0, 0.07);
+}
+
+.ace-tm .ace_gutter-active-line {
+    background-color : #dcdcdc;
+}
+
+.ace-tm .ace_marker-layer .ace_selected-word {
+  background: rgb(250, 250, 255);
+  border: 1px solid rgb(200, 200, 250);
+}
+
+.ace-tm .ace_indent-guide {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;
+}
+
+.ace-tm .ace_indent-guide-active {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAAZSURBVHjaYvj///9/hivKyv8BAAAA//8DACLqBhbvk+/eAAAAAElFTkSuQmCC") right repeat-y;
+}
+`;
         }), ace.define("ace/theme/textmate", ["require", "exports", "module", "ace/theme/textmate-css", "ace/lib/dom"], function(e2, t2, n3) {
           t2.isDark = false, t2.cssClass = "ace-tm", t2.cssText = e2("./textmate-css"), t2.$id = "ace/theme/textmate", e2("../lib/dom").importCssString(t2.cssText, t2.cssClass, false);
         }), ace.define("ace/config", ["require", "exports", "module", "ace/lib/lang", "ace/lib/net", "ace/lib/dom", "ace/lib/app_config", "ace/theme/textmate"], function(s2, a2, t2) {
@@ -4835,8 +5116,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             else {
               try {
                 i4 = this.$require(r3);
-              } catch (e4) {
-              }
+              } catch (e4) {}
               n4(i4 || a2.$loaded[r3]);
             }
           }, a2.$require = function(e3) {
@@ -4845,8 +5125,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           }, a2.setModuleLoader = function(e3, t3) {
             a2.dynamicModules[e3] = t3;
           }, function() {
-            r2.basePath || r2.workerPath || r2.modePath || r2.themePath || Object.keys(r2.$moduleUrls).length || (console.error("Unable to infer path to ace from script src,", "use ace.config.set('basePath', 'path') to enable dynamic loading of modes and themes", "or with webpack use ace/webpack-resolver"), h = function() {
-            });
+            r2.basePath || r2.workerPath || r2.modePath || r2.themePath || Object.keys(r2.$moduleUrls).length || (console.error("Unable to infer path to ace from script src,", "use ace.config.set('basePath', 'path') to enable dynamic loading of modes and themes", "or with webpack use ace/webpack-resolver"), h = function() {});
           });
           a2.version = "1.35.0";
         }), ace.define("ace/loader_build", ["require", "exports", "module", "ace/lib/fixoldbrowsers", "ace/config"], function(g, e2, p) {
@@ -4984,12 +5263,10 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             if (n3 == null) {
               n3 = false;
               try {
-                document.createComment("").addEventListener("test", function() {
-                }, { get passive() {
+                document.createComment("").addEventListener("test", function() {}, { get passive() {
                   return n3 = { passive: false }, true;
                 } });
-              } catch (e3) {
-              }
+              } catch (e3) {}
             }
             return n3;
           }
@@ -5115,8 +5392,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             var u = K.createElement("textarea"), r2 = (u.className = "ace_text-input", u.setAttribute("wrap", "off"), u.setAttribute("autocorrect", "off"), u.setAttribute("autocapitalize", "off"), u.setAttribute("spellcheck", "false"), u.style.opacity = "0", e3.insertBefore(u, e3.firstChild), false), g = false, l2 = false, p = false, a2 = "", m = (te || (u.style.fontSize = "1px"), false), t3 = false, f = "", C2 = 0, y = 0, v = 0, c2 = Number.MAX_SAFE_INTEGER, h = Number.MIN_SAFE_INTEGER, I = 0;
             try {
               var b = document.activeElement === u;
-            } catch (e4) {
-            }
+            } catch (e4) {}
             this.setNumberOfExtraLines = function(e4) {
               c2 = Number.MAX_SAFE_INTEGER, h = Number.MIN_SAFE_INTEGER, I = e4 < 0 ? 0 : e4;
             }, this.setAriaOptions = function(e4) {
@@ -5130,8 +5406,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
                   try {
                     if (!document.hasFocus())
                       return;
-                  } catch (e5) {
-                  }
+                  } catch (e5) {}
                 d.onFocus(e4), D.isEdge ? setTimeout(w) : w();
               }
             }, d), this.$focusScroll = false, this.focus = function() {
@@ -5178,7 +5453,9 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             }
             var w = q ? function(e4) {
               var t4;
-              !b || r2 && !e4 || p || ((t4 = "\n ab" + (e4 = e4 || "") + "cde fg\n") != u.value && (u.value = f = t4), t4 = 4 + (e4.length || (d.selection.isEmpty() ? 0 : 1)), C2 == 4 && y == t4 || u.setSelectionRange(4, t4), C2 = 4, y = t4);
+              !b || r2 && !e4 || p || ((t4 = `
+ ab` + (e4 = e4 || "") + `cde fg
+`) != u.value && (u.value = f = t4), t4 = 4 + (e4.length || (d.selection.isEmpty() ? 0 : 1)), C2 == 4 && y == t4 || u.setSelectionRange(4, t4), C2 = 4, y = t4);
             } : function() {
               if (!l2 && !p && (b || S)) {
                 l2 = true;
@@ -5186,15 +5463,21 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
                 if (d.session) {
                   for (var i4, o4 = d.selection, r3 = o4.getRange(), o4 = o4.cursor.row, s3 = (o4 === h + 1 ? h = (c2 = h + 1) + 2 * I : o4 === c2 - 1 ? c2 = (h = c2 - 1) - 2 * I : (o4 < c2 - 1 || h + 1 < o4) && (c2 = I < o4 ? o4 - I : 0, h = I < o4 ? o4 + I : 2 * I), []), a3 = c2;a3 <= h; a3++)
                     s3.push(d.session.getLine(a3));
-                  n5 = s3.join("\n"), e4 = A(r3.start.row, r3.start.column), t4 = A(r3.end.row, r3.end.column), r3.start.row < c2 ? (i4 = d.session.getLine(c2 - 1), e4 = r3.start.row < c2 - 1 ? 0 : e4, t4 += i4.length + 1, n5 = i4 + "\n" + n5) : r3.end.row > h ? (i4 = d.session.getLine(h + 1), t4 = r3.end.row > h + 1 ? i4.length : r3.end.column, t4 += n5.length + 1, n5 = n5 + "\n" + i4) : te && 0 < o4 && (n5 = "\n" + n5, t4 += 1, e4 += 1), 400 < n5.length && (e4 < 400 && t4 < 400 ? n5 = n5.slice(0, 400) : (n5 = "\n", e4 == t4 ? e4 = t4 = 0 : (e4 = 0, t4 = 1)));
-                  r3 = n5 + "\n\n";
+                  n5 = s3.join(`
+`), e4 = A(r3.start.row, r3.start.column), t4 = A(r3.end.row, r3.end.column), r3.start.row < c2 ? (i4 = d.session.getLine(c2 - 1), e4 = r3.start.row < c2 - 1 ? 0 : e4, t4 += i4.length + 1, n5 = i4 + `
+` + n5) : r3.end.row > h ? (i4 = d.session.getLine(h + 1), t4 = r3.end.row > h + 1 ? i4.length : r3.end.column, t4 += n5.length + 1, n5 = n5 + `
+` + i4) : te && 0 < o4 && (n5 = `
+` + n5, t4 += 1, e4 += 1), 400 < n5.length && (e4 < 400 && t4 < 400 ? n5 = n5.slice(0, 400) : (n5 = `
+`, e4 == t4 ? e4 = t4 = 0 : (e4 = 0, t4 = 1)));
+                  r3 = n5 + `
+
+`;
                   r3 != f && (u.value = f = r3, C2 = y = r3.length);
                 }
                 if (S && (C2 = u.selectionStart, y = u.selectionEnd), y != t4 || C2 != e4 || u.selectionEnd != y)
                   try {
                     u.setSelectionRange(e4, t4), C2 = e4, y = t4;
-                  } catch (e5) {
-                  }
+                  } catch (e5) {}
                 l2 = false;
               }
             }, W = (this.resetSelection = w, b && d.onFocus(), function(e4) {
@@ -5212,7 +5495,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
                 c3++, r3--;
               a3 -= c3 - 1, l3 -= c3 - 1;
               var h2 = s3.length - c3 + 1;
-              return h2 < 0 && (o4 = -h2, h2 = 0), s3 = s3.slice(0, h2), t4 || s3 || a3 || o4 || r3 || l3 ? (h2 = !(p = true), D.isAndroid && s3 == ". " && (s3 = "  ", h2 = true), s3 && !o4 && !r3 && !a3 && !l3 || m ? d.onTextInput(s3) : d.onTextInput(s3, { extendLeft: o4, extendRight: r3, restoreStart: a3, restoreEnd: l3 }), p = false, f = e4, C2 = n5, y = i4, v = l3, h2 ? "\n" : s3) : "";
+              return h2 < 0 && (o4 = -h2, h2 = 0), s3 = s3.slice(0, h2), t4 || s3 || a3 || o4 || r3 || l3 ? (h2 = !(p = true), D.isAndroid && s3 == ". " && (s3 = "  ", h2 = true), s3 && !o4 && !r3 && !a3 && !l3 || m ? d.onTextInput(s3) : d.onTextInput(s3, { extendLeft: o4, extendRight: r3, restoreStart: a3, restoreEnd: l3 }), p = false, f = e4, C2 = n5, y = i4, v = l3, h2 ? `
+` : s3) : "";
             }, P = function(e4) {
               if (l2)
                 return T();
@@ -5287,8 +5571,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
               m = e4, u.readOnly = false;
             }, this.setReadOnly = function(e4) {
               m || (u.readOnly = e4);
-            }, this.setCopyWithEmptySelection = function(e4) {
-            }, this.onContextMenu = function(e4) {
+            }, this.setCopyWithEmptySelection = function(e4) {}, this.onContextMenu = function(e4) {
               S = true, w(), d._emit("nativecontextmenu", { target: d, domEvent: e4 }), this.moveToMouse(e4, true);
             }, this.moveToMouse = function(e4, t4) {
               a2 = a2 || u.style.cssText, u.style.cssText = (t4 ? "z-index:100000;" : "") + (D.isIE ? "opacity:0.1;" : "") + "text-indent: -" + (C2 + y) * d.renderer.characterWidth * 0.5 + "px;";
@@ -5306,7 +5589,9 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             }, d), V.addListener(d.renderer.scroller, "contextmenu", _, d), V.addListener(u, "contextmenu", _, d), q) {
               let O2 = function(e4) {
                 var t4, n5, i4, o4;
-                document.activeElement !== N || B || l2 || L.$mouseHandler.isMousePressed || r2 || (t4 = N.selectionStart, n5 = N.selectionEnd, i4 = null, (o4 = 0) == t4 ? i4 = U.up : t4 == 1 ? i4 = U.home : y < n5 && f[n5] == "\n" ? i4 = U.end : t4 < C2 && f[t4 - 1] == " " ? (i4 = U.left, o4 = Q.option) : t4 < C2 || t4 == C2 && y != C2 && t4 == n5 ? i4 = U.left : y < n5 && 2 < f.slice(0, n5).split("\n").length ? i4 = U.down : y < n5 && f[n5 - 1] == " " ? (i4 = U.right, o4 = Q.option) : (y < n5 || n5 == y && y != C2 && t4 == n5) && (i4 = U.right), t4 !== n5 && (o4 |= Q.shift), i4 && (!L.onCommandKey({}, o4, i4) && L.commands && (i4 = U.keyCodeToString(i4), o4 = L.commands.findKeyCommand(o4, i4)) && L.execCommand(o4), C2 = t4, y = n5, w("")));
+                document.activeElement !== N || B || l2 || L.$mouseHandler.isMousePressed || r2 || (t4 = N.selectionStart, n5 = N.selectionEnd, i4 = null, (o4 = 0) == t4 ? i4 = U.up : t4 == 1 ? i4 = U.home : y < n5 && f[n5] == `
+` ? i4 = U.end : t4 < C2 && f[t4 - 1] == " " ? (i4 = U.left, o4 = Q.option) : t4 < C2 || t4 == C2 && y != C2 && t4 == n5 ? i4 = U.left : y < n5 && 2 < f.slice(0, n5).split(`
+`).length ? i4 = U.down : y < n5 && f[n5 - 1] == " " ? (i4 = U.right, o4 = Q.option) : (y < n5 || n5 == y && y != C2 && t4 == n5) && (i4 = U.right), t4 !== n5 && (o4 |= Q.shift), i4 && (!L.onCommandKey({}, o4, i4) && L.commands && (i4 = U.keyCodeToString(i4), o4 = L.commands.findKeyCommand(o4, i4)) && L.execCommand(o4), C2 = t4, y = n5, w("")));
               };
               var O = O2;
               var L = d, N = u;
@@ -5682,7 +5967,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
         }), ace.define("ace/mouse/dragdrop_handler", ["require", "exports", "module", "ace/lib/dom", "ace/lib/event", "ace/lib/useragent"], function(e2, t2, n3) {
           var w = e2("../lib/dom"), S = e2("../lib/event"), x = e2("../lib/useragent");
           function i3(t3) {
-            var n4, c2, h, e3, i4, d, o3, r2, u, g, p, m = t3.editor, s2 = w.createElement("div"), a2 = (s2.style.cssText = "top:-100px;position:absolute;z-index:2147483647;opacity:0.5", s2.textContent = "\xA0", ["dragWait", "dragWaitEnd", "startDrag", "dragReadyEnd", "onMouseDrag"].forEach(function(e4) {
+            var n4, c2, h, e3, i4, d, o3, r2, u, g, p, m = t3.editor, s2 = w.createElement("div"), a2 = (s2.style.cssText = "top:-100px;position:absolute;z-index:2147483647;opacity:0.5", s2.textContent = " ", ["dragWait", "dragWaitEnd", "startDrag", "dragReadyEnd", "onMouseDrag"].forEach(function(e4) {
               t3[e4] = this[e4];
             }, this), m.on("mousedown", this.onMouseDown.bind(t3)), m.container), l2 = 0;
             function f() {
@@ -5751,8 +6036,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
               var t4 = ["copy", "copymove", "all", "uninitialized"], n5 = x.isMac ? e4.altKey : e4.ctrlKey, i5 = "uninitialized";
               try {
                 i5 = e4.dataTransfer.effectAllowed.toLowerCase();
-              } catch (e5) {
-              }
+              } catch (e5) {}
               var o4 = "none";
               return n5 && 0 <= t4.indexOf(i5) ? o4 = "copy" : 0 <= ["move", "copymove", "linkmove", "all", "uninitialized"].indexOf(i5) ? o4 = "move" : 0 <= t4.indexOf(i5) && (o4 = "copy"), o4;
             }
@@ -6063,7 +6347,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             var t3 = e3.charCodeAt(0), n3 = t3 >> 8;
             return n3 == 0 ? 191 < t3 ? b : i3[t3] : n3 == 5 ? /[\u0591-\u05f4]/.test(e3) ? A : b : n3 == 6 ? /[\u0610-\u061a\u064b-\u065f\u06d6-\u06e4\u06e7-\u06ed]/.test(e3) ? N : /[\u0660-\u0669\u066b-\u066c]/.test(e3) ? S : t3 == 1642 ? L : /[\u06f0-\u06f9]/.test(e3) ? w : E : n3 == 32 && t3 <= 8287 ? o3[255 & t3] : n3 == 254 && 65136 <= t3 ? E : x;
           }
-          l2.L = b, l2.R = A, l2.EN = w, l2.ON_R = 3, l2.AN = 4, l2.R_H = 5, l2.B = 6, l2.RLE = 7, l2.DOT = "\xB7", l2.doBidiReorder = function(e3, t3, n3) {
+          l2.L = b, l2.R = A, l2.EN = w, l2.ON_R = 3, l2.AN = 4, l2.R_H = 5, l2.B = 6, l2.RLE = 7, l2.DOT = "·", l2.doBidiReorder = function(e3, t3, n3) {
             if (e3.length < 2)
               return {};
             var i4 = e3.split(""), o4 = new Array(i4.length), r2 = new Array(i4.length), s2 = [];
@@ -6072,8 +6356,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
               ;
             h(2, s2, o4), h(1, s2, o4);
             for (a2 = 0;a2 < o4.length - 1; a2++)
-              t3[a2] === S ? s2[a2] = l2.AN : s2[a2] === A && (t3[a2] > E && t3[a2] < M || t3[a2] === x || t3[a2] === G) ? s2[a2] = l2.ON_R : 0 < a2 && i4[a2 - 1] === "\u0644" && /\u0622|\u0623|\u0625|\u0627/.test(i4[a2]) && (s2[a2 - 1] = s2[a2] = l2.R_H, a2++);
-            i4[i4.length - 1] === l2.DOT && (s2[i4.length - 1] = l2.B), i4[0] === "\u202B" && (s2[0] = l2.RLE);
+              t3[a2] === S ? s2[a2] = l2.AN : s2[a2] === A && (t3[a2] > E && t3[a2] < M || t3[a2] === x || t3[a2] === G) ? s2[a2] = l2.ON_R : 0 < a2 && i4[a2 - 1] === "ل" && /\u0622|\u0623|\u0625|\u0627/.test(i4[a2]) && (s2[a2 - 1] = s2[a2] = l2.R_H, a2++);
+            i4[i4.length - 1] === l2.DOT && (s2[i4.length - 1] = l2.B), i4[0] === "‫" && (s2[0] = l2.RLE);
             for (a2 = 0;a2 < o4.length; a2++)
               r2[a2] = s2[o4[a2]];
             return { logicalFromVisual: o4, bidiLevels: r2 };
@@ -6090,12 +6374,13 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
         }), ace.define("ace/bidihandler", ["require", "exports", "module", "ace/lib/bidiutil", "ace/lib/lang"], function(e2, t2, n3) {
           var a2 = e2("./lib/bidiutil"), s2 = e2("./lib/lang"), i3 = /[\u0590-\u05f4\u0600-\u06ff\u0700-\u08ac\u202B]/;
           function o3(e3) {
-            this.session = e3, this.bidiMap = {}, this.currentRow = null, this.bidiUtil = a2, this.charWidths = [], this.EOL = "\xAC", this.showInvisibles = true, this.isRtlDir = false, this.$isRtl = false, this.line = "", this.wrapIndent = 0, this.EOF = "\xB6", this.RLE = "\u202B", this.contentWidth = 0, this.fontMetrics = null, this.rtlLineOffset = 0, this.wrapOffset = 0, this.isMoveLeftOperation = false, this.seenBidi = i3.test(e3.getValue());
+            this.session = e3, this.bidiMap = {}, this.currentRow = null, this.bidiUtil = a2, this.charWidths = [], this.EOL = "¬", this.showInvisibles = true, this.isRtlDir = false, this.$isRtl = false, this.line = "", this.wrapIndent = 0, this.EOF = "¶", this.RLE = "‫", this.contentWidth = 0, this.fontMetrics = null, this.rtlLineOffset = 0, this.wrapOffset = 0, this.isMoveLeftOperation = false, this.seenBidi = i3.test(e3.getValue());
           }
           o3.prototype.isBidiRow = function(e3, t3, n4) {
             return !!this.seenBidi && (e3 !== this.currentRow && (this.currentRow = e3, this.updateRowLine(t3, n4), this.updateBidiMap()), this.bidiMap.bidiLevels);
           }, o3.prototype.onChange = function(e3) {
-            this.seenBidi ? this.currentRow = null : e3.action == "insert" && i3.test(e3.lines.join("\n")) && (this.seenBidi = true, this.currentRow = null);
+            this.seenBidi ? this.currentRow = null : e3.action == "insert" && i3.test(e3.lines.join(`
+`)) && (this.seenBidi = true, this.currentRow = null);
           }, o3.prototype.getDocumentRow = function() {
             var e3 = 0, t3 = this.session.$screenRowCache;
             return e3 = t3.length && 0 <= (t3 = this.session.$getRowCacheIndex(t3, this.currentRow)) ? this.session.$docRowCache[t3] : e3;
@@ -6119,7 +6404,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             this.currentRow = null;
           }, o3.prototype.updateCharacterWidths = function(e3) {
             var t3;
-            this.characterWidth !== e3.$characterSize.width && (this.fontMetrics = e3, t3 = this.characterWidth = e3.$characterSize.width, e3 = e3.$measureCharWidth("\u05D4"), this.charWidths[a2.L] = this.charWidths[a2.EN] = this.charWidths[a2.ON_R] = t3, this.charWidths[a2.R] = this.charWidths[a2.AN] = e3, this.charWidths[a2.R_H] = 0.45 * e3, this.charWidths[a2.B] = this.charWidths[a2.RLE] = 0, this.currentRow = null);
+            this.characterWidth !== e3.$characterSize.width && (this.fontMetrics = e3, t3 = this.characterWidth = e3.$characterSize.width, e3 = e3.$measureCharWidth("ה"), this.charWidths[a2.L] = this.charWidths[a2.EN] = this.charWidths[a2.ON_R] = t3, this.charWidths[a2.R] = this.charWidths[a2.AN] = e3, this.charWidths[a2.R_H] = 0.45 * e3, this.charWidths[a2.B] = this.charWidths[a2.RLE] = 0, this.currentRow = null);
           }, o3.prototype.setShowInvisibles = function(e3) {
             this.showInvisibles = e3, this.currentRow = null;
           }, o3.prototype.setEolChar = function(e3) {
@@ -6631,7 +6916,9 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
                     return y.popAutoInsertedClosing(), { text: "", selection: [1, 1] };
                 }
               } else {
-                if (o4 == "\n" || o4 == "\r\n") {
+                if (o4 == `
+` || o4 == `\r
+`) {
                   g(n4);
                   a3 = "";
                   if (y.isMaybeInsertedClosing(r3, s3) && (a3 = f.stringRepeat("}", m.maybeInsertedBrackets), y.clearMaybeInsertedClosing()), (h = s3.substring(r3.column, r3.column + 1)) === "}") {
@@ -6645,7 +6932,9 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
                     d = this.$getIndent(s3);
                   }
                   o4 = d + i4.getTabString();
-                  return { text: "\n" + o4 + "\n" + d + a3, selection: [1, o4.length, 1, o4.length] };
+                  return { text: `
+` + o4 + `
+` + d + a3, selection: [1, o4.length, 1, o4.length] };
                 }
                 y.clearMaybeInsertedClosing();
               }
@@ -6724,7 +7013,9 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
                 return o4.end.column++, o4;
             }), u.closeDocComment !== false && this.add("doc comment end", "insertion", function(e3, t3, n4, i4, o4) {
               var r3;
-              if (e3 === "doc-start" && (o4 === "\n" || o4 === "\r\n") && n4.selection.isEmpty())
+              if (e3 === "doc-start" && (o4 === `
+` || o4 === `\r
+`) && n4.selection.isEmpty())
                 return e3 = n4.getCursorPosition(), n4 = i4.doc.getLine(e3.row), i4 = i4.doc.getLine(e3.row + 1), r3 = this.$getIndent(n4), /\s*\*/.test(i4) ? /^\s*\*/.test(n4) ? { text: o4 + r3 + "* ", selection: [1, 3 + r3.length, 1, 3 + r3.length] } : { text: o4 + r3 + " * ", selection: [1, 3 + r3.length, 1, 3 + r3.length] } : /\/\*\*/.test(n4.substring(0, e3.column)) ? { text: o4 + r3 + " * " + o4 + " " + r3 + "*/", selection: [1, 4 + r3.length, 1, 4 + r3.length] } : undefined;
             });
           };
@@ -6840,8 +7131,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
               return this.$getIndent(t3);
             }, this.checkOutdent = function(e3, t3, n4) {
               return false;
-            }, this.autoOutdent = function(e3, t3, n4) {
-            }, this.$getIndent = function(e3) {
+            }, this.autoOutdent = function(e3, t3, n4) {}, this.$getIndent = function(e3) {
               return e3.match(/^\s*/)[0];
             }, this.createWorker = function(e3) {
               return null;
@@ -6961,22 +7251,28 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             return new a2(this, e3, t3);
           }, l2.prototype.$detectNewLine = function(e3) {
             e3 = e3.match(/^.*?(\r\n|\r|\n)/m);
-            this.$autoNewLine = e3 ? e3[1] : "\n", this._signal("changeNewLineMode");
+            this.$autoNewLine = e3 ? e3[1] : `
+`, this._signal("changeNewLineMode");
           }, l2.prototype.getNewLineCharacter = function() {
             switch (this.$newLineMode) {
               case "windows":
-                return "\r\n";
+                return `\r
+`;
               case "unix":
-                return "\n";
+                return `
+`;
               default:
-                return this.$autoNewLine || "\n";
+                return this.$autoNewLine || `
+`;
             }
           }, l2.prototype.setNewLineMode = function(e3) {
             this.$newLineMode !== e3 && (this.$newLineMode = e3, this._signal("changeNewLineMode"));
           }, l2.prototype.getNewLineMode = function() {
             return this.$newLineMode;
           }, l2.prototype.isNewLine = function(e3) {
-            return e3 == "\r\n" || e3 == "\r" || e3 == "\n";
+            return e3 == `\r
+` || e3 == "\r" || e3 == `
+`;
           }, l2.prototype.getLine = function(e3) {
             return this.$lines[e3] || "";
           }, l2.prototype.getLines = function(e3, t3) {
@@ -7267,7 +7563,9 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           }, o3.prototype.fromJSON = function(e3) {
             this.reset(), this.$undoStack = e3.$undoStack, this.$redoStack = e3.$redoStack;
           }, o3.prototype.$prettyPrint = function(e3) {
-            return e3 ? r2(e3) : r2(this.$undoStack) + "\n---\n" + r2(this.$redoStack);
+            return e3 ? r2(e3) : r2(this.$undoStack) + `
+---
+` + r2(this.$redoStack);
           };
           var i3 = o3;
           function o3() {
@@ -7281,7 +7579,9 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           }
           function r2(e3) {
             var t3;
-            return e3 = e3 || this, Array.isArray(e3) ? e3.map(r2).join("\n") : (t3 = "", e3.action ? (t3 = e3.action == "insert" ? "+" : "-", t3 += "[" + e3.lines + "]") : e3.value && (t3 = Array.isArray(e3.value) ? e3.value.map(s2).join("\n") : s2(e3.value)), e3.start && (t3 += s2(e3)), (e3.id || e3.rev) && (t3 += "\t(" + (e3.id || e3.rev) + ")"), t3);
+            return e3 = e3 || this, Array.isArray(e3) ? e3.map(r2).join(`
+`) : (t3 = "", e3.action ? (t3 = e3.action == "insert" ? "+" : "-", t3 += "[" + e3.lines + "]") : e3.value && (t3 = Array.isArray(e3.value) ? e3.value.map(s2).join(`
+`) : s2(e3.value)), e3.start && (t3 += s2(e3)), (e3.id || e3.rev) && (t3 += "\t(" + (e3.id || e3.rev) + ")"), t3);
           }
           function s2(e3) {
             return e3.start.row + ":" + e3.start.column + "=>" + e3.end.row + ":" + e3.end.column;
@@ -7409,7 +7709,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             var t3 = [this.range.toString() + ": ["];
             return this.folds.forEach(function(e3) {
               t3.push("  " + e3.toString());
-            }), t3.push("]"), t3.join("\n");
+            }), t3.push("]"), t3.join(`
+`);
           }, o3.prototype.idxToPosition = function(e3) {
             for (var t3 = 0, n4 = 0;n4 < this.folds.length; n4++) {
               var i4 = this.folds[n4];
@@ -8044,8 +8345,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             var t3;
             this.$undoManager = e3, this.$informUndoManager && this.$informUndoManager.cancel(), e3 ? (e3.addSession(t3 = this), this.$syncInformUndoManager = function() {
               t3.$informUndoManager.cancel(), t3.mergeUndoDeltas = false;
-            }, this.$informUndoManager = o3.delayedCall(this.$syncInformUndoManager)) : this.$syncInformUndoManager = function() {
-            };
+            }, this.$informUndoManager = o3.delayedCall(this.$syncInformUndoManager)) : this.$syncInformUndoManager = function() {};
           }, f.prototype.markUndoGroup = function() {
             this.$syncInformUndoManager && this.$syncInformUndoManager();
           }, f.prototype.getUndoManager = function() {
@@ -8116,7 +8416,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             this.setAnnotations([]);
           }, f.prototype.$detectNewLine = function(e3) {
             e3 = e3.match(/^.*?(\r?\n)/m);
-            this.$autoNewLine = e3 ? e3[1] : "\n";
+            this.$autoNewLine = e3 ? e3[1] : `
+`;
           }, f.prototype.getWordRange = function(e3, t3) {
             var n4, i4 = this.getLine(e3), o4 = false, r3 = (n4 = (o4 = (o4 = 0 < t3 ? !!i4.charAt(t3 - 1).match(this.tokenRe) : o4) || !!i4.charAt(t3).match(this.tokenRe)) ? this.tokenRe : /^\s+$/.test(i4.slice(t3 - 1, t3 + 1)) ? /\s/ : this.nonTokenRe, t3);
             if (0 < r3) {
@@ -8516,23 +8817,15 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           }, f);
           function f(e3, t3) {
             this.doc, this.$breakpoints = [], this.$decorations = [], this.$frontMarkers = {}, this.$backMarkers = {}, this.$markerId = 1, this.$undoSelect = true, this.$foldData = [], this.id = "session" + ++f.$uid, this.$foldData.toString = function() {
-              return this.join("\n");
+              return this.join(`
+`);
             }, this.bgTokenizer = new u(new c2().getTokenizer(), this);
             var n4 = this;
             this.bgTokenizer.on("update", function(e4) {
               n4._signal("tokenizerUpdate", e4);
             }), this.on("changeFold", this.onChangeFold.bind(this)), this.$onChange = this.onChange.bind(this), typeof e3 == "object" && e3.getLine || (e3 = new d(e3)), this.setDocument(e3), this.selection = new l2(this), this.$bidiHandler = new r2(this), s2.resetOptions(this), this.setMode(t3), s2._signal("session", this), this.destroyed = false;
           }
-          m.$uid = 0, m.prototype.$modes = s2.$modes, m.prototype.getValue = m.prototype.toString, m.prototype.$defaultUndoManager = { undo: function() {
-          }, redo: function() {
-          }, hasUndo: function() {
-          }, hasRedo: function() {
-          }, reset: function() {
-          }, add: function() {
-          }, addSelection: function() {
-          }, startNewGroup: function() {
-          }, addSession: function() {
-          } }, m.prototype.$overwrite = false, m.prototype.$mode = null, m.prototype.$modeId = null, m.prototype.$scrollTop = 0, m.prototype.$scrollLeft = 0, m.prototype.$wrapLimit = 80, m.prototype.$useWrapMode = false, m.prototype.$wrapLimitRange = { min: null, max: null }, m.prototype.lineWidgets = null, m.prototype.isFullWidth = x, i3.implement(m.prototype, a2);
+          m.$uid = 0, m.prototype.$modes = s2.$modes, m.prototype.getValue = m.prototype.toString, m.prototype.$defaultUndoManager = { undo: function() {}, redo: function() {}, hasUndo: function() {}, hasRedo: function() {}, reset: function() {}, add: function() {}, addSelection: function() {}, startNewGroup: function() {}, addSession: function() {} }, m.prototype.$overwrite = false, m.prototype.$mode = null, m.prototype.$modeId = null, m.prototype.$scrollTop = 0, m.prototype.$scrollLeft = 0, m.prototype.$wrapLimit = 80, m.prototype.$useWrapMode = false, m.prototype.$wrapLimitRange = { min: null, max: null }, m.prototype.lineWidgets = null, m.prototype.isFullWidth = x, i3.implement(m.prototype, a2);
           var C2 = 1, y = 2, v = 3, I = 4, b = 9, A = 10, w = 11, S = 12;
           function x(e3) {
             return !(e3 < 4352) && (4352 <= e3 && e3 <= 4447 || 4515 <= e3 && e3 <= 4519 || 4602 <= e3 && e3 <= 4607 || 9001 <= e3 && e3 <= 9002 || 11904 <= e3 && e3 <= 11929 || 11931 <= e3 && e3 <= 12019 || 12032 <= e3 && e3 <= 12245 || 12272 <= e3 && e3 <= 12283 || 12288 <= e3 && e3 <= 12350 || 12353 <= e3 && e3 <= 12438 || 12441 <= e3 && e3 <= 12543 || 12549 <= e3 && e3 <= 12589 || 12593 <= e3 && e3 <= 12686 || 12688 <= e3 && e3 <= 12730 || 12736 <= e3 && e3 <= 12771 || 12784 <= e3 && e3 <= 12830 || 12832 <= e3 && e3 <= 12871 || 12880 <= e3 && e3 <= 13054 || 13056 <= e3 && e3 <= 19903 || 19968 <= e3 && e3 <= 42124 || 42128 <= e3 && e3 <= 42182 || 43360 <= e3 && e3 <= 43388 || 44032 <= e3 && e3 <= 55203 || 55216 <= e3 && e3 <= 55238 || 55243 <= e3 && e3 <= 55291 || 63744 <= e3 && e3 <= 64255 || 65040 <= e3 && e3 <= 65049 || 65072 <= e3 && e3 <= 65106 || 65108 <= e3 && e3 <= 65126 || 65128 <= e3 && e3 <= 65131 || 65281 <= e3 && e3 <= 65376 || 65504 <= e3 && e3 <= 65510);
@@ -8654,7 +8947,9 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             }
             return t3.re = h;
           }, o3.prototype.$assembleMultilineRegExp = function(e3, t3) {
-            for (var n4 = e3.replace(/\r\n|\r|\n/g, "$\n^").split("\n"), i4 = [], o4 = 0;o4 < n4.length; o4++)
+            for (var n4 = e3.replace(/\r\n|\r|\n/g, `$
+^`).split(`
+`), i4 = [], o4 = 0;o4 < n4.length; o4++)
               try {
                 i4.push(new RegExp(n4[o4], t3));
               } catch (e4) {
@@ -9018,9 +9313,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             e3.jumpToMatching(true);
           }, multiSelectAction: "forEach", scrollIntoView: "animate", readOnly: true }, { name: "expandToMatching", description: "Expand to matching", bindKey: o3("Ctrl-Shift-M", "Ctrl-Shift-M"), exec: function(e3) {
             e3.jumpToMatching(true, true);
-          }, multiSelectAction: "forEach", scrollIntoView: "animate", readOnly: true }, { name: "passKeysToBrowser", description: "Pass keys to browser", bindKey: o3(null, null), exec: function() {
-          }, passEvent: true, readOnly: true }, { name: "copy", description: "Copy", exec: function(e3) {
-          }, readOnly: true }, { name: "cut", description: "Cut", exec: function(e3) {
+          }, multiSelectAction: "forEach", scrollIntoView: "animate", readOnly: true }, { name: "passKeysToBrowser", description: "Pass keys to browser", bindKey: o3(null, null), exec: function() {}, passEvent: true, readOnly: true }, { name: "copy", description: "Copy", exec: function(e3) {}, readOnly: true }, { name: "cut", description: "Cut", exec: function(e3) {
             var t3 = e3.$copyWithEmptySelection && e3.selection.isEmpty() ? e3.selection.getLineRange() : e3.selection.getRange();
             e3._emit("cut", t3), t3.isEmpty() || e3.session.remove(t3), e3.clearSelection();
           }, scrollIntoView: "cursor", multiSelectAction: "forEach" }, { name: "paste", description: "Paste", exec: function(e3, t3) {
@@ -9121,11 +9414,13 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             for (r3 = 0;r3 < o4.length; r3++)
               e3.selection.addRange(o4[r3], false);
           }, readOnly: true, scrollIntoView: "none" }, { name: "addLineAfter", description: "Add new line after the current line", exec: function(e3) {
-            e3.selection.clearSelection(), e3.navigateLineEnd(), e3.insert("\n");
+            e3.selection.clearSelection(), e3.navigateLineEnd(), e3.insert(`
+`);
           }, multiSelectAction: "forEach", scrollIntoView: "cursor" }, { name: "addLineBefore", description: "Add new line before the current line", exec: function(e3) {
             e3.selection.clearSelection();
             var t3 = e3.getCursorPosition();
-            e3.selection.moveTo(t3.row - 1, Number.MAX_VALUE), e3.insert("\n"), t3.row === 0 && e3.navigateUp();
+            e3.selection.moveTo(t3.row - 1, Number.MAX_VALUE), e3.insert(`
+`), t3.row === 0 && e3.navigateUp();
           }, multiSelectAction: "forEach", scrollIntoView: "cursor" }, { name: "openCommandPallete", exec: function(e3) {
             console.warn("This is an obsolete command. Please use `openCommandPalette` instead."), e3.prompt({ $type: "commands" });
           }, readOnly: true }, { name: "openCommandPalette", description: "Open command palette", bindKey: o3("F1", "F1"), exec: function(e3) {
@@ -9189,8 +9484,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             if (e3._inDocument = false, e3.session = null, e3.el && e3.el.parentNode && e3.el.parentNode.removeChild(e3.el), e3.editor && e3.editor.destroy)
               try {
                 e3.editor.destroy();
-              } catch (e4) {
-              }
+              } catch (e4) {}
             if (this.session.lineWidgets) {
               var t3 = this.session.lineWidgets[e3.row];
               if (t3 == e3)
@@ -9588,7 +9882,10 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           }, x.prototype.execCommand = function(e3, t3) {
             return this.commands.exec(e3, this, t3);
           }, x.prototype.insert = function(e3, t3) {
-            var n4, i4 = this.session, o4 = i4.getMode(), r3 = this.getCursorPosition(), s3 = (this.getBehavioursEnabled() && !t3 && (n4 = o4.transformAction(i4.getState(r3.row), "insertion", this, i4, e3)) && (e3 === n4.text || this.inVirtualSelectionMode || (this.session.mergeUndoDeltas = false, this.mergeNextCommand = false), e3 = n4.text), e3 == "\t" && (e3 = this.session.getTabString()), this.selection.isEmpty() ? this.session.getOverwrite() && e3.indexOf("\n") == -1 && ((s3 = f.fromPoints(r3, r3)).end.column += e3.length, this.session.remove(s3)) : (s3 = this.getSelectionRange(), r3 = this.session.remove(s3), this.clearSelection()), e3 != "\n" && e3 != "\r\n" || (a3 = i4.getLine(r3.row), r3.column > a3.search(/\S|$/) && (t3 = a3.substr(r3.column).search(/\S|$/), i4.doc.removeInLine(r3.row, r3.column, r3.column + t3))), this.clearSelection(), r3.column), t3 = i4.getState(r3.row), a3 = i4.getLine(r3.row), l3 = o4.checkOutdent(t3, a3, e3);
+            var n4, i4 = this.session, o4 = i4.getMode(), r3 = this.getCursorPosition(), s3 = (this.getBehavioursEnabled() && !t3 && (n4 = o4.transformAction(i4.getState(r3.row), "insertion", this, i4, e3)) && (e3 === n4.text || this.inVirtualSelectionMode || (this.session.mergeUndoDeltas = false, this.mergeNextCommand = false), e3 = n4.text), e3 == "\t" && (e3 = this.session.getTabString()), this.selection.isEmpty() ? this.session.getOverwrite() && e3.indexOf(`
+`) == -1 && ((s3 = f.fromPoints(r3, r3)).end.column += e3.length, this.session.remove(s3)) : (s3 = this.getSelectionRange(), r3 = this.session.remove(s3), this.clearSelection()), e3 != `
+` && e3 != `\r
+` || (a3 = i4.getLine(r3.row), r3.column > a3.search(/\S|$/) && (t3 = a3.substr(r3.column).search(/\S|$/), i4.doc.removeInLine(r3.row, r3.column, r3.column + t3))), this.clearSelection(), r3.column), t3 = i4.getState(r3.row), a3 = i4.getLine(r3.row), l3 = o4.checkOutdent(t3, a3, e3);
             i4.insert(r3, e3), n4 && n4.selection && (n4.selection.length == 2 ? this.selection.setSelectionRange(new f(r3.row, s3 + n4.selection[0], r3.row, s3 + n4.selection[1])) : this.selection.setSelectionRange(new f(r3.row + n4.selection[0], n4.selection[1], r3.row + n4.selection[2], n4.selection[3]))), this.$enableAutoIndent && (i4.getDocument().isNewLine(e3) && (s3 = o4.getNextLineIndent(t3, a3.slice(0, r3.column), i4.getTabString()), i4.insert({ row: r3.row + 1, column: 0 }, s3)), l3) && o4.autoOutdent(t3, i4, r3.row);
           }, x.prototype.autoIndent = function() {
             for (var e3 = this.session, t3 = e3.getMode(), n4 = this.selection.isEmpty() ? [new f(0, 0, e3.doc.getLength() - 1, 0)] : this.selection.getAllRanges(), i4 = "", o4 = "", r3 = e3.getTabString(), s3 = 0;s3 < n4.length; s3++)
@@ -9685,7 +9982,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           }, x.prototype.remove = function(e3) {
             this.selection.isEmpty() && (e3 == "left" ? this.selection.selectLeft() : this.selection.selectRight());
             var t3, n4, i4, e3 = this.getSelectionRange();
-            this.getBehavioursEnabled() && (n4 = (t3 = this.session).getState(e3.start.row), n4 = t3.getMode().transformAction(n4, "deletion", this, t3, e3), e3.end.column === 0 && (i4 = t3.getTextRange(e3))[i4.length - 1] == "\n" && (i4 = t3.getLine(e3.end.row), /^\s+$/.test(i4)) && (e3.end.column = i4.length), n4) && (e3 = n4), this.session.remove(e3), this.clearSelection();
+            this.getBehavioursEnabled() && (n4 = (t3 = this.session).getState(e3.start.row), n4 = t3.getMode().transformAction(n4, "deletion", this, t3, e3), e3.end.column === 0 && (i4 = t3.getTextRange(e3))[i4.length - 1] == `
+` && (i4 = t3.getLine(e3.end.row), /^\s+$/.test(i4)) && (e3.end.column = i4.length), n4) && (e3 = n4), this.session.remove(e3), this.clearSelection();
           }, x.prototype.removeWordRight = function() {
             this.selection.isEmpty() && this.selection.selectWordRight(), this.session.remove(this.getSelectionRange()), this.clearSelection();
           }, x.prototype.removeWordLeft = function() {
@@ -9699,7 +9997,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           }, x.prototype.splitLine = function() {
             this.selection.isEmpty() || (this.session.remove(this.getSelectionRange()), this.clearSelection());
             var e3 = this.getCursorPosition();
-            this.insert("\n"), this.moveCursorToPosition(e3);
+            this.insert(`
+`), this.moveCursorToPosition(e3);
           }, x.prototype.setGhostText = function(e3, t3) {
             this.session.widgetManager || (this.session.widgetManager = new I(this.session), this.session.widgetManager.attach(this)), this.renderer.setGhostText(e3, t3);
           }, x.prototype.removeGhostText = function() {
@@ -10088,7 +10387,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             this.$textInputAriaLabel = e3;
           }, initialValue: "" }, customScrollbar: "renderer", hScrollBarAlwaysVisible: "renderer", vScrollBarAlwaysVisible: "renderer", highlightGutterLine: "renderer", animatedScroll: "renderer", showInvisibles: "renderer", showPrintMargin: "renderer", printMarginColumn: "renderer", printMargin: "renderer", fadeFoldWidgets: "renderer", showFoldWidgets: "renderer", displayIndentGuides: "renderer", highlightIndentGuides: "renderer", showGutter: "renderer", fontSize: "renderer", fontFamily: "renderer", maxLines: "renderer", minLines: "renderer", scrollPastEnd: "renderer", fixedWidthGutter: "renderer", theme: "renderer", hasCssTransforms: "renderer", maxPixelHeight: "renderer", useTextareaForIME: "renderer", useResizeObserver: "renderer", useSvgGutterIcons: "renderer", showFoldedAnnotations: "renderer", scrollSpeed: "$mouseHandler", dragDelay: "$mouseHandler", dragEnabled: "$mouseHandler", focusTimeout: "$mouseHandler", tooltipFollowsMouse: "$mouseHandler", firstLineNumber: "session", overwrite: "session", newLineMode: "session", useWorker: "session", useSoftTabs: "session", navigateWithinSoftTabs: "session", tabSize: "session", wrap: "session", indentedSoftWrap: "session", foldStyle: "session", mode: "session" });
           var k = { getText: function(e3, t3) {
-            return (Math.abs(e3.selection.lead.row - t3) || t3 + 1 + (t3 < 9 ? "\xB7" : "")) + "";
+            return (Math.abs(e3.selection.lead.row - t3) || t3 + 1 + (t3 < 9 ? "·" : "")) + "";
           }, getWidth: function(e3, t3, n4) {
             return Math.max(t3.toString().length, (n4.lastRow + 1).toString().length, 2) * n4.characterWidth;
           }, update: function(e3, t3) {
@@ -10355,7 +10654,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           };
         }), ace.define("ace/layer/text", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/lang", "ace/layer/lines", "ace/lib/event_emitter", "ace/config", "ace/layer/text_util"], function(e2, t2, n3) {
           var i3 = e2("../lib/oop"), c2 = e2("../lib/dom"), C2 = e2("../lib/lang"), o3 = e2("./lines").Lines, r2 = e2("../lib/event_emitter").EventEmitter, y = e2("../config").nls, v = e2("./text_util").isTextToken, e2 = (s2.prototype.$updateEolChar = function() {
-            var e3 = this.session.doc, e3 = e3.getNewLineCharacter() == "\n" && e3.getNewLineMode() != "windows" ? this.EOL_CHAR_LF : this.EOL_CHAR_CRLF;
+            var e3 = this.session.doc, e3 = e3.getNewLineCharacter() == `
+` && e3.getNewLineMode() != "windows" ? this.EOL_CHAR_LF : this.EOL_CHAR_CRLF;
             if (this.EOL_CHAR != e3)
               return this.EOL_CHAR = e3, true;
           }, s2.prototype.setPadding = function(e3) {
@@ -10538,7 +10838,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
                 s3 = this.$renderToken(a2, s3, c3, h), i4 += h.length;
               else {
                 for (;i4 + h.length >= r3; )
-                  s3 = this.$renderToken(a2, s3, c3, h.substring(0, r3 - i4)), h = h.substring(r3 - i4), i4 = r3, a2 = this.$createLineElement(), e3.appendChild(a2), a2.appendChild(this.dom.createTextNode(C2.stringRepeat("\xA0", n4.indent), this.element)), s3 = 0, r3 = n4[++o4] || Number.MAX_VALUE;
+                  s3 = this.$renderToken(a2, s3, c3, h.substring(0, r3 - i4)), h = h.substring(r3 - i4), i4 = r3, a2 = this.$createLineElement(), e3.appendChild(a2), a2.appendChild(this.dom.createTextNode(C2.stringRepeat(" ", n4.indent), this.element)), s3 = 0, r3 = n4[++o4] || Number.MAX_VALUE;
                 h.length != 0 && (i4 += h.length, s3 = this.$renderToken(a2, s3, c3, h));
               }
             }
@@ -10579,7 +10879,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           function s2(e3) {
             this.dom = c2, this.element = this.dom.createElement("div"), this.element.className = "ace_layer ace_text-layer", e3.appendChild(this.element), this.$updateEolChar = this.$updateEolChar.bind(this), this.$lines = new o3(this.element);
           }
-          e2.prototype.EOF_CHAR = "\xB6", e2.prototype.EOL_CHAR_LF = "\xAC", e2.prototype.EOL_CHAR_CRLF = "\xA4", e2.prototype.EOL_CHAR = e2.prototype.EOL_CHAR_LF, e2.prototype.TAB_CHAR = "\u2014", e2.prototype.SPACE_CHAR = "\xB7", e2.prototype.$padding = 0, e2.prototype.MAX_LINE_LENGTH = 1e4, e2.prototype.showInvisibles = false, e2.prototype.showSpaces = false, e2.prototype.showTabs = false, e2.prototype.showEOL = false, e2.prototype.displayIndentGuides = true, e2.prototype.$highlightIndentGuides = true, e2.prototype.$tabStrings = [], e2.prototype.destroy = {}, e2.prototype.onChangeTabSize = e2.prototype.$computeTabString, i3.implement(e2.prototype, r2), t2.Text = e2;
+          e2.prototype.EOF_CHAR = "¶", e2.prototype.EOL_CHAR_LF = "¬", e2.prototype.EOL_CHAR_CRLF = "¤", e2.prototype.EOL_CHAR = e2.prototype.EOL_CHAR_LF, e2.prototype.TAB_CHAR = "—", e2.prototype.SPACE_CHAR = "·", e2.prototype.$padding = 0, e2.prototype.MAX_LINE_LENGTH = 1e4, e2.prototype.showInvisibles = false, e2.prototype.showSpaces = false, e2.prototype.showTabs = false, e2.prototype.showEOL = false, e2.prototype.displayIndentGuides = true, e2.prototype.$highlightIndentGuides = true, e2.prototype.$tabStrings = [], e2.prototype.destroy = {}, e2.prototype.onChangeTabSize = e2.prototype.$computeTabString, i3.implement(e2.prototype, r2), t2.Text = e2;
         }), ace.define("ace/layer/cursor", ["require", "exports", "module", "ace/lib/dom"], function(e2, t2, n3) {
           var c2 = e2("../lib/dom"), e2 = (i3.prototype.$updateOpacity = function(e3) {
             for (var t3 = this.cursors, n4 = t3.length;n4--; )
@@ -10670,7 +10970,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             this.element.style.display = e3 ? "" : "none", this.isVisible = e3, this.coeff = 1;
           }, c2);
           function c2(e3, t3) {
-            this.element = s2.createElement("div"), this.element.className = "ace_scrollbar ace_scrollbar" + t3, this.inner = s2.createElement("div"), this.inner.className = "ace_scrollbar-inner", this.inner.textContent = "\xA0", this.element.appendChild(this.inner), e3.appendChild(this.element), this.setVisible(false), this.skipEvent = false, a2.addListener(this.element, "scroll", this.onScroll.bind(this)), a2.addListener(this.element, "mousedown", a2.preventDefault);
+            this.element = s2.createElement("div"), this.element.className = "ace_scrollbar ace_scrollbar" + t3, this.inner = s2.createElement("div"), this.inner.className = "ace_scrollbar-inner", this.inner.textContent = " ", this.element.appendChild(this.inner), e3.appendChild(this.element), this.setVisible(false), this.skipEvent = false, a2.addListener(this.element, "scroll", this.onScroll.bind(this)), a2.addListener(this.element, "mousedown", a2.preventDefault);
           }
           r2.implement(l2.prototype, e2);
           o3(d, h = l2), d.prototype.onScroll = function() {
@@ -10725,7 +11025,45 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
               this.constructor = e3;
             }
             i3(e3, t3), e3.prototype = t3 === null ? Object.create(t3) : (n4.prototype = t3.prototype, new n4);
-          }), r2 = e2("./lib/oop"), s2 = e2("./lib/dom"), a2 = e2("./lib/event"), e2 = e2("./lib/event_emitter").EventEmitter, l2 = (s2.importCssString(".ace_editor>.ace_sb-v div, .ace_editor>.ace_sb-h div{\n  position: absolute;\n  background: rgba(128, 128, 128, 0.6);\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  border: 1px solid #bbb;\n  border-radius: 2px;\n  z-index: 8;\n}\n.ace_editor>.ace_sb-v, .ace_editor>.ace_sb-h {\n  position: absolute;\n  z-index: 6;\n  background: none;\n  overflow: hidden!important;\n}\n.ace_editor>.ace_sb-v {\n  z-index: 6;\n  right: 0;\n  top: 0;\n  width: 12px;\n}\n.ace_editor>.ace_sb-v div {\n  z-index: 8;\n  right: 0;\n  width: 100%;\n}\n.ace_editor>.ace_sb-h {\n  bottom: 0;\n  left: 0;\n  height: 12px;\n}\n.ace_editor>.ace_sb-h div {\n  bottom: 0;\n  height: 100%;\n}\n.ace_editor>.ace_sb_grabbed {\n  z-index: 8;\n  background: #000;\n}", "ace_scrollbar.css", false), c2.prototype.setVisible = function(e3) {
+          }), r2 = e2("./lib/oop"), s2 = e2("./lib/dom"), a2 = e2("./lib/event"), e2 = e2("./lib/event_emitter").EventEmitter, l2 = (s2.importCssString(`.ace_editor>.ace_sb-v div, .ace_editor>.ace_sb-h div{
+  position: absolute;
+  background: rgba(128, 128, 128, 0.6);
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+  z-index: 8;
+}
+.ace_editor>.ace_sb-v, .ace_editor>.ace_sb-h {
+  position: absolute;
+  z-index: 6;
+  background: none;
+  overflow: hidden!important;
+}
+.ace_editor>.ace_sb-v {
+  z-index: 6;
+  right: 0;
+  top: 0;
+  width: 12px;
+}
+.ace_editor>.ace_sb-v div {
+  z-index: 8;
+  right: 0;
+  width: 100%;
+}
+.ace_editor>.ace_sb-h {
+  bottom: 0;
+  left: 0;
+  height: 12px;
+}
+.ace_editor>.ace_sb-h div {
+  bottom: 0;
+  height: 100%;
+}
+.ace_editor>.ace_sb_grabbed {
+  z-index: 8;
+  background: #000;
+}`, "ace_scrollbar.css", false), c2.prototype.setVisible = function(e3) {
             this.element.style.display = e3 ? "" : "none", this.isVisible = e3, this.coeff = 1;
           }, c2);
           function c2(e3, t3) {
@@ -11525,7 +11863,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
 }
 
 .ghost_text_line_wrapped::after {
-    content: "\u21A9";
+    content: "↩";
     position: absolute;
 }
 
@@ -11968,9 +12306,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           var n3 = a2("../lib/oop"), i3 = a2("../lib/net"), c2 = a2("../lib/event_emitter").EventEmitter, h = a2("../config");
           function l2(e3) {
             var t3;
-            return typeof Worker == "undefined" ? { postMessage: function() {
-            }, terminate: function() {
-            } } : h.get("loadWorkerFromBlob") ? (t3 = function(t4) {
+            return typeof Worker == "undefined" ? { postMessage: function() {}, terminate: function() {} } : h.get("loadWorkerFromBlob") ? (t3 = function(t4) {
               t4 = "importScripts('" + i3.qualifyURL(t4) + "');";
               try {
                 return new Blob([t4], { type: "application/javascript" });
@@ -12034,8 +12370,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             };
           }).call(d.prototype);
           e2.UIWorkerClient = function(e3, t3, n4) {
-            var i4 = null, o3 = false, r2 = Object.create(c2), s2 = [], a3 = new d({ messageBuffer: s2, terminate: function() {
-            }, postMessage: function(e4) {
+            var i4 = null, o3 = false, r2 = Object.create(c2), s2 = [], a3 = new d({ messageBuffer: s2, terminate: function() {}, postMessage: function(e4) {
               s2.push(e4), i4 && (o3 ? setTimeout(l3) : l3());
             } }), l3 = (a3.setEmitSync = function(e4) {
               o3 = e4;
@@ -12422,7 +12757,9 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
                   l3 < 0 && (l3 = 0), d <= c3 && (c3 = d - 1);
                 }
                 var u2 = this.session.removeFullLines(l3, c3), u2 = this.$reAlignText(u2, e3);
-                this.session.insert({ row: l3, column: 0 }, u2.join("\n") + "\n"), e3 || (i4.start.column = 0, i4.end.column = u2[u2.length - 1].length), this.selection.setRange(i4);
+                this.session.insert({ row: l3, column: 0 }, u2.join(`
+`) + `
+`), e3 || (i4.start.column = 0, i4.end.column = u2[u2.length - 1].length), this.selection.setRange(i4);
               }
             }, this.$reAlignText = function(e3, t3) {
               var n4, i4, o4, r3 = true, s3 = true;
@@ -12450,8 +12787,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             this.$blockSelectEnabled = e3;
           }, value: true } });
         }), ace.define("ace/mode/folding/fold_mode", ["require", "exports", "module", "ace/range"], function(e2, t2, n3) {
-          var h = e2("../../range").Range, e2 = t2.FoldMode = function() {
-          };
+          var h = e2("../../range").Range, e2 = t2.FoldMode = function() {};
           (function() {
             this.foldingStartMarker = null, this.foldingStopMarker = null, this.getFoldWidget = function(e3, t3, n4) {
               e3 = e3.getLine(n4);
@@ -12538,7 +12874,40 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             l2.destroy = function() {
               e3.$mouseHandler.isMousePressed || (e3.keyBinding.removeKeyboardHandler(a3), i3.widgetManager.removeLineWidget(l2), e3.off("changeSelection", l2.destroy), e3.off("changeSession", l2.destroy), e3.off("mouseup", l2.destroy), e3.off("change", l2.destroy));
             }, e3.keyBinding.addKeyboardHandler(a3), e3.on("changeSelection", l2.destroy), e3.on("changeSession", l2.destroy), e3.on("mouseup", l2.destroy), e3.on("change", l2.destroy), e3.session.widgetManager.addLineWidget(l2), l2.el.onmousedown = e3.focus.bind(e3), e3.renderer.scrollCursorIntoView(null, 0.5, { bottom: l2.el.offsetHeight });
-          }, h.importCssString("\n    .error_widget_wrapper {\n        background: inherit;\n        color: inherit;\n        border:none\n    }\n    .error_widget {\n        border-top: solid 2px;\n        border-bottom: solid 2px;\n        margin: 5px 0;\n        padding: 10px 40px;\n        white-space: pre-wrap;\n    }\n    .error_widget.ace_error, .error_widget_arrow.ace_error{\n        border-color: #ff5a5a\n    }\n    .error_widget.ace_warning, .error_widget_arrow.ace_warning{\n        border-color: #F1D817\n    }\n    .error_widget.ace_info, .error_widget_arrow.ace_info{\n        border-color: #5a5a5a\n    }\n    .error_widget.ace_ok, .error_widget_arrow.ace_ok{\n        border-color: #5aaa5a\n    }\n    .error_widget_arrow {\n        position: absolute;\n        border: solid 5px;\n        border-top-color: transparent!important;\n        border-right-color: transparent!important;\n        border-left-color: transparent!important;\n        top: -5px;\n    }\n", "error_marker.css", false);
+          }, h.importCssString(`
+    .error_widget_wrapper {
+        background: inherit;
+        color: inherit;
+        border:none
+    }
+    .error_widget {
+        border-top: solid 2px;
+        border-bottom: solid 2px;
+        margin: 5px 0;
+        padding: 10px 40px;
+        white-space: pre-wrap;
+    }
+    .error_widget.ace_error, .error_widget_arrow.ace_error{
+        border-color: #ff5a5a
+    }
+    .error_widget.ace_warning, .error_widget_arrow.ace_warning{
+        border-color: #F1D817
+    }
+    .error_widget.ace_info, .error_widget_arrow.ace_info{
+        border-color: #5a5a5a
+    }
+    .error_widget.ace_ok, .error_widget_arrow.ace_ok{
+        border-color: #5aaa5a
+    }
+    .error_widget_arrow {
+        position: absolute;
+        border: solid 5px;
+        border-top-color: transparent!important;
+        border-right-color: transparent!important;
+        border-left-color: transparent!important;
+        top: -5px;
+    }
+`, "error_marker.css", false);
         }), ace.define("ace/ace", ["require", "exports", "module", "ace/lib/dom", "ace/range", "ace/editor", "ace/edit_session", "ace/undomanager", "ace/virtual_renderer", "ace/worker/worker_client", "ace/keyboard/hash_handler", "ace/placeholder", "ace/multi_select", "ace/mode/folding/fold_mode", "ace/theme/textmate", "ace/ext/error_marker", "ace/config", "ace/loader_build"], function(e2, r2, t2) {
           e2("./loader_build")(r2);
           var s2 = e2("./lib/dom"), n3 = e2("./range").Range, a2 = e2("./editor").Editor, i3 = e2("./edit_session").EditSession, o3 = e2("./undomanager").UndoManager, l2 = e2("./virtual_renderer").VirtualRenderer;
@@ -12572,7 +12941,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             return e3.session.getTextRange(e3.session.getWordRange());
           }, SELECTION: function(e3, t3, n4) {
             e3 = e3.session.getTextRange();
-            return n4 ? e3.replace(/\n\r?([ \t]*\S)/g, "\n" + n4 + "$1") : e3;
+            return n4 ? e3.replace(/\n\r?([ \t]*\S)/g, `
+` + n4 + "$1") : e3;
           }, CURRENT_LINE: function(e3) {
             return e3.session.getLine(e3.getCursorPosition().row);
           }, PREV_LINE: function(e3) {
@@ -12636,8 +13006,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
               return n4.unshift(e4[0]), e4;
             }, next: "snippetVar" }, { regex: /\n/, token: "newline", merge: false }], snippetVar: [{ regex: "\\|" + e3("\\|") + "*\\|", onMatch: function(e4, t4, n4) {
               e4 = e4.slice(1, -1).replace(/\\[,|\\]|,/g, function(e5) {
-                return e5.length == 2 ? e5[1] : "\0";
-              }).split("\0").map(function(e5) {
+                return e5.length == 2 ? e5[1] : "\x00";
+              }).split("\x00").map(function(e5) {
                 return { value: e5 };
               });
               return [(n4[0].choices = e4)[0]];
@@ -12645,7 +13015,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
               return n4.length && n4[0].expectElse ? (n4[0].expectElse = false, n4[0].ifEnd = { elseEnd: n4[0] }, [n4[0].ifEnd]) : ":";
             } }, { regex: /\\./, onMatch: function(e4, t4, n4) {
               var i4 = e4[1];
-              return i4 == "}" && n4.length || "`$\\".indexOf(i4) != -1 ? e4 = i4 : i4 == "n" ? e4 = "\n" : i4 == "t" ? e4 = "\t" : "ulULE".indexOf(i4) != -1 && (e4 = { changeCase: i4, local: "a" < i4 }), [e4];
+              return i4 == "}" && n4.length || "`$\\".indexOf(i4) != -1 ? e4 = i4 : i4 == "n" ? e4 = `
+` : i4 == "t" ? e4 = "\t" : "ulULE".indexOf(i4) != -1 && (e4 = { changeCase: i4, local: "a" < i4 }), [e4];
             } }, { regex: "/\\w*}", onMatch: function(e4, t4, n4) {
               n4 = n4.shift();
               return n4 && (n4.flag = e4.slice(1, -1)), this.next = n4 && n4.tabstopId ? "start" : "", [n4 || e4];
@@ -12683,7 +13054,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           }, m.prototype.resolveVariables = function(t3, e3) {
             for (var n4 = [], i3 = "", o3 = true, r2 = 0;r2 < t3.length; r2++) {
               var s2, a2 = t3[r2];
-              typeof a2 == "string" ? (n4.push(a2), a2 == "\n" ? (o3 = true, i3 = "") : o3 && (i3 = /^\t*/.exec(a2)[0], o3 = /\S/.test(a2))) : a2 && (o3 = false, a2.fmtString && ((s2 = t3.indexOf(a2, r2 + 1)) == -1 && (s2 = t3.length), a2.fmt = t3.slice(r2 + 1, s2), r2 = s2), a2.text ? (s2 = this.getVariableValue(e3, a2.text, i3) + "", a2.fmtString && (s2 = this.tmStrFormat(s2, a2, e3)), (s2 = a2.formatFunction ? this.tmFormatFunction(s2, a2, e3) : s2) && !a2.ifEnd ? (n4.push(s2), l2(a2)) : !s2 && a2.ifEnd && l2(a2.ifEnd)) : a2.elseEnd ? l2(a2.elseEnd) : a2.tabstopId == null && a2.changeCase == null || n4.push(a2));
+              typeof a2 == "string" ? (n4.push(a2), a2 == `
+` ? (o3 = true, i3 = "") : o3 && (i3 = /^\t*/.exec(a2)[0], o3 = /\S/.test(a2))) : a2 && (o3 = false, a2.fmtString && ((s2 = t3.indexOf(a2, r2 + 1)) == -1 && (s2 = t3.length), a2.fmt = t3.slice(r2 + 1, s2), r2 = s2), a2.text ? (s2 = this.getVariableValue(e3, a2.text, i3) + "", a2.fmtString && (s2 = this.tmStrFormat(s2, a2, e3)), (s2 = a2.formatFunction ? this.tmFormatFunction(s2, a2, e3) : s2) && !a2.ifEnd ? (n4.push(s2), l2(a2)) : !s2 && a2.ifEnd && l2(a2.ifEnd)) : a2.elseEnd ? l2(a2.elseEnd) : a2.tabstopId == null && a2.changeCase == null || n4.push(a2));
             }
             function l2(e4) {
               e4 = t3.indexOf(e4, r2 + 1);
@@ -12737,7 +13109,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             function n4(e3) {
               e3.scope || (e3.scope = i3 || "_"), i3 = e3.scope, o3[i3] || (o3[i3] = [], r2[i3] = {});
               var t4, n5 = r2[i3];
-              e3.name && ((t4 = n5[e3.name]) && s2.unregister(t4), n5[e3.name] = e3), o3[i3].push(e3), e3.prefix && (e3.tabTrigger = e3.prefix), !e3.content && e3.body && (e3.content = Array.isArray(e3.body) ? e3.body.join("\n") : e3.body), e3.tabTrigger && !e3.trigger && (!e3.guard && /^\w/.test(e3.tabTrigger) && (e3.guard = "\\b"), e3.trigger = c.escapeRegExp(e3.tabTrigger)), (e3.trigger || e3.guard || e3.endTrigger || e3.endGuard) && (e3.startRe = l2(e3.trigger, e3.guard, true), e3.triggerRe = new RegExp(e3.trigger), e3.endRe = l2(e3.endTrigger, e3.endGuard, true), e3.endTriggerRe = new RegExp(e3.endTrigger));
+              e3.name && ((t4 = n5[e3.name]) && s2.unregister(t4), n5[e3.name] = e3), o3[i3].push(e3), e3.prefix && (e3.tabTrigger = e3.prefix), !e3.content && e3.body && (e3.content = Array.isArray(e3.body) ? e3.body.join(`
+`) : e3.body), e3.tabTrigger && !e3.trigger && (!e3.guard && /^\w/.test(e3.tabTrigger) && (e3.guard = "\\b"), e3.trigger = c.escapeRegExp(e3.tabTrigger)), (e3.trigger || e3.guard || e3.endTrigger || e3.endGuard) && (e3.startRe = l2(e3.trigger, e3.guard, true), e3.triggerRe = new RegExp(e3.trigger), e3.endRe = l2(e3.endTrigger, e3.endGuard, true), e3.endTriggerRe = new RegExp(e3.endTrigger));
             }
             t3 = t3 || [], Array.isArray(t3) ? t3.forEach(n4) : Object.keys(t3).forEach(function(e3) {
               n4(t3[e3]);
@@ -12755,8 +13128,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
               if (n4[1])
                 try {
                   r2 = JSON.parse(n4[1]), o3.push(r2);
-                } catch (e4) {
-                }
+                } catch (e4) {}
               n4[4] ? (r2.content = n4[4].replace(/^\t/gm, ""), o3.push(r2), r2 = {}) : (t3 = n4[2], n4 = n4[3], t3 == "regex" ? (r2.guard = (i3 = /\/((?:[^\/\\]|\\.)*)|$/g).exec(n4)[1], r2.trigger = i3.exec(n4)[1], r2.endTrigger = i3.exec(n4)[1], r2.endGuard = i3.exec(n4)[1]) : t3 == "snippet" ? (r2.tabTrigger = n4.match(/^\S*/)[0], r2.name || (r2.name = n4)) : t3 && (r2[t3] = n4));
             }
             return o3;
@@ -12775,7 +13147,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           var f = function(e3, t3, n4) {
             n4 === undefined && (n4 = {});
             var i3 = e3.getCursorPosition(), o3 = e3.session.getLine(i3.row), r2 = e3.session.getTabString(), s2 = o3.match(/^\s*/)[0], a2 = (i3.column < s2.length && (s2 = s2.slice(0, i3.column)), t3 = t3.replace(/\r/g, ""), this.tokenizeTmSnippet(t3)), l2 = (a2 = (a2 = this.resolveVariables(a2, e3)).map(function(e4) {
-              return e4 != "\n" || n4.excludeExtraIndent ? typeof e4 == "string" ? e4.replace(/\t/g, r2) : e4 : e4 + s2;
+              return e4 != `
+` || n4.excludeExtraIndent ? typeof e4 == "string" ? e4.replace(/\t/g, r2) : e4 : e4 + s2;
             }), []), c2 = (a2.forEach(function(e4, t4) {
               var n5, i4, o4;
               typeof e4 == "object" && (o4 = e4.tabstopId, (n5 = l2[o4]) || ((n5 = l2[o4] = []).index = o4, n5.value = "", n5.parents = {}), n5.indexOf(e4) === -1) && (e4.choices && !n5.choices && (n5.choices = e4.choices), n5.push(e4), (i4 = a2.indexOf(e4, t4 + 1)) !== -1) && ((o4 = a2.slice(t4 + 1, i4)).some(function(e5) {
@@ -12803,7 +13176,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             var m2 = 0, f2 = 0, C2 = "";
             return a2.forEach(function(e4) {
               var t4;
-              typeof e4 == "string" ? (1 < (t4 = e4.split("\n")).length ? (f2 = t4[t4.length - 1].length, m2 += t4.length - 1) : f2 += e4.length, C2 += e4) : e4 && (e4.start ? e4.end = { row: m2, column: f2 } : e4.start = { row: m2, column: f2 });
+              typeof e4 == "string" ? (1 < (t4 = e4.split(`
+`)).length ? (f2 = t4[t4.length - 1].length, m2 += t4.length - 1) : f2 += e4.length, C2 += e4) : e4 && (e4.start ? e4.end = { row: m2, column: f2 } : e4.start = { row: m2, column: f2 });
             }), { text: C2, tabstops: l2, tokens: a2 };
           }, C = (y.prototype.attach = function(e3) {
             this.$openTabstops = null, this.selectedTabstop = null, this.editor = e3, this.session = e3.session, this.editor.on("change", this.$onChange), this.editor.on("changeSelection", this.$onChangeSelection), this.editor.on("changeSession", this.$onChangeSession), this.editor.commands.on("afterExec", this.$onAfterExec), this.editor.keyBinding.addKeyboardHandler(this.keyboardHandler);
@@ -12909,7 +13283,14 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             e3.row == 0 && (e3.column += t3.column), e3.row += t3.row;
           }, I = function(e3, t3) {
             e3.row == t3.row && (e3.column -= t3.column), e3.row -= t3.row;
-          }, i2 = (n3.importCssString("\n.ace_snippet-marker {\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    background: rgba(194, 193, 208, 0.09);\n    border: 1px dotted rgba(211, 208, 235, 0.62);\n    position: absolute;\n}", "snippets.css", false), s.snippetManager = new p, e2("./editor").Editor);
+          }, i2 = (n3.importCssString(`
+.ace_snippet-marker {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: rgba(194, 193, 208, 0.09);
+    border: 1px dotted rgba(211, 208, 235, 0.62);
+    position: absolute;
+}`, "snippets.css", false), s.snippetManager = new p, e2("./editor").Editor);
           (function() {
             this.insertSnippet = function(e3, t3) {
               return s.snippetManager.insertSnippet(this, e3, t3);
@@ -12925,8 +13306,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             return (e3 = new o2(e3)).$maxLines = 4, (e3 = new r(e3)).setHighlightActiveLine(false), e3.setShowPrintMargin(false), e3.renderer.setShowGutter(false), e3.renderer.setHighlightGutterLine(false), e3.$mouseHandler.$focusTimeout = 0, e3.$highlightTagPending = true, e3;
           }
           function i2(e3) {
-            function t3() {
-            }
+            function t3() {}
             function n4() {
               s(-1);
             }
@@ -12970,7 +13350,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             }, e3.$updateOnChange = t3, e3.start = t3, g.session.$computeWidth = function() {
               return this.screenWidth = 0;
             }, g.isOpen = false, g.isTopdown = false, g.autoSelect = true, g.filterText = "", g.isMouseOver = false, g.data = [], g.setData = function(e4, t4) {
-              g.filterText = t4 || "", g.setValue(d.stringRepeat("\n", e4.length), -1), g.data = e4 || [], g.setRow(0);
+              g.filterText = t4 || "", g.setValue(d.stringRepeat(`
+`, e4.length), -1), g.data = e4 || [], g.setRow(0);
             }, g.getData = function(e4) {
               return g.data[e4];
             }, g.getRow = function() {
@@ -13014,7 +13395,99 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             }, g.$imageSize = 0, g.$borderSize = 1, g;
           }
           var o2 = e2("../virtual_renderer").VirtualRenderer, r = e2("../editor").Editor, c = e2("../range").Range, h = e2("../lib/event"), d = e2("../lib/lang"), p = e2("../lib/dom"), m = e2("../config").nls, e2 = e2("./../lib/useragent"), f = e2.isSafari ? "menu" : "listbox", C = e2.isSafari ? "menuitem" : "option", y = e2.isSafari ? "aria-current" : "aria-selected";
-          p.importCssString('\n.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {\n    background-color: #CAD6FA;\n    z-index: 1;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {\n    background-color: #3a674e;\n}\n.ace_editor.ace_autocomplete .ace_line-hover {\n    border: 1px solid #abbffe;\n    margin-top: -1px;\n    background: rgba(233,233,253,0.4);\n    position: absolute;\n    z-index: 2;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_line-hover {\n    border: 1px solid rgba(109, 150, 13, 0.8);\n    background: rgba(58, 103, 78, 0.62);\n}\n.ace_completion-meta {\n    opacity: 0.5;\n    margin-left: 0.9em;\n}\n.ace_completion-message {\n    margin-left: 0.9em;\n    color: blue;\n}\n.ace_editor.ace_autocomplete .ace_completion-highlight{\n    color: #2d69c7;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_completion-highlight{\n    color: #93ca12;\n}\n.ace_editor.ace_autocomplete {\n    width: 300px;\n    z-index: 200000;\n    border: 1px lightgray solid;\n    position: fixed;\n    box-shadow: 2px 3px 5px rgba(0,0,0,.2);\n    line-height: 1.4;\n    background: #fefefe;\n    color: #111;\n}\n.ace_dark.ace_editor.ace_autocomplete {\n    border: 1px #484747 solid;\n    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.51);\n    line-height: 1.4;\n    background: #25282c;\n    color: #c1c1c1;\n}\n.ace_autocomplete .ace_text-layer  {\n    width: calc(100% - 8px);\n}\n.ace_autocomplete .ace_line {\n    display: flex;\n    align-items: center;\n}\n.ace_autocomplete .ace_line > * {\n    min-width: 0;\n    flex: 0 0 auto;\n}\n.ace_autocomplete .ace_line .ace_ {\n    flex: 0 1 auto;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.ace_autocomplete .ace_completion-spacer {\n    flex: 1;\n}\n.ace_autocomplete.ace_loading:after  {\n    content: "";\n    position: absolute;\n    top: 0px;\n    height: 2px;\n    width: 8%;\n    background: blue;\n    z-index: 100;\n    animation: ace_progress 3s infinite linear;\n    animation-delay: 300ms;\n    transform: translateX(-100%) scaleX(1);\n}\n@keyframes ace_progress {\n    0% { transform: translateX(-100%) scaleX(1) }\n    50% { transform: translateX(625%) scaleX(2) } \n    100% { transform: translateX(1500%) scaleX(3) } \n}\n@media (prefers-reduced-motion) {\n    .ace_autocomplete.ace_loading:after {\n        transform: translateX(625%) scaleX(2);\n        animation: none;\n     }\n}\n', "autocompletion.css", false), t2.AcePopup = i2, t2.$singleLineEditor = l, t2.getAriaId = a;
+          p.importCssString(`
+.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {
+    background-color: #CAD6FA;
+    z-index: 1;
+}
+.ace_dark.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {
+    background-color: #3a674e;
+}
+.ace_editor.ace_autocomplete .ace_line-hover {
+    border: 1px solid #abbffe;
+    margin-top: -1px;
+    background: rgba(233,233,253,0.4);
+    position: absolute;
+    z-index: 2;
+}
+.ace_dark.ace_editor.ace_autocomplete .ace_line-hover {
+    border: 1px solid rgba(109, 150, 13, 0.8);
+    background: rgba(58, 103, 78, 0.62);
+}
+.ace_completion-meta {
+    opacity: 0.5;
+    margin-left: 0.9em;
+}
+.ace_completion-message {
+    margin-left: 0.9em;
+    color: blue;
+}
+.ace_editor.ace_autocomplete .ace_completion-highlight{
+    color: #2d69c7;
+}
+.ace_dark.ace_editor.ace_autocomplete .ace_completion-highlight{
+    color: #93ca12;
+}
+.ace_editor.ace_autocomplete {
+    width: 300px;
+    z-index: 200000;
+    border: 1px lightgray solid;
+    position: fixed;
+    box-shadow: 2px 3px 5px rgba(0,0,0,.2);
+    line-height: 1.4;
+    background: #fefefe;
+    color: #111;
+}
+.ace_dark.ace_editor.ace_autocomplete {
+    border: 1px #484747 solid;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.51);
+    line-height: 1.4;
+    background: #25282c;
+    color: #c1c1c1;
+}
+.ace_autocomplete .ace_text-layer  {
+    width: calc(100% - 8px);
+}
+.ace_autocomplete .ace_line {
+    display: flex;
+    align-items: center;
+}
+.ace_autocomplete .ace_line > * {
+    min-width: 0;
+    flex: 0 0 auto;
+}
+.ace_autocomplete .ace_line .ace_ {
+    flex: 0 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.ace_autocomplete .ace_completion-spacer {
+    flex: 1;
+}
+.ace_autocomplete.ace_loading:after  {
+    content: "";
+    position: absolute;
+    top: 0px;
+    height: 2px;
+    width: 8%;
+    background: blue;
+    z-index: 100;
+    animation: ace_progress 3s infinite linear;
+    animation-delay: 300ms;
+    transform: translateX(-100%) scaleX(1);
+}
+@keyframes ace_progress {
+    0% { transform: translateX(-100%) scaleX(1) }
+    50% { transform: translateX(625%) scaleX(2) } 
+    100% { transform: translateX(1500%) scaleX(3) } 
+}
+@media (prefers-reduced-motion) {
+    .ace_autocomplete.ace_loading:after {
+        transform: translateX(625%) scaleX(2);
+        animation: none;
+     }
+}
+`, "autocompletion.css", false), t2.AcePopup = i2, t2.$singleLineEditor = l, t2.getAriaId = a;
         }), ace.define("ace/autocomplete/inline_screenreader", ["require", "exports", "module"], function(e2, t2, n3) {
           function i2(e3) {
             this.editor = e3, this.screenReaderDiv = document.createElement("div"), this.screenReaderDiv.classList.add("ace_screenreader-only"), this.editor.container.appendChild(this.screenReaderDiv);
@@ -13387,7 +13860,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             r2.forEach(function(e4) {
               for (var t4 = s2[e4] || [], n5 = t4.length;n5--; ) {
                 var i4 = t4[n5], o4 = i4.name || i4.tabTrigger;
-                o4 && a2.push({ caption: o4, snippet: i4.content, meta: i4.tabTrigger && !i4.name ? i4.tabTrigger + "\u21E5 " : "snippet", completerId: g.id });
+                o4 && a2.push({ caption: o4, snippet: i4.content, meta: i4.tabTrigger && !i4.name ? i4.tabTrigger + "⇥ " : "snippet", completerId: g.id });
               }
             }, this), o3(null, a2);
           }, getDocTooltip: function(e3) {
@@ -13430,7 +13903,168 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
       },
       6534: function(t, e, n2) {
         t = n2.nmd(t), ace.define("ace/ext/searchbox-css", ["require", "exports", "module"], function(e2, t2, n3) {
-          n3.exports = '\n\n/* ------------------------------------------------------------------------------------------\n * Editor Search Form\n * --------------------------------------------------------------------------------------- */\n.ace_search {\n    background-color: #ddd;\n    color: #666;\n    border: 1px solid #cbcbcb;\n    border-top: 0 none;\n    overflow: hidden;\n    margin: 0;\n    padding: 4px 6px 0 4px;\n    position: absolute;\n    top: 0;\n    z-index: 99;\n    white-space: normal;\n}\n.ace_search.left {\n    border-left: 0 none;\n    border-radius: 0px 0px 5px 0px;\n    left: 0;\n}\n.ace_search.right {\n    border-radius: 0px 0px 0px 5px;\n    border-right: 0 none;\n    right: 0;\n}\n\n.ace_search_form, .ace_replace_form {\n    margin: 0 20px 4px 0;\n    overflow: hidden;\n    line-height: 1.9;\n}\n.ace_replace_form {\n    margin-right: 0;\n}\n.ace_search_form.ace_nomatch {\n    outline: 1px solid red;\n}\n\n.ace_search_field {\n    border-radius: 3px 0 0 3px;\n    background-color: white;\n    color: black;\n    border: 1px solid #cbcbcb;\n    border-right: 0 none;\n    outline: 0;\n    padding: 0;\n    font-size: inherit;\n    margin: 0;\n    line-height: inherit;\n    padding: 0 6px;\n    min-width: 17em;\n    vertical-align: top;\n    min-height: 1.8em;\n    box-sizing: content-box;\n}\n.ace_searchbtn {\n    border: 1px solid #cbcbcb;\n    line-height: inherit;\n    display: inline-block;\n    padding: 0 6px;\n    background: #fff;\n    border-right: 0 none;\n    border-left: 1px solid #dcdcdc;\n    cursor: pointer;\n    margin: 0;\n    position: relative;\n    color: #666;\n}\n.ace_searchbtn:last-child {\n    border-radius: 0 3px 3px 0;\n    border-right: 1px solid #cbcbcb;\n}\n.ace_searchbtn:disabled {\n    background: none;\n    cursor: default;\n}\n.ace_searchbtn:hover {\n    background-color: #eef1f6;\n}\n.ace_searchbtn.prev, .ace_searchbtn.next {\n     padding: 0px 0.7em\n}\n.ace_searchbtn.prev:after, .ace_searchbtn.next:after {\n     content: "";\n     border: solid 2px #888;\n     width: 0.5em;\n     height: 0.5em;\n     border-width:  2px 0 0 2px;\n     display:inline-block;\n     transform: rotate(-45deg);\n}\n.ace_searchbtn.next:after {\n     border-width: 0 2px 2px 0 ;\n}\n.ace_searchbtn_close {\n    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABRVo5BAAAAZ0lEQVR42u2SUQrAMAhDvazn8OjZBilCkYVVxiis8H4CT0VrAJb4WHT3C5xU2a2IQZXJjiQIRMdkEoJ5Q2yMqpfDIo+XY4k6h+YXOyKqTIj5REaxloNAd0xiKmAtsTHqW8sR2W5f7gCu5nWFUpVjZwAAAABJRU5ErkJggg==) no-repeat 50% 0;\n    border-radius: 50%;\n    border: 0 none;\n    color: #656565;\n    cursor: pointer;\n    font: 16px/16px Arial;\n    padding: 0;\n    height: 14px;\n    width: 14px;\n    top: 9px;\n    right: 7px;\n    position: absolute;\n}\n.ace_searchbtn_close:hover {\n    background-color: #656565;\n    background-position: 50% 100%;\n    color: white;\n}\n\n.ace_button {\n    margin-left: 2px;\n    cursor: pointer;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -o-user-select: none;\n    -ms-user-select: none;\n    user-select: none;\n    overflow: hidden;\n    opacity: 0.7;\n    border: 1px solid rgba(100,100,100,0.23);\n    padding: 1px;\n    box-sizing:    border-box!important;\n    color: black;\n}\n\n.ace_button:hover {\n    background-color: #eee;\n    opacity:1;\n}\n.ace_button:active {\n    background-color: #ddd;\n}\n\n.ace_button.checked {\n    border-color: #3399ff;\n    opacity:1;\n}\n\n.ace_search_options{\n    margin-bottom: 3px;\n    text-align: right;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -o-user-select: none;\n    -ms-user-select: none;\n    user-select: none;\n    clear: both;\n}\n\n.ace_search_counter {\n    float: left;\n    font-family: arial;\n    padding: 0 8px;\n}';
+          n3.exports = `
+
+/* ------------------------------------------------------------------------------------------
+ * Editor Search Form
+ * --------------------------------------------------------------------------------------- */
+.ace_search {
+    background-color: #ddd;
+    color: #666;
+    border: 1px solid #cbcbcb;
+    border-top: 0 none;
+    overflow: hidden;
+    margin: 0;
+    padding: 4px 6px 0 4px;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    white-space: normal;
+}
+.ace_search.left {
+    border-left: 0 none;
+    border-radius: 0px 0px 5px 0px;
+    left: 0;
+}
+.ace_search.right {
+    border-radius: 0px 0px 0px 5px;
+    border-right: 0 none;
+    right: 0;
+}
+
+.ace_search_form, .ace_replace_form {
+    margin: 0 20px 4px 0;
+    overflow: hidden;
+    line-height: 1.9;
+}
+.ace_replace_form {
+    margin-right: 0;
+}
+.ace_search_form.ace_nomatch {
+    outline: 1px solid red;
+}
+
+.ace_search_field {
+    border-radius: 3px 0 0 3px;
+    background-color: white;
+    color: black;
+    border: 1px solid #cbcbcb;
+    border-right: 0 none;
+    outline: 0;
+    padding: 0;
+    font-size: inherit;
+    margin: 0;
+    line-height: inherit;
+    padding: 0 6px;
+    min-width: 17em;
+    vertical-align: top;
+    min-height: 1.8em;
+    box-sizing: content-box;
+}
+.ace_searchbtn {
+    border: 1px solid #cbcbcb;
+    line-height: inherit;
+    display: inline-block;
+    padding: 0 6px;
+    background: #fff;
+    border-right: 0 none;
+    border-left: 1px solid #dcdcdc;
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+    color: #666;
+}
+.ace_searchbtn:last-child {
+    border-radius: 0 3px 3px 0;
+    border-right: 1px solid #cbcbcb;
+}
+.ace_searchbtn:disabled {
+    background: none;
+    cursor: default;
+}
+.ace_searchbtn:hover {
+    background-color: #eef1f6;
+}
+.ace_searchbtn.prev, .ace_searchbtn.next {
+     padding: 0px 0.7em
+}
+.ace_searchbtn.prev:after, .ace_searchbtn.next:after {
+     content: "";
+     border: solid 2px #888;
+     width: 0.5em;
+     height: 0.5em;
+     border-width:  2px 0 0 2px;
+     display:inline-block;
+     transform: rotate(-45deg);
+}
+.ace_searchbtn.next:after {
+     border-width: 0 2px 2px 0 ;
+}
+.ace_searchbtn_close {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABRVo5BAAAAZ0lEQVR42u2SUQrAMAhDvazn8OjZBilCkYVVxiis8H4CT0VrAJb4WHT3C5xU2a2IQZXJjiQIRMdkEoJ5Q2yMqpfDIo+XY4k6h+YXOyKqTIj5REaxloNAd0xiKmAtsTHqW8sR2W5f7gCu5nWFUpVjZwAAAABJRU5ErkJggg==) no-repeat 50% 0;
+    border-radius: 50%;
+    border: 0 none;
+    color: #656565;
+    cursor: pointer;
+    font: 16px/16px Arial;
+    padding: 0;
+    height: 14px;
+    width: 14px;
+    top: 9px;
+    right: 7px;
+    position: absolute;
+}
+.ace_searchbtn_close:hover {
+    background-color: #656565;
+    background-position: 50% 100%;
+    color: white;
+}
+
+.ace_button {
+    margin-left: 2px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: hidden;
+    opacity: 0.7;
+    border: 1px solid rgba(100,100,100,0.23);
+    padding: 1px;
+    box-sizing:    border-box!important;
+    color: black;
+}
+
+.ace_button:hover {
+    background-color: #eee;
+    opacity:1;
+}
+.ace_button:active {
+    background-color: #ddd;
+}
+
+.ace_button.checked {
+    border-color: #3399ff;
+    opacity:1;
+}
+
+.ace_search_options{
+    margin-bottom: 3px;
+    text-align: right;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    clear: both;
+}
+
+.ace_search_counter {
+    float: left;
+    font-family: arial;
+    padding: 0 8px;
+}`;
         }), ace.define("ace/ext/searchbox", ["require", "exports", "module", "ace/lib/dom", "ace/lib/lang", "ace/lib/event", "ace/ext/searchbox-css", "ace/keyboard/hash_handler", "ace/lib/keys", "ace/config"], function(e2, t2, n3) {
           var o2 = e2("../lib/dom"), c = e2("../lib/lang"), r = e2("../lib/event"), s = e2("./searchbox-css"), i2 = e2("../keyboard/hash_handler").HashHandler, a = e2("../lib/keys"), h = e2("../config").nls, l = (o2.importCssString(s, "ace_searchbox", false), d.prototype.setEditor = function(e3) {
             e3.searchBox = this, e3.renderer.scroller.appendChild(this.element), this.editor = e3;
@@ -13502,7 +14136,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           function d(e3, t3, n4) {
             this.activeInput;
             var i3 = o2.createElement("div");
-            o2.buildDom(["div", { class: "ace_search right" }, ["span", { action: "hide", class: "ace_searchbtn_close" }], ["div", { class: "ace_search_form" }, ["input", { class: "ace_search_field", placeholder: h("search-box.find.placeholder", "Search for"), spellcheck: "false" }], ["span", { action: "findPrev", class: "ace_searchbtn prev" }, "\u200B"], ["span", { action: "findNext", class: "ace_searchbtn next" }, "\u200B"], ["span", { action: "findAll", class: "ace_searchbtn", title: "Alt-Enter" }, h("search-box.find-all.text", "All")]], ["div", { class: "ace_replace_form" }, ["input", { class: "ace_search_field", placeholder: h("search-box.replace.placeholder", "Replace with"), spellcheck: "false" }], ["span", { action: "replaceAndFindNext", class: "ace_searchbtn" }, h("search-box.replace-next.text", "Replace")], ["span", { action: "replaceAll", class: "ace_searchbtn" }, h("search-box.replace-all.text", "All")]], ["div", { class: "ace_search_options" }, ["span", { action: "toggleReplace", class: "ace_button", title: h("search-box.toggle-replace.title", "Toggle Replace mode"), style: "float:left;margin-top:-2px;padding:0 5px;" }, "+"], ["span", { class: "ace_search_counter" }], ["span", { action: "toggleRegexpMode", class: "ace_button", title: h("search-box.toggle-regexp.title", "RegExp Search") }, ".*"], ["span", { action: "toggleCaseSensitive", class: "ace_button", title: h("search-box.toggle-case.title", "CaseSensitive Search") }, "Aa"], ["span", { action: "toggleWholeWords", class: "ace_button", title: h("search-box.toggle-whole-word.title", "Whole Word Search") }, "\\b"], ["span", { action: "searchInSelection", class: "ace_button", title: h("search-box.toggle-in-selection.title", "Search In Selection") }, "S"]]], i3), this.element = i3.firstChild, this.setSession = this.setSession.bind(this), this.$init(), this.setEditor(e3), o2.importCssString(s, "ace_searchbox", e3.container);
+            o2.buildDom(["div", { class: "ace_search right" }, ["span", { action: "hide", class: "ace_searchbtn_close" }], ["div", { class: "ace_search_form" }, ["input", { class: "ace_search_field", placeholder: h("search-box.find.placeholder", "Search for"), spellcheck: "false" }], ["span", { action: "findPrev", class: "ace_searchbtn prev" }, "​"], ["span", { action: "findNext", class: "ace_searchbtn next" }, "​"], ["span", { action: "findAll", class: "ace_searchbtn", title: "Alt-Enter" }, h("search-box.find-all.text", "All")]], ["div", { class: "ace_replace_form" }, ["input", { class: "ace_search_field", placeholder: h("search-box.replace.placeholder", "Replace with"), spellcheck: "false" }], ["span", { action: "replaceAndFindNext", class: "ace_searchbtn" }, h("search-box.replace-next.text", "Replace")], ["span", { action: "replaceAll", class: "ace_searchbtn" }, h("search-box.replace-all.text", "All")]], ["div", { class: "ace_search_options" }, ["span", { action: "toggleReplace", class: "ace_button", title: h("search-box.toggle-replace.title", "Toggle Replace mode"), style: "float:left;margin-top:-2px;padding:0 5px;" }, "+"], ["span", { class: "ace_search_counter" }], ["span", { action: "toggleRegexpMode", class: "ace_button", title: h("search-box.toggle-regexp.title", "RegExp Search") }, ".*"], ["span", { action: "toggleCaseSensitive", class: "ace_button", title: h("search-box.toggle-case.title", "CaseSensitive Search") }, "Aa"], ["span", { action: "toggleWholeWords", class: "ace_button", title: h("search-box.toggle-whole-word.title", "Whole Word Search") }, "\\b"], ["span", { action: "searchInSelection", class: "ace_button", title: h("search-box.toggle-in-selection.title", "Search In Selection") }, "S"]]], i3), this.element = i3.firstChild, this.setSession = this.setSession.bind(this), this.$init(), this.setEditor(e3), o2.importCssString(s, "ace_searchbox", e3.container);
           }
           e2 = new i2, e2.bindKeys({ "Ctrl-f|Command-f": function(e3) {
             var t3 = e3.isReplace = !e3.isReplace;
@@ -13557,8 +14191,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           var o2 = e2("../lib/oop"), e2 = e2("./text_highlight_rules").TextHighlightRules;
           o2.inherits(i2, e2), t2.JsonHighlightRules = i2;
         }), ace.define("ace/mode/matching_brace_outdent", ["require", "exports", "module", "ace/range"], function(e2, t2, n3) {
-          function i2() {
-          }
+          function i2() {}
           var o2 = e2("../range").Range;
           (function() {
             this.checkOutdent = function(e3, t3) {
@@ -13830,8 +14463,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           if (e2._schemas[t2] || e2._refs[t2])
             throw new Error('schema with key or id "' + t2 + '" already exists');
         }
-        function T() {
-        }
+        function T() {}
       },
       9336: function(e) {
         e = e.exports = function() {
@@ -14468,7 +15100,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           var w, S, x, k, T, t = b + ".errors", c = "i" + a, E = "ruleErr" + a, R = v.async;
           if (R && !e2.async)
             throw new Error("async keyword in sync schema");
-          return o2 || r || (s += t + " = null;"), s += "var " + m + " = errors;var " + p + ";", f && v.$data && (I += "}", s += " if (" + C + " === undefined) { " + p + " = true; } else { ", A) && (I += "}", s += " " + p + " = " + y + ".validateSchema(" + C + "); if (" + p + ") { "), o2 ? v.statements ? s += " " + k.validate + " " : s += " " + p + " = " + k.validate + "; " : r ? (I = "", (f = e2.util.copy(e2)).level++, w = "valid" + f.level, f.schema = k.validate, f.schemaPath = "", A = e2.compositeRule, e2.compositeRule = f.compositeRule = true, y = e2.validate(f).replace(/validate\.schema/g, b), e2.compositeRule = f.compositeRule = A, s += " " + y) : ((T = T || []).push(s), s = "", s += "  " + b + ".call( ", e2.opts.passContext ? s += "this" : s += "self", i2 || v.schema === false ? s += " , " + g + " " : s += " , " + C + " , " + g + " , validate.schema" + e2.schemaPath + " ", s += " , (dataPath || '')", e2.errorPath != '""' && (s += " + " + e2.errorPath), k = s += " , " + (S = l ? "data" + (l - 1 || "") : "parentData") + " , " + (x = l ? e2.dataPathArr[l] : "parentDataProperty") + " , rootData )  ", s = T.pop(), v.errors === false ? (s += " " + p + " = ", R && (s += "await "), s += k + "; ") : s += R ? " var " + (t = "customErrors" + a) + " = null; try { " + p + " = await " + k + "; } catch (e) { " + p + " = false; if (e instanceof ValidationError) " + t + " = e.errors; else throw e; } " : " " + t + " = null; " + p + " = " + k + "; "), v.modifying && (s += " if (" + S + ") " + g + " = " + S + "[" + x + "];"), s += "" + I, v.valid ? u && (s += " if (true) { ") : (s += " if ( ", v.valid === undefined ? s = s + " !" + (r ? "" + w : p) : s += " " + !v.valid + " ", f = this.keyword, (T = T || []).push(s += ") { "), (T = T || []).push(s = ""), s = "", e2.createErrors !== false ? (s += " { keyword: '" + (f || "custom") + "' , dataPath: (dataPath || '') + " + e2.errorPath + " , schemaPath: " + e2.util.toQuotedString(d) + " , params: { keyword: '" + this.keyword + "' } ", e2.opts.messages !== false && (s += " , message: 'should pass \"" + this.keyword + "\" keyword validation' "), e2.opts.verbose && (s += " , schema: validate.schema" + h + " , parentSchema: validate.schema" + e2.schemaPath + " , data: " + g + " "), s += " } ") : s += " {} ", A = s, s = T.pop(), !e2.compositeRule && u ? e2.async ? s += " throw new ValidationError([" + A + "]); " : s += " validate.errors = [" + A + "]; return false; " : s += " var err = " + A + ";  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ", y = s, s = T.pop(), o2 ? v.errors ? v.errors != "full" && (s += "  for (var " + c + "=" + m + "; " + c + "<errors; " + c + "++) { var " + E + " = vErrors[" + c + "]; if (" + E + ".dataPath === undefined) " + E + ".dataPath = (dataPath || '') + " + e2.errorPath + "; if (" + E + ".schemaPath === undefined) { " + E + '.schemaPath = "' + d + '"; } ', e2.opts.verbose && (s += " " + E + ".schema = " + C + "; " + E + ".data = " + g + "; "), s += " } ") : v.errors === false ? s += " " + y + " " : (s += " if (" + m + " == errors) { " + y + " } else {  for (var " + c + "=" + m + "; " + c + "<errors; " + c + "++) { var " + E + " = vErrors[" + c + "]; if (" + E + ".dataPath === undefined) " + E + ".dataPath = (dataPath || '') + " + e2.errorPath + "; if (" + E + ".schemaPath === undefined) { " + E + '.schemaPath = "' + d + '"; } ', e2.opts.verbose && (s += " " + E + ".schema = " + C + "; " + E + ".data = " + g + "; "), s += " } } ") : r ? (s += "   var err =   ", e2.createErrors !== false ? (s += " { keyword: '" + (f || "custom") + "' , dataPath: (dataPath || '') + " + e2.errorPath + " , schemaPath: " + e2.util.toQuotedString(d) + " , params: { keyword: '" + this.keyword + "' } ", e2.opts.messages !== false && (s += " , message: 'should pass \"" + this.keyword + "\" keyword validation' "), e2.opts.verbose && (s += " , schema: validate.schema" + h + " , parentSchema: validate.schema" + e2.schemaPath + " , data: " + g + " "), s += " } ") : s += " {} ", s += ";  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ", !e2.compositeRule && u && (e2.async ? s += " throw new ValidationError(vErrors); " : s += " validate.errors = vErrors; return false; ")) : v.errors === false ? s += " " + y + " " : (s += " if (Array.isArray(" + t + ")) { if (vErrors === null) vErrors = " + t + "; else vErrors = vErrors.concat(" + t + "); errors = vErrors.length;  for (var " + c + "=" + m + "; " + c + "<errors; " + c + "++) { var " + E + " = vErrors[" + c + "]; if (" + E + ".dataPath === undefined) " + E + ".dataPath = (dataPath || '') + " + e2.errorPath + ";  " + E + '.schemaPath = "' + d + '";  ', e2.opts.verbose && (s += " " + E + ".schema = " + C + "; " + E + ".data = " + g + "; "), s += " } } else { " + y + " } "), s += " } ", u && (s += " else { ")), s;
+          return o2 || r || (s += t + " = null;"), s += "var " + m + " = errors;var " + p + ";", f && v.$data && (I += "}", s += " if (" + C + " === undefined) { " + p + " = true; } else { ", A) && (I += "}", s += " " + p + " = " + y + ".validateSchema(" + C + "); if (" + p + ") { "), o2 ? v.statements ? s += " " + k.validate + " " : s += " " + p + " = " + k.validate + "; " : r ? (I = "", (f = e2.util.copy(e2)).level++, w = "valid" + f.level, f.schema = k.validate, f.schemaPath = "", A = e2.compositeRule, e2.compositeRule = f.compositeRule = true, y = e2.validate(f).replace(/validate\.schema/g, b), e2.compositeRule = f.compositeRule = A, s += " " + y) : ((T = T || []).push(s), s = "", s += "  " + b + ".call( ", e2.opts.passContext ? s += "this" : s += "self", i2 || v.schema === false ? s += " , " + g + " " : s += " , " + C + " , " + g + " , validate.schema" + e2.schemaPath + " ", s += " , (dataPath || '')", e2.errorPath != '""' && (s += " + " + e2.errorPath), k = s += " , " + (S = l ? "data" + (l - 1 || "") : "parentData") + " , " + (x = l ? e2.dataPathArr[l] : "parentDataProperty") + " , rootData )  ", s = T.pop(), v.errors === false ? (s += " " + p + " = ", R && (s += "await "), s += k + "; ") : s += R ? " var " + (t = "customErrors" + a) + " = null; try { " + p + " = await " + k + "; } catch (e) { " + p + " = false; if (e instanceof ValidationError) " + t + " = e.errors; else throw e; } " : " " + t + " = null; " + p + " = " + k + "; "), v.modifying && (s += " if (" + S + ") " + g + " = " + S + "[" + x + "];"), s += "" + I, v.valid ? u && (s += " if (true) { ") : (s += " if ( ", v.valid === undefined ? s = s + " !" + (r ? "" + w : p) : s += " " + !v.valid + " ", f = this.keyword, (T = T || []).push(s += ") { "), (T = T || []).push(s = ""), s = "", e2.createErrors !== false ? (s += " { keyword: '" + (f || "custom") + "' , dataPath: (dataPath || '') + " + e2.errorPath + " , schemaPath: " + e2.util.toQuotedString(d) + " , params: { keyword: '" + this.keyword + "' } ", e2.opts.messages !== false && (s += ` , message: 'should pass "` + this.keyword + `" keyword validation' `), e2.opts.verbose && (s += " , schema: validate.schema" + h + " , parentSchema: validate.schema" + e2.schemaPath + " , data: " + g + " "), s += " } ") : s += " {} ", A = s, s = T.pop(), !e2.compositeRule && u ? e2.async ? s += " throw new ValidationError([" + A + "]); " : s += " validate.errors = [" + A + "]; return false; " : s += " var err = " + A + ";  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ", y = s, s = T.pop(), o2 ? v.errors ? v.errors != "full" && (s += "  for (var " + c + "=" + m + "; " + c + "<errors; " + c + "++) { var " + E + " = vErrors[" + c + "]; if (" + E + ".dataPath === undefined) " + E + ".dataPath = (dataPath || '') + " + e2.errorPath + "; if (" + E + ".schemaPath === undefined) { " + E + '.schemaPath = "' + d + '"; } ', e2.opts.verbose && (s += " " + E + ".schema = " + C + "; " + E + ".data = " + g + "; "), s += " } ") : v.errors === false ? s += " " + y + " " : (s += " if (" + m + " == errors) { " + y + " } else {  for (var " + c + "=" + m + "; " + c + "<errors; " + c + "++) { var " + E + " = vErrors[" + c + "]; if (" + E + ".dataPath === undefined) " + E + ".dataPath = (dataPath || '') + " + e2.errorPath + "; if (" + E + ".schemaPath === undefined) { " + E + '.schemaPath = "' + d + '"; } ', e2.opts.verbose && (s += " " + E + ".schema = " + C + "; " + E + ".data = " + g + "; "), s += " } } ") : r ? (s += "   var err =   ", e2.createErrors !== false ? (s += " { keyword: '" + (f || "custom") + "' , dataPath: (dataPath || '') + " + e2.errorPath + " , schemaPath: " + e2.util.toQuotedString(d) + " , params: { keyword: '" + this.keyword + "' } ", e2.opts.messages !== false && (s += ` , message: 'should pass "` + this.keyword + `" keyword validation' `), e2.opts.verbose && (s += " , schema: validate.schema" + h + " , parentSchema: validate.schema" + e2.schemaPath + " , data: " + g + " "), s += " } ") : s += " {} ", s += ";  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ", !e2.compositeRule && u && (e2.async ? s += " throw new ValidationError(vErrors); " : s += " validate.errors = vErrors; return false; ")) : v.errors === false ? s += " " + y + " " : (s += " if (Array.isArray(" + t + ")) { if (vErrors === null) vErrors = " + t + "; else vErrors = vErrors.concat(" + t + "); errors = vErrors.length;  for (var " + c + "=" + m + "; " + c + "<errors; " + c + "++) { var " + E + " = vErrors[" + c + "]; if (" + E + ".dataPath === undefined) " + E + ".dataPath = (dataPath || '') + " + e2.errorPath + ";  " + E + '.schemaPath = "' + d + '";  ', e2.opts.verbose && (s += " " + E + ".schema = " + C + "; " + E + ".data = " + g + "; "), s += " } } else { " + y + " } "), s += " } ", u && (s += " else { ")), s;
         };
       },
       2860: function(e) {
@@ -14545,7 +15177,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
                 p && (C += ".validate"), i2 = i2 + (typeof h == "function" ? " " + C + "(" + c + ") " : " " + C + ".test(" + c + ") ") + ") { ";
               }
             }
-            o2 = [], g = (o2.push(i2), i2 = "", e2.createErrors !== false ? (i2 = (i2 += " { keyword: 'format' , dataPath: (dataPath || '') + " + e2.errorPath + " , schemaPath: " + e2.util.toQuotedString(t) + " , params: { format:  ") + (d ? "" + r : "" + e2.util.toQuotedString(s)) + "  } ", e2.opts.messages !== false && (i2 = (i2 += " , message: 'should match format \"") + (d ? "' + " + r + " + '" : "" + e2.util.escapeQuotes(s)) + "\"' "), e2.opts.verbose && (i2 = (i2 = (i2 += " , schema:  ") + (d ? "validate.schema" + a : "" + e2.util.toQuotedString(s))) + "         , parentSchema: validate.schema" + e2.schemaPath + " , data: " + c + " "), i2 += " } ") : i2 += " {} ", i2), i2 = o2.pop();
+            o2 = [], g = (o2.push(i2), i2 = "", e2.createErrors !== false ? (i2 = (i2 += " { keyword: 'format' , dataPath: (dataPath || '') + " + e2.errorPath + " , schemaPath: " + e2.util.toQuotedString(t) + " , params: { format:  ") + (d ? "" + r : "" + e2.util.toQuotedString(s)) + "  } ", e2.opts.messages !== false && (i2 = (i2 += ` , message: 'should match format "`) + (d ? "' + " + r + " + '" : "" + e2.util.escapeQuotes(s)) + `"' `), e2.opts.verbose && (i2 = (i2 = (i2 += " , schema:  ") + (d ? "validate.schema" + a : "" + e2.util.toQuotedString(s))) + "         , parentSchema: validate.schema" + e2.schemaPath + " , data: " + c + " "), i2 += " } ") : i2 += " {} ", i2), i2 = o2.pop();
             !e2.compositeRule && l ? e2.async ? i2 += " throw new ValidationError([" + g + "]); " : i2 += " validate.errors = [" + g + "]; return false; " : i2 += " var err = " + g + ";  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ", i2 += " } ", l && (i2 += " else { ");
           }
           return i2;
@@ -14554,7 +15186,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
       1678: function(e) {
         e.exports = function(e2, t, n2) {
           var i2, o2 = " ", r = e2.level, s = e2.dataLevel, a = e2.schema[t], l = e2.schemaPath + e2.util.getProperty(t), t = e2.errSchemaPath + "/" + t, c = !e2.opts.allErrors, s = "data" + (s || ""), h = "valid" + r, d = "errs__" + r, u = e2.util.copy(e2), g = (u.level++, "valid" + u.level), p = e2.schema.then, m = e2.schema.else, p = p !== undefined && (e2.opts.strictKeywords ? typeof p == "object" && 0 < Object.keys(p).length || p === false : e2.util.schemaHasRules(p, e2.RULES.all)), m = m !== undefined && (e2.opts.strictKeywords ? typeof m == "object" && 0 < Object.keys(m).length || m === false : e2.util.schemaHasRules(m, e2.RULES.all)), f = u.baseId;
-          return p || m ? (u.createErrors = false, u.schema = a, u.schemaPath = l, u.errSchemaPath = t, o2 += " var " + d + " = errors; var " + h + " = true;  ", a = e2.compositeRule, e2.compositeRule = u.compositeRule = true, o2 += "  " + e2.validate(u) + " ", u.baseId = f, u.createErrors = true, o2 += "  errors = " + d + "; if (vErrors !== null) { if (" + d + ") vErrors.length = " + d + "; else vErrors = null; }  ", e2.compositeRule = u.compositeRule = a, p ? (o2 += " if (" + g + ") {  ", u.schema = e2.schema.then, u.schemaPath = e2.schemaPath + ".then", u.errSchemaPath = e2.errSchemaPath + "/then", o2 += "  " + e2.validate(u) + " ", u.baseId = f, o2 += " " + h + " = " + g + "; ", p && m ? o2 += " var " + (i2 = "ifClause" + r) + " = 'then'; " : i2 = "'then'", o2 += " } ", m && (o2 += " else { ")) : o2 += " if (!" + g + ") { ", m && (u.schema = e2.schema.else, u.schemaPath = e2.schemaPath + ".else", u.errSchemaPath = e2.errSchemaPath + "/else", o2 += "  " + e2.validate(u) + " ", u.baseId = f, o2 += " " + h + " = " + g + "; ", p && m ? o2 += " var " + (i2 = "ifClause" + r) + " = 'else'; " : i2 = "'else'", o2 += " } "), o2 += " if (!" + h + ") {   var err =   ", e2.createErrors !== false ? (o2 += " { keyword: 'if' , dataPath: (dataPath || '') + " + e2.errorPath + " , schemaPath: " + e2.util.toQuotedString(t) + " , params: { failingKeyword: " + i2 + " } ", e2.opts.messages !== false && (o2 += " , message: 'should match \"' + " + i2 + " + '\" schema' "), e2.opts.verbose && (o2 += " , schema: validate.schema" + l + " , parentSchema: validate.schema" + e2.schemaPath + " , data: " + s + " "), o2 += " } ") : o2 += " {} ", o2 += ";  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ", !e2.compositeRule && c && (e2.async ? o2 += " throw new ValidationError(vErrors); " : o2 += " validate.errors = vErrors; return false; "), o2 += " }   ", c && (o2 += " else { ")) : c && (o2 += " if (true) { "), o2;
+          return p || m ? (u.createErrors = false, u.schema = a, u.schemaPath = l, u.errSchemaPath = t, o2 += " var " + d + " = errors; var " + h + " = true;  ", a = e2.compositeRule, e2.compositeRule = u.compositeRule = true, o2 += "  " + e2.validate(u) + " ", u.baseId = f, u.createErrors = true, o2 += "  errors = " + d + "; if (vErrors !== null) { if (" + d + ") vErrors.length = " + d + "; else vErrors = null; }  ", e2.compositeRule = u.compositeRule = a, p ? (o2 += " if (" + g + ") {  ", u.schema = e2.schema.then, u.schemaPath = e2.schemaPath + ".then", u.errSchemaPath = e2.errSchemaPath + "/then", o2 += "  " + e2.validate(u) + " ", u.baseId = f, o2 += " " + h + " = " + g + "; ", p && m ? o2 += " var " + (i2 = "ifClause" + r) + " = 'then'; " : i2 = "'then'", o2 += " } ", m && (o2 += " else { ")) : o2 += " if (!" + g + ") { ", m && (u.schema = e2.schema.else, u.schemaPath = e2.schemaPath + ".else", u.errSchemaPath = e2.errSchemaPath + "/else", o2 += "  " + e2.validate(u) + " ", u.baseId = f, o2 += " " + h + " = " + g + "; ", p && m ? o2 += " var " + (i2 = "ifClause" + r) + " = 'else'; " : i2 = "'else'", o2 += " } "), o2 += " if (!" + h + ") {   var err =   ", e2.createErrors !== false ? (o2 += " { keyword: 'if' , dataPath: (dataPath || '') + " + e2.errorPath + " , schemaPath: " + e2.util.toQuotedString(t) + " , params: { failingKeyword: " + i2 + " } ", e2.opts.messages !== false && (o2 += ` , message: 'should match "' + ` + i2 + ` + '" schema' `), e2.opts.verbose && (o2 += " , schema: validate.schema" + l + " , parentSchema: validate.schema" + e2.schemaPath + " , data: " + s + " "), o2 += " } ") : o2 += " {} ", o2 += ";  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ", !e2.compositeRule && c && (e2.async ? o2 += " throw new ValidationError(vErrors); " : o2 += " validate.errors = vErrors; return false; "), o2 += " }   ", c && (o2 += " else { ")) : c && (o2 += " if (true) { "), o2;
         };
       },
       8161: function(e, t, n2) {
@@ -14603,7 +15235,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
       },
       2079: function(e) {
         e.exports = function(e2, t, n2) {
-          var i2 = " ", o2 = e2.level, r = e2.dataLevel, s = e2.schema[t], a = e2.schemaPath + e2.util.getProperty(t), t = e2.errSchemaPath + "/" + t, l = !e2.opts.allErrors, c = "data" + (r || ""), h = e2.opts.$data && s && s.$data, r = h ? (i2 += " var schema" + o2 + " = " + e2.util.getData(s.$data, r, e2.dataPathArr) + "; ", "schema" + o2) : s, o2 = h ? "(new RegExp(" + r + "))" : e2.usePattern(s), d = (i2 += "if ( ", h && (i2 += " (" + r + " !== undefined && typeof " + r + " != 'string') || "), []), o2 = (d.push(i2 += " !" + o2 + ".test(" + c + ") ) {   "), i2 = "", e2.createErrors !== false ? (i2 = (i2 += " { keyword: 'pattern' , dataPath: (dataPath || '') + " + e2.errorPath + " , schemaPath: " + e2.util.toQuotedString(t) + " , params: { pattern:  ") + (h ? "" + r : "" + e2.util.toQuotedString(s)) + "  } ", e2.opts.messages !== false && (i2 = (i2 += " , message: 'should match pattern \"") + (h ? "' + " + r + " + '" : "" + e2.util.escapeQuotes(s)) + "\"' "), e2.opts.verbose && (i2 = (i2 = (i2 += " , schema:  ") + (h ? "validate.schema" + a : "" + e2.util.toQuotedString(s))) + "         , parentSchema: validate.schema" + e2.schemaPath + " , data: " + c + " "), i2 += " } ") : i2 += " {} ", i2), i2 = d.pop();
+          var i2 = " ", o2 = e2.level, r = e2.dataLevel, s = e2.schema[t], a = e2.schemaPath + e2.util.getProperty(t), t = e2.errSchemaPath + "/" + t, l = !e2.opts.allErrors, c = "data" + (r || ""), h = e2.opts.$data && s && s.$data, r = h ? (i2 += " var schema" + o2 + " = " + e2.util.getData(s.$data, r, e2.dataPathArr) + "; ", "schema" + o2) : s, o2 = h ? "(new RegExp(" + r + "))" : e2.usePattern(s), d = (i2 += "if ( ", h && (i2 += " (" + r + " !== undefined && typeof " + r + " != 'string') || "), []), o2 = (d.push(i2 += " !" + o2 + ".test(" + c + ") ) {   "), i2 = "", e2.createErrors !== false ? (i2 = (i2 += " { keyword: 'pattern' , dataPath: (dataPath || '') + " + e2.errorPath + " , schemaPath: " + e2.util.toQuotedString(t) + " , params: { pattern:  ") + (h ? "" + r : "" + e2.util.toQuotedString(s)) + "  } ", e2.opts.messages !== false && (i2 = (i2 += ` , message: 'should match pattern "`) + (h ? "' + " + r + " + '" : "" + e2.util.escapeQuotes(s)) + `"' `), e2.opts.verbose && (i2 = (i2 = (i2 += " , schema:  ") + (h ? "validate.schema" + a : "" + e2.util.toQuotedString(s))) + "         , parentSchema: validate.schema" + e2.schemaPath + " , data: " + c + " "), i2 += " } ") : i2 += " {} ", i2), i2 = d.pop();
           return !e2.compositeRule && l ? e2.async ? i2 += " throw new ValidationError([" + o2 + "]); " : i2 += " validate.errors = [" + o2 + "]; return false; " : i2 += " var err = " + o2 + ";  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ", i2 += "} ", l && (i2 += " else { "), i2;
         };
       },
@@ -14753,7 +15385,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
       7812: function(e) {
         e.exports = function(e2, t, n2) {
           var i2, o2 = " ", r = e2.level, s = e2.dataLevel, a = e2.schema[t], l = e2.schemaPath + e2.util.getProperty(t), t = e2.errSchemaPath + "/" + t, c = !e2.opts.allErrors, h = "data" + (s || ""), d = "valid" + r, u = e2.opts.$data && a && a.$data, s = u ? (o2 += " var schema" + r + " = " + e2.util.getData(a.$data, s, e2.dataPathArr) + "; ", "schema" + r) : a;
-          return (a || u) && e2.opts.uniqueItems !== false ? (u && (o2 += " var " + d + "; if (" + s + " === false || " + s + " === undefined) " + d + " = true; else if (typeof " + s + " != 'boolean') " + d + " = false; else { "), o2 += " var i = " + h + ".length , " + d + " = true , j; if (i > 1) { ", r = e2.schema.items && e2.schema.items.type, s = Array.isArray(r), !r || r == "object" || r == "array" || s && (0 <= r.indexOf("object") || 0 <= r.indexOf("array")) ? o2 += " outer: for (;i--;) { for (j = i; j--;) { if (equal(" + h + "[i], " + h + "[j])) { " + d + " = false; break outer; } } } " : (o2 = (o2 += " var itemIndices = {}, item; for (;i--;) { var item = " + h + "[i]; ") + " if (" + e2.util["checkDataType" + (s ? "s" : "")](r, "item", e2.opts.strictNumbers, true) + ") continue; ", s && (o2 += " if (typeof item == 'string') item = '\"' + item; "), o2 += " if (typeof itemIndices[item] == 'number') { " + d + " = false; j = itemIndices[item]; break; } itemIndices[item] = i; } "), o2 += " } ", u && (o2 += "  }  "), (i2 = i2 || []).push(o2 += " if (!" + d + ") {   "), o2 = "", e2.createErrors !== false ? (o2 += " { keyword: 'uniqueItems' , dataPath: (dataPath || '') + " + e2.errorPath + " , schemaPath: " + e2.util.toQuotedString(t) + " , params: { i: i, j: j } ", e2.opts.messages !== false && (o2 += " , message: 'should NOT have duplicate items (items ## ' + j + ' and ' + i + ' are identical)' "), e2.opts.verbose && (o2 = (o2 += " , schema:  ") + (u ? "validate.schema" + l : "" + a) + "         , parentSchema: validate.schema" + e2.schemaPath + " , data: " + h + " "), o2 += " } ") : o2 += " {} ", r = o2, o2 = i2.pop(), !e2.compositeRule && c ? e2.async ? o2 += " throw new ValidationError([" + r + "]); " : o2 += " validate.errors = [" + r + "]; return false; " : o2 += " var err = " + r + ";  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ", o2 += " } ", c && (o2 += " else { ")) : c && (o2 += " if (true) { "), o2;
+          return (a || u) && e2.opts.uniqueItems !== false ? (u && (o2 += " var " + d + "; if (" + s + " === false || " + s + " === undefined) " + d + " = true; else if (typeof " + s + " != 'boolean') " + d + " = false; else { "), o2 += " var i = " + h + ".length , " + d + " = true , j; if (i > 1) { ", r = e2.schema.items && e2.schema.items.type, s = Array.isArray(r), !r || r == "object" || r == "array" || s && (0 <= r.indexOf("object") || 0 <= r.indexOf("array")) ? o2 += " outer: for (;i--;) { for (j = i; j--;) { if (equal(" + h + "[i], " + h + "[j])) { " + d + " = false; break outer; } } } " : (o2 = (o2 += " var itemIndices = {}, item; for (;i--;) { var item = " + h + "[i]; ") + " if (" + e2.util["checkDataType" + (s ? "s" : "")](r, "item", e2.opts.strictNumbers, true) + ") continue; ", s && (o2 += ` if (typeof item == 'string') item = '"' + item; `), o2 += " if (typeof itemIndices[item] == 'number') { " + d + " = false; j = itemIndices[item]; break; } itemIndices[item] = i; } "), o2 += " } ", u && (o2 += "  }  "), (i2 = i2 || []).push(o2 += " if (!" + d + ") {   "), o2 = "", e2.createErrors !== false ? (o2 += " { keyword: 'uniqueItems' , dataPath: (dataPath || '') + " + e2.errorPath + " , schemaPath: " + e2.util.toQuotedString(t) + " , params: { i: i, j: j } ", e2.opts.messages !== false && (o2 += " , message: 'should NOT have duplicate items (items ## ' + j + ' and ' + i + ' are identical)' "), e2.opts.verbose && (o2 = (o2 += " , schema:  ") + (u ? "validate.schema" + l : "" + a) + "         , parentSchema: validate.schema" + e2.schemaPath + " , data: " + h + " "), o2 += " } ") : o2 += " {} ", r = o2, o2 = i2.pop(), !e2.compositeRule && c ? e2.async ? o2 += " throw new ValidationError([" + r + "]); " : o2 += " validate.errors = [" + r + "]; return false; " : o2 += " var err = " + r + ";  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ", o2 += " } ", c && (o2 += " else { ")) : c && (o2 += " if (true) { "), o2;
         };
       },
       1035: function(e) {
@@ -15014,7 +15646,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           function i2(e3) {
             return t.insensitive && ("" + e3).toLowerCase() || "" + e3;
           }
-          var o2, r, s = /(^([+\-]?(?:0|[1-9]\d*)(?:\.\d*)?(?:[eE][+\-]?\d+)?)?$|^0x[0-9a-f]+$|\d+)/gi, a = /(^[ ]*|[ ]*$)/g, l = /(^([\w ]+,?[\w ]+)?[\w ]+,?[\w ]+\d+:\d+(:\d+)?[\w ]?|^\d{1,4}[\/\-]\d{1,4}[\/\-]\d{1,4}|^\w+, \w+ \d+, \d{4})/, c = /^0x[0-9a-f]+$/i, h = /^0/, e2 = i2(e2).replace(a, "") || "", n2 = i2(n2).replace(a, "") || "", d = e2.replace(s, "\0$1\0").replace(/\0$/, "").replace(/^\0/, "").split("\0"), u = n2.replace(s, "\0$1\0").replace(/\0$/, "").replace(/^\0/, "").split("\0"), a = parseInt(e2.match(c), 16) || d.length !== 1 && e2.match(l) && Date.parse(e2), s = parseInt(n2.match(c), 16) || a && n2.match(l) && Date.parse(n2) || null;
+          var o2, r, s = /(^([+\-]?(?:0|[1-9]\d*)(?:\.\d*)?(?:[eE][+\-]?\d+)?)?$|^0x[0-9a-f]+$|\d+)/gi, a = /(^[ ]*|[ ]*$)/g, l = /(^([\w ]+,?[\w ]+)?[\w ]+,?[\w ]+\d+:\d+(:\d+)?[\w ]?|^\d{1,4}[\/\-]\d{1,4}[\/\-]\d{1,4}|^\w+, \w+ \d+, \d{4})/, c = /^0x[0-9a-f]+$/i, h = /^0/, e2 = i2(e2).replace(a, "") || "", n2 = i2(n2).replace(a, "") || "", d = e2.replace(s, "\x00$1\x00").replace(/\0$/, "").replace(/^\0/, "").split("\x00"), u = n2.replace(s, "\x00$1\x00").replace(/\0$/, "").replace(/^\0/, "").split("\x00"), a = parseInt(e2.match(c), 16) || d.length !== 1 && e2.match(l) && Date.parse(e2), s = parseInt(n2.match(c), 16) || a && n2.match(l) && Date.parse(n2) || null;
           if (s) {
             if (a < s)
               return -1;
@@ -15082,10 +15714,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
         function s(e2) {
           return "0" <= e2 && e2 <= "9" || e2 === "-";
         }
-        function n2() {
-        }
-        function r() {
-        }
+        function n2() {}
+        function r() {}
         function a(e2) {
           this.runtime = e2;
         }
@@ -15678,9 +16308,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
               }
               i2(o2, r, s, a, l, c, h);
             }
-          }(t, typeof (n2 = t.cb || n2) == "function" ? n2 : n2.pre || function() {
-          }, n2.post || function() {
-          }, e2, "", e2);
+          }(t, typeof (n2 = t.cb || n2) == "function" ? n2 : n2.pre || function() {}, n2.post || function() {}, e2, "", e2);
         };
         function f(e2) {
           return e2.replace(/~/g, "~0").replace(/\//g, "~1");
@@ -15688,7 +16316,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
         m.keywords = { additionalItems: true, items: true, contains: true, additionalProperties: true, propertyNames: true, not: true }, m.arrayKeywords = { items: true, allOf: true, anyOf: true, oneOf: true }, m.propsKeywords = { definitions: true, properties: true, patternProperties: true, dependencies: true }, m.skipKeywords = { default: true, enum: true, const: true, required: true, maximum: true, minimum: true, exclusiveMaximum: true, exclusiveMinimum: true, multipleOf: true, maxLength: true, minLength: true, pattern: true, format: true, maxItems: true, minItems: true, uniqueItems: true, maxProperties: true, minProperties: true };
       },
       3094: function(e, t) {
-        var b = { b: "\b", f: "\f", n: "\n", r: "\r", t: "\t", '"': '"', "/": "/", "\\": "\\" }, A = "a".charCodeAt(), n2 = (t.parse = function(o3, e2, t2) {
+        var b = { b: "\b", f: "\f", n: `
+`, r: "\r", t: "\t", '"': '"', "/": "/", "\\": "\\" }, A = "a".charCodeAt(), n2 = (t.parse = function(o3, e2, t2) {
           var i3 = {}, n3 = 0, r2 = 0, s2 = 0, a2 = t2 && t2.bigint && typeof BigInt != "undefined";
           return { data: l2("", true), pointers: i3 };
           function l2(e3, t3) {
@@ -15761,7 +16390,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
                   case "\r":
                     r2 = 0;
                     break;
-                  case "\n":
+                  case `
+`:
                     r2 = 0, n3++;
                     break;
                   default:
@@ -15841,7 +16471,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
                     case "\r":
                       s2 = 0;
                       break;
-                    case "\n":
+                    case `
+`:
                       s2 = 0, i3++;
                       break;
                     default:
@@ -15911,7 +16542,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
           }
           function f(e3) {
             if (u) {
-              for (l2 += "\n" + y(e3, u), h2++, d = 0;e3--; )
+              for (l2 += `
+` + y(e3, u), h2++, d = 0;e3--; )
                 i3 ? (h2 += i3, d = s2) : d += s2, g += r2;
               g += 1;
             }
@@ -16856,7 +17488,7 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             }
             t3.fragment = undefined;
             return t3;
-          } }, Ce = { scheme: "wss", domainHost: o2.domainHost, parse: o2.parse, serialize: o2.serialize }, ye = {}, ve, Ie = "[A-Za-z0-9\\-\\.\\_\\~" + "\\xA0-\\u200D\\u2010-\\u2029\\u202F-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF" + "]", f = "[0-9A-Fa-f]", be = de(de("%[EFef]" + f + "%" + f + f + "%" + f + f) + "|" + de("%[89A-Fa-f]" + f + "%" + f + f) + "|" + de("%" + f + f)), Ae = "[A-Za-z0-9\\!\\$\\%\\'\\*\\+\\-\\^\\_\\`\\{\\|\\}\\~]", we, Se = he("[\\!\\$\\%\\'\\(\\)\\*\\+\\,\\-\\.0-9\\<\\>A-Z\\x5E-\\x7E]", '[\\"\\\\]'), xe = "[\\!\\$\\'\\(\\)\\*\\+\\,\\;\\:\\@]", ke = new RegExp(Ie, "g"), v = new RegExp(be, "g"), Te = new RegExp(he("[^]", Ae, "[\\.]", '[\\"]', Se), "g"), Ee = new RegExp(he("[^]", Ie, xe), "g"), Re = Ee;
+          } }, Ce = { scheme: "wss", domainHost: o2.domainHost, parse: o2.parse, serialize: o2.serialize }, ye = {}, ve, Ie = "[A-Za-z0-9\\-\\.\\_\\~" + "\\xA0-\\u200D\\u2010-\\u2029\\u202F-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF" + "]", f = "[0-9A-Fa-f]", be = de(de("%[EFef]" + f + "%" + f + f + "%" + f + f) + "|" + de("%[89A-Fa-f]" + f + "%" + f + f) + "|" + de("%" + f + f)), Ae = "[A-Za-z0-9\\!\\$\\%\\'\\*\\+\\-\\^\\_\\`\\{\\|\\}\\~]", we, Se = he("[\\!\\$\\%\\'\\(\\)\\*\\+\\,\\-\\.0-9\\<\\>A-Z\\x5E-\\x7E]", "[\\\"\\\\]"), xe = "[\\!\\$\\'\\(\\)\\*\\+\\,\\;\\:\\@]", ke = new RegExp(Ie, "g"), v = new RegExp(be, "g"), Te = new RegExp(he("[^]", Ae, "[\\.]", "[\\\"]", Se), "g"), Ee = new RegExp(he("[^]", Ie, xe), "g"), Re = Ee;
           function I(e3) {
             var t3 = c(e3);
             return !t3.match(ke) ? e3 : t3;
@@ -17286,7 +17918,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
               u2 = false;
             });
           }
-          var b = "linear-gradient(45deg, lightgrey 25%, transparent 25%, transparent 75%, lightgrey 75%) 0 0 / 2em 2em,\n                   linear-gradient(45deg, lightgrey 25%,       white 25%,       white 75%, lightgrey 75%) 1em 1em / 2em 2em", A = 360, h = "keydown", d = "mousedown", u = "focusin";
+          var b = `linear-gradient(45deg, lightgrey 25%, transparent 25%, transparent 75%, lightgrey 75%) 0 0 / 2em 2em,
+                   linear-gradient(45deg, lightgrey 25%,       white 25%,       white 75%, lightgrey 75%) 1em 1em / 2em 2em`, A = 360, h = "keydown", d = "mousedown", u = "focusin";
           function w(e3, t2) {
             return (t2 || document).querySelector(e3);
           }
@@ -17646,7 +18279,8 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
             n3--;
           return e2.substring(0, n3) + t2 + e2.substring(n3);
         }
-        let de = { "\b": "\\b", "\f": "\\f", "\n": "\\n", "\r": "\\r", "\t": "\\t" }, ue = { '"': '"', "\\": "\\", "/": "/", b: "\b", f: "\f", n: "\n", r: "\r", t: "\t" };
+        let de = { "\b": "\\b", "\f": "\\f", "\n": "\\n", "\r": "\\r", "\t": "\\t" }, ue = { '"': '"', "\\": "\\", "/": "/", b: "\b", f: "\f", n: `
+`, r: "\r", t: "\t" };
         function f(g2) {
           let p2 = 0, m2 = "";
           if (!r2())
@@ -17659,7 +18293,9 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
               for (;t3; )
                 e3 ? e3 = false : s2(P) || (m2 = Y(m2, ",")), t3 = r2();
               t3 || (m2 = X(m2, ","));
-              m2 = "[\n".concat(m2, "\n]");
+              m2 = `[
+`.concat(m2, `
+]`);
             }
           } else
             e2 && (m2 = X(m2, ","));
@@ -17916,20 +18552,15 @@ Ctrl + Click\uC73C\uB85C \uBAA8\uB4E0 \uD558\uC704 \uC694\uC18C\uB97C \uC5F4\uAC
 
 // src/index.ts
 var import_jsoneditor = __toESM(require_jsoneditor_min(), 1);
-async function refreshAuswahlElement() {
-  let auswahlElement = document.querySelector("auswahl-element");
-  if (auswahlElement)
-    await auswahlElement.refresh();
-}
 var getDateString = () => {
   const now = new Date;
-  const dateString = now.getFullYear().toString() + "-" + now.getMonth().toString().padStart(2, "0") + "-" + now.getDay().toString().padStart(2, "0");
+  const dateString = now.getFullYear().toString() + "-" + (now.getMonth() + 1).toString().padStart(2, "0") + "-" + now.getDate().toString().padStart(2, "0");
   return dateString;
 };
 var editorModes = ["code", "form", "text", "view", "tree", "preview"];
 var openUrl = (schemaID) => `https://forms.protronic-gmbh.de/form-gen/prot-form-gen.html?schema=${schemaID}&lsid=null`;
 var queryUrl = "https://database.protronic-gmbh.de/query?database=formly";
-var getSchemasQuery = `SELECT _id, CASE WHEN JSON_VALUE([log], '\$."formular"') IS NULL THEN JSON_VALUE([log], '\$."name"') ELSE JSON_VALUE([log], '\$."formular"') END AS formular, JSON_VALUE([log], '\$."date"') AS [date], log FROM schemas;`;
+var getSchemasQuery = `SELECT _id, CASE WHEN JSON_VALUE([log], '$."formular"') IS NULL THEN JSON_VALUE([log], '$."name"') ELSE JSON_VALUE([log], '$."formular"') END AS formular, JSON_VALUE([log], '$."date"') AS [date], log FROM schemas;`;
 var newSchemaQuery = (formular) => `INSERT INTO schemas (log) VALUES ('{"formular": "${formular}", "date": "${getDateString()}"}');`;
 var updateSchemaQuery = (id, schema) => `UPDATE schemas SET log = '${schema}' WHERE _id = ${id};`;
 var selectedSchema = undefined;
@@ -18052,6 +18683,11 @@ class EditorElement extends HTMLElement {
   connectedCallback() {
     this.createEditor();
   }
+}
+async function refreshAuswahlElement() {
+  let auswahlElement = document.querySelector("auswahl-element");
+  if (auswahlElement)
+    await auswahlElement.refresh();
 }
 
 class ControlButtons extends HTMLElement {
